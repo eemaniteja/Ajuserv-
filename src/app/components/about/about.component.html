@@ -1,7 +1,7 @@
 <section class="about-section">
   <div class="about-container">
     <div class="about-content">
-      <div class="about-text animate-on-scroll">
+      <div class="about-text " data-aos="fade-up" data-aos-delay="200">
         <span class="section-badge">About Us</span>
         <h2 class="section-title">Pioneering the Future of Technology</h2>
         <p class="about-description">
@@ -15,24 +15,24 @@
           that don't just meet expectations – they exceed them.
         </p>
         
-        <div class="about-highlights">
+        <div class="about-highlights" data-aos="fade-right" data-aos-delay="200">
           <div class="highlight">
             <div class="highlight-icon">🎯</div>
-            <div class="highlight-content">
+            <div class="highlight-content" >
               <h4>Mission-Driven</h4>
               <p>Democratizing AI technology for businesses of all sizes</p>
             </div>
           </div>
-          <div class="highlight">
+          <div class="highlight" data-aos="fade-right" data-aos-delay="200">
             <div class="highlight-icon">🔬</div>
-            <div class="highlight-content">
+            <div class="highlight-content" >
               <h4>Innovation First</h4>
               <p>Continuously pushing the boundaries of what's possible</p>
             </div>
           </div>
-          <div class="highlight">
+          <div class="highlight" data-aos="fade-right" data-aos-delay="200">
             <div class="highlight-icon">🤝</div>
-            <div class="highlight-content">
+            <div class="highlight-content" >
               <h4>Partnership Focused</h4>
               <p>Building long-term relationships with our clients</p>
             </div>
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div class="about-visual animate-on-scroll">
+      <div class="about-visual " data-aos="fade-up" data-aos-delay="200">
         <div class="visual-card main-card">
           <div class="card-header">
             <h3>Our Impact</h3>
@@ -80,7 +80,7 @@
       </div>
     </div>
 
-    <div class="stats-section animate-on-scroll">
+    <div class="stats-section " data-aos="fade-up" data-aos-delay="200">
       <div class="stats-grid">
         <div *ngFor="let stat of stats; let i = index" 
              class="stat-card"
@@ -93,8 +93,8 @@
     </div>
 
     <div class="team-section">
-      <div class="team-header animate-on-scroll">
-        <h3 class="team-title">Meet Our Expert Team</h3>
+      <div class="team-header " data-aos="fade-up" data-aos-delay="200">
+        <h3 class="team-title">Our Vendors</h3>
         <p class="team-description">
           Passionate professionals dedicated to delivering exceptional results
         </p>
@@ -102,8 +102,9 @@
 
       <div class="team-grid">
         <div *ngFor="let member of team; let i = index" 
-             class="team-card animate-on-scroll"
-             [style.animation-delay.ms]="i * 200">
+             class="team-card " 
+             data-aos="fade-up"
+             [attr.data-aos-delay]="i * 100">
           <div class="member-image">
             <img [src]="member.image" [alt]="member.name" loading="lazy">
             <div class="member-overlay">

@@ -1,6 +1,6 @@
 <section class="services-section">
   <div class="services-container">
-    <div class="section-header animate-on-scroll">
+    <div class="section-header" data-aos="fade-up" data-aos-delay="200">
       <span class="section-badge">Our Expertise</span>
       <h2 class="section-title">Services That Drive Innovation</h2>
       <p class="section-description">
@@ -12,9 +12,11 @@
     <div class="services-grid">
       <div 
         *ngFor="let service of services; let i = index" 
-        class="service-card animate-on-scroll"
-        [class.active]="selectedService?.id === service.id"
-        [style.animation-delay.ms]="i * 200"
+        class="service-card "
+        data-aos="fade-up"
+        [attr.data-aos-delay]="i * 200"
+        [class.expanded]="selectedService?.id === service.id"
+        
         (click)="selectService(service)">
         
         <div class="service-icon">
@@ -51,9 +53,9 @@
       </div>
     </div>
 
-    <div class="services-cta animate-on-scroll">
+    <div class="services-cta  " data-aos="fade-up" data-aos-delay="400">
       <div class="cta-content">
-        <h3>Ready to Transform Your Business?</h3>
+        <h3 >Ready to Transform Your Business?</h3>
         <p>Let's discuss how our services can accelerate your digital transformation.</p>
         <button class="cta-button">
           Get Started Today

@@ -1,6 +1,6 @@
 <section class="projects-section">
   <div class="projects-container">
-    <div class="section-header animate-on-scroll">
+    <div class="section-header " data-aos="fade-up" data-aos-delay="200">
       <span class="section-badge">Our Portfolio</span>
       <h2 class="section-title">Featured Projects</h2>
       <p class="section-description">
@@ -9,7 +9,7 @@
       </p>
     </div>
 
-    <div class="filter-tabs animate-on-scroll">
+    <div class="filter-tabs " data-aos="fade-up" data-aos-delay="200">
       <button 
         *ngFor="let category of categories"
         class="filter-tab"
@@ -22,8 +22,9 @@
     <div class="projects-grid">
       <div 
         *ngFor="let project of filteredProjects; let i = index" 
-        class="project-card animate-on-scroll"
-        [style.animation-delay.ms]="i * 200">
+        class="project-card "
+        data-aos="fade-up"
+        [attr.data-aos-delay]="i * 100">
         
         <div class="project-image">
           <img [src]="project.image" [alt]="project.title" loading="lazy">
@@ -92,7 +93,7 @@
       </div>
     </div>
 
-    <div class="projects-cta animate-on-scroll">
+    <div class="projects-cta " data-aos="fade-up" data-aos-delay="400">
       <h3>Have a Project in Mind?</h3>
       <p>Let's collaborate to bring your innovative ideas to life with cutting-edge technology.</p>
       <button class="cta-button">

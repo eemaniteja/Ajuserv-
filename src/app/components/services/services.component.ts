@@ -12,7 +12,7 @@ import { Service } from '../../models/service.model';
 })
 export class ServicesComponent implements OnInit {
   services: Service[] = [];
-  selectedService: Service | null = null;
+  // selectedService: Service | null = null;
 
   constructor(private apiService: ApiService) {}
 
@@ -31,7 +31,14 @@ export class ServicesComponent implements OnInit {
     });
   }
 
-  selectService(service: Service) {
-    this.selectedService = this.selectedService?.id === service.id ? null : service;
+ selectedService: any = null;
+
+  selectService(service: any): void {
+    // If already selected, collapse it
+    if (this.selectedService?.id === service.id) {
+      this.selectedService = null;
+    } else {
+      this.selectedService = service;
+    }
   }
 }
