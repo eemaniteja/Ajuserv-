@@ -2,7 +2,7 @@
   <div class="about-container">
     <div class="about-content">
       <div class="about-text " data-aos="fade-up" data-aos-delay="200">
-        <span class="section-badge">About Us</span>
+        <span class="section-badge" data-aos="fade-right" data-aos-delay="200">About Us</span>
         <h2 class="section-title">Pioneering the Future of Technology</h2>
         <p class="about-description">
           At TechVision AI, we're not just building software – we're crafting the future. 
@@ -80,7 +80,7 @@
       </div>
     </div>
 
-    <div class="stats-section " data-aos="fade-up" data-aos-delay="200">
+    <!-- <div class="stats-section " data-aos="fade-up" data-aos-delay="200">
       <div class="stats-grid">
         <div *ngFor="let stat of stats; let i = index" 
              class="stat-card"
@@ -90,7 +90,20 @@
           <div class="stat-label">{{ stat.label }}</div>
         </div>
       </div>
+    </div> -->
+    <div class="stats-section" data-aos="fade-up" data-aos-delay="200">
+  <div class="stats-grid">
+    <div *ngFor="let stat of stats; let i = index" 
+         class="stat-card"
+         data-aos="fade-up"
+         [attr.data-aos-delay]="i * 250">
+      <div class="stat-icon">{{ stat.icon }}</div>
+      <div class="stat-number">{{ stat.number }}</div>
+      <div class="stat-label">{{ stat.label }}</div>
     </div>
+  </div>
+</div>
+
 
     <div class="team-section">
       <div class="team-header " data-aos="fade-up" data-aos-delay="200">

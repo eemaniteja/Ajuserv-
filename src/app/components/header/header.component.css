@@ -62,7 +62,9 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  /* background: linear-gradient(135deg, #667eea, #764ba2); */
+  background: linear-gradient(135deg, #317cbf, #317cbf);
+  
   transition: width 0.3s ease;
 }
 
@@ -71,7 +73,8 @@
 }
 
 .contact-btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  /* background: linear-gradient(135deg, #667eea, #764ba2); */
+  background: linear-gradient(135deg, #317cbf, #317cbf);
   color: white !important;
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
