@@ -1,6 +1,7 @@
 .contact-section {
   padding: 6rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: linear-gradient(135deg, #83cadd 0%, #d0e8fc 100%);
   position: relative;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .contact-info {
-  color: white;
+  color: rgb(15, 5, 5);
 }
 
 .section-badge {
@@ -40,12 +41,13 @@
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  color: rgb(21, 14, 14);
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  
 }
 
 .section-title {
@@ -85,7 +87,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: rgb(16, 14, 14);
   flex-shrink: 0;
 }
 
@@ -139,7 +141,7 @@
 }
 
 .form-label {
-  color: white;
+  color: rgb(14, 5, 5);
   font-weight: 600;
   font-size: 0.875rem;
 }
@@ -152,14 +154,14 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 1rem;
-  color: white;
+  color: rgb(213, 203, 203);
   font-size: 1rem;
   transition: all 0.3s ease;
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(12, 5, 5, 0.6);
 }
 
 .form-input:focus,
@@ -190,10 +192,10 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(4, 16, 21, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  color: rgb(12, 6, 6);
   padding: 1rem 2rem;
   border-radius: 50px;
   font-weight: 600;

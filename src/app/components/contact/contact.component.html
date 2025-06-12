@@ -19,8 +19,7 @@
             </div>
             <div class="method-content">
               <h4>Email Us</h4>
-              <!-- <p>hello@techvision-ai.com</p> -->
-               <p>hello&#64;techvision-ai.com</p>
+               <p>ajuservsolutions&#64;gmail.com</p>
             </div>
           </div>
 
@@ -32,7 +31,7 @@
             </div>
             <div class="method-content">
               <h4>Call Us</h4>
-              <p>+1 (555) 123-4567</p>
+              <p>+91 758541236</p>
             </div>
           </div>
 
@@ -45,7 +44,7 @@
             </div>
             <div class="method-content">
               <h4>Visit Us</h4>
-              <p>San Francisco, CA</p>
+              <p>Hyderabad</p>
             </div>
           </div>
         </div>
@@ -99,29 +98,17 @@
           </div>
 
           <div class="form-group">
-            <label for="company" class="form-label">Company</label>
+            <label for="company" class="form-label">Subject</label>
             <input 
               type="text" 
               id="company" 
               class="form-input"
               [(ngModel)]="contactForm.company"
               name="company"
-              placeholder="Enter your company name">
+              placeholder="Enter your subject">
           </div>
 
-          <div class="form-group">
-            <label for="service" class="form-label">Service Interest</label>
-            <select 
-              id="service" 
-              class="form-select"
-              [(ngModel)]="contactForm.service"
-              name="service">
-              <option *ngFor="let service of services" [value]="service">
-                {{ service }}
-              </option>
-            </select>
-          </div>
-
+          
           <div class="form-group">
             <label for="message" class="form-label">Message *</label>
             <textarea 
