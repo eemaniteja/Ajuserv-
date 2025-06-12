@@ -1,0 +1,67 @@
+<section class="services-section">
+  <div class="services-container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">Our Expertise</span>
+      <h2 class="section-title">Services That Drive Innovation</h2>
+      <p class="section-description">
+        We offer comprehensive technology solutions that transform businesses 
+        and accelerate digital growth through cutting-edge AI and development services.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div 
+        *ngFor="let service of services; let i = index" 
+        class="service-card animate-on-scroll"
+        [class.active]="selectedService?.id === service.id"
+        [style.animation-delay.ms]="i * 200"
+        (click)="selectService(service)">
+        
+        <div class="service-icon">
+          <span class="icon-emoji">{{ service.icon }}</span>
+        </div>
+        
+        <div class="service-content">
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+          
+          <div class="service-features" [class.expanded]="selectedService?.id === service.id">
+            <ul class="features-list">
+              <li *ngFor="let feature of service.features" class="feature-item">
+                <svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                {{ feature }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="service-category">
+          <span class="category-badge" [class]="'category-' + service.category.toLowerCase()">
+            {{ service.category }}
+          </span>
+        </div>
+        
+        <div class="expand-indicator">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-cta animate-on-scroll">
+      <div class="cta-content">
+        <h3>Ready to Transform Your Business?</h3>
+        <p>Let's discuss how our services can accelerate your digital transformation.</p>
+        <button class="cta-button">
+          Get Started Today
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
