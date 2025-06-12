@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AboutComponent {
   stats = [
-    { number: '500+', label: 'Projects Completed', icon: '🚀' },
+    { number: '50+', label: 'Projects Completed', icon: '🚀' },
     { number: '98%', label: 'Client Satisfaction', icon: '⭐' },
     { number: '50+', label: 'AI Models Deployed', icon: '🤖' },
     { number: '24/7', label: 'Support Available', icon: '💬' }
