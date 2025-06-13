@@ -452,6 +452,7 @@
   gap: 4rem;
   align-items: center;
   margin-bottom: 6rem;
+  text-align:left;
 }
 
 .section-badge {
@@ -780,6 +781,47 @@
   .carousel-item img {
     max-height: 45px; /* Increased logo height */
   }
+  .card-header h3 {
+  font-size: 0.6rem;
+  font-weight: bold;
+  font-weight: 700;
+  color: #1e293b;
+} 
+  .impact-metrics {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 10%;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric-value {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #667eea;
+}
+
+.metric-label {
+  font-size: 0.6rem;
+  color: #64748b;
+}
+  .main-card {
+    width: 120px;
+    height: 130px;
+  }
+
+  .floating-card-1 {
+    width: 100px;
+    height: 80px;
+  }
+
+  .floating-card-2 {
+    width: 120px;
+    height: 60px;
+  }
 }
 
 /* Mobile (below 768px) */
@@ -824,7 +866,7 @@
   display: block;
   font-size: 0.7rem;
   font-weight: 800;
-  color: #667eea;
+  color: #317cbf;
 }
 
 .metric-label {
@@ -876,6 +918,8 @@
   .carousel-item img {
     max-height: 40px; /* Increased logo height */
   }
+  
+
 }
 
 /* Large screens (1024px and above) */
@@ -892,4 +936,6 @@
   .carousel-item img {
     max-height: 50px;
   }
+  
 }
+

@@ -777,11 +777,12 @@
   .card-2,
   .card-3 {
     width: clamp(100px, 30vw, 100px); /* Reduced width */
-    height: clamp(130px, 30vw, 1300px);
+    height: clamp(130px, 30vw, 130px);
     padding: clamp(0.5rem, 1.5vw, 0.75rem);
   }
 
   .card-1 {
+    width: clamp(150px, 30vw, 150px);
     top: clamp(5%, 2vh, 10%);
     left: 35%;
     transform: translateX(-50%) scale(0.8);
@@ -789,12 +790,12 @@
 
   .card-2 {
     bottom: clamp(5%, 2vh, 10%);
-    left: clamp(5%, 5vw, 10%);
+    left: clamp(20%, 5vw, 20%);
   }
 
   .card-3 {
     bottom: clamp(5%, 2vh, 10%);
-    right: clamp(5%, 5vw, 10%);
+    right: clamp(30%, 5vw, 30%);
   }
 
   .card-content h3 {
