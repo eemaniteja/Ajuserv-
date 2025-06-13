@@ -116,16 +116,16 @@
         <span class="section-badge">About Us</span>
         <h2 class="section-title">Pioneering the Future of Technology</h2>
         <p class="about-description">
-          At TechVision AI, we're not just building software – we're crafting the future. 
-          Our passionate team of engineers, data scientists, and designers work tirelessly 
+          At TechVision AI, we're not just building software – we're crafting the future.
+          Our passionate team of engineers, data scientists, and designers work tirelessly
           to transform complex challenges into elegant, AI-powered solutions.
         </p>
         <p class="about-description">
-          Founded on the belief that technology should empower human potential, we combine 
-          cutting-edge artificial intelligence with intuitive design to create experiences 
+          Founded on the belief that technology should empower human potential, we combine
+          cutting-edge artificial intelligence with intuitive design to create experiences
           that don't just meet expectations – they exceed them.
         </p>
-        
+
         <div class="about-highlights">
           <div class="highlight" data-aos="fade-right" data-aos-delay="200">
             <div class="highlight-icon">🎯</div>
@@ -161,7 +161,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="visual-card floating-card-1">
           <div class="mini-chart">
             <div class="chart-bars">
@@ -173,7 +173,7 @@
             <span class="chart-label">Growth</span>
           </div>
         </div>
-        
+
         <div class="visual-card floating-card-2">
           <div class="tech-stack">
             <div class="tech-icon">AI</div>
@@ -184,17 +184,17 @@
       </div>
     </div>
 
-    <div class="stats-section" data-aos="fade-up" data-aos-delay="200">
+    <div class="stats-section" data-aos="fade-up">
       <div class="stats-grid">
-        <div *ngFor="let stat of stats; let i = index" 
-             class="stat-card"
-             [style.animation-delay.ms]="i * 150">
+        <div *ngFor="let stat of stats; let i = index" class="stat-card" data-aos="fade-up"
+          [attr.data-aos-delay]="i * 200">
           <div class="stat-icon">{{ stat.icon }}</div>
           <div class="stat-number">{{ stat.number }}</div>
           <div class="stat-label">{{ stat.label }}</div>
         </div>
       </div>
     </div>
+
 
     <div class="team-section">
       <div class="team-header" data-aos="fade-up" data-aos-delay="200">
@@ -206,8 +206,7 @@
 
       <div class="carousel-container">
         <div class="carousel" [style.transform]="'translateX(' + (-currentIndex * (100 / visibleCards)) + '%)'">
-          <div *ngFor="let partner of partners" 
-               class="carousel-item">
+          <div *ngFor="let partner of partners" class="carousel-item">
             <div class="carousel-card">
               <img [src]="partner.image" [alt]="partner.name" loading="lazy">
             </div>
