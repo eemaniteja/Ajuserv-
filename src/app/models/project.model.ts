@@ -8,4 +8,8 @@ export interface Project {
   featured: boolean;
   demoUrl?: string;
   githubUrl?: string;
+  stats?: {
+    views: number;
+    likes: number;
+  };
 }
