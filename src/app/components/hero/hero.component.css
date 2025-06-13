@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #83cadd 0%, #d0e8fc 100%);
+  background: linear-gradient(135deg, #83cadd 100%, #83cadd 100%);
 }
 
 .hero-background {
@@ -163,7 +163,7 @@
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  color: black;
   padding: 1rem 2rem;
   border-radius: 50px;
   font-weight: 600;
@@ -182,7 +182,7 @@
   gap: 0.5rem;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  color: black;
   padding: 1rem 2rem;
   border-radius: 50px;
   font-weight: 600;
@@ -234,7 +234,7 @@
 }
 
 .card-content {
-  color: white;
+  color: black;
   text-align: center;
 }
 

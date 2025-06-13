@@ -1,8 +1,8 @@
-<section class="about-section">
+<!-- <section class="about-section">
   <div class="about-container">
     <div class="about-content">
-      <div class="about-text " data-aos="fade-up" data-aos-delay="200">
-        <span class="section-badge" data-aos="fade-right" data-aos-delay="200">About Us</span>
+      <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+        <span class="section-badge">About Us</span>
         <h2 class="section-title">Pioneering the Future of Technology</h2>
         <p class="about-description">
           At TechVision AI, we're not just building software – we're crafting the future. 
@@ -15,32 +15,25 @@
           that don't just meet expectations – they exceed them.
         </p>
         
-        <div class="about-highlights" data-aos="fade-right" data-aos-delay="200">
-          <div class="highlight">
+        <div class="about-highlights">
+          <div class="highlight" data-aos="fade-right" data-aos-delay="200">
             <div class="highlight-icon">🎯</div>
-            <div class="highlight-content" >
+            <div class="highlight-content">
               <h4>Mission-Driven</h4>
               <p>Democratizing AI technology for businesses of all sizes</p>
             </div>
           </div>
-          <div class="highlight" data-aos="fade-right" data-aos-delay="200">
+          <div class="highlight" data-aos="fade-right" data-aos-delay="300">
             <div class="highlight-icon">🔬</div>
-            <div class="highlight-content" >
-              <h4>Innovation First</h4>
-              <p>Continuously pushing the boundaries of what's possible</p>
-            </div>
-          </div>
-          <div class="highlight" data-aos="fade-right" data-aos-delay="200">
-            <div class="highlight-icon">🤝</div>
-            <div class="highlight-content" >
-              <h4>Partnership Focused</h4>
-              <p>Building long-term relationships with our clients</p>
+            <div class="highlight-content">
+              <h4>Projects</h4>
+              <p>Continually pushing the boundary</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="about-visual " data-aos="fade-up" data-aos-delay="200">
+      <div class="about-visual" data-aos="fade-up">
         <div class="visual-card main-card">
           <div class="card-header">
             <h3>Our Impact</h3>
@@ -80,7 +73,7 @@
       </div>
     </div>
 
-    <!-- <div class="stats-section " data-aos="fade-up" data-aos-delay="200">
+    <div class="stats-section" data-aos="fade-up" data-aos-delay="200">
       <div class="stats-grid">
         <div *ngFor="let stat of stats; let i = index" 
              class="stat-card"
@@ -90,57 +83,134 @@
           <div class="stat-label">{{ stat.label }}</div>
         </div>
       </div>
-    </div> -->
-    <div class="stats-section" data-aos="fade-up" data-aos-delay="200">
-  <div class="stats-grid">
-    <div *ngFor="let stat of stats; let i = index" 
-         class="stat-card"
-         data-aos="fade-up"
-         [attr.data-aos-delay]="i * 250">
-      <div class="stat-icon">{{ stat.icon }}</div>
-      <div class="stat-number">{{ stat.number }}</div>
-      <div class="stat-label">{{ stat.label }}</div>
     </div>
-  </div>
-</div>
-
 
     <div class="team-section">
-      <div class="team-header " data-aos="fade-up" data-aos-delay="200">
-        <h3 class="team-title">Our Vendors</h3>
+      <div class="team-header" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="team-title">Our Partners</h3>
         <p class="team-description">
-          Passionate professionals dedicated to delivering exceptional results
+          Collaborating with industry leaders to deliver exceptional solutions
         </p>
       </div>
 
-      <div class="team-grid">
-        <div *ngFor="let member of team; let i = index" 
-             class="team-card " 
-             data-aos="fade-up"
-             [attr.data-aos-delay]="i * 100">
-          <div class="member-image">
-            <img [src]="member.image" [alt]="member.name" loading="lazy">
-            <div class="member-overlay">
-              <div class="social-links">
-                <a href="#" class="social-link">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                    <rect x="2" y="9" width="4" height="12"/>
-                    <circle cx="4" cy="4" r="2"/>
-                  </svg>
-                </a>
-                <a href="#" class="social-link">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-                  </svg>
-                </a>
-              </div>
+      <div class="carousel-container">
+        <div class="carousel" [style.transform]="'translateX(' + (-currentIndex * (100 / visibleCards)) + '%)'">
+          <div *ngFor="let partner of partners" 
+               class="carousel-item">
+            <div class="carousel-card">
+              <img [src]="partner.image" [alt]="partner.name" loading="lazy">
             </div>
           </div>
-          <div class="member-info">
-            <h4 class="member-name">{{ member.name }}</h4>
-            <p class="member-role">{{ member.role }}</p>
-            <p class="member-bio">{{ member.bio }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<section class="about-section">
+  <div class="about-container">
+    <div class="about-content">
+      <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+        <span class="section-badge">About Us</span>
+        <h2 class="section-title">Pioneering the Future of Technology</h2>
+        <p class="about-description">
+          At TechVision AI, we're not just building software – we're crafting the future. 
+          Our passionate team of engineers, data scientists, and designers work tirelessly 
+          to transform complex challenges into elegant, AI-powered solutions.
+        </p>
+        <p class="about-description">
+          Founded on the belief that technology should empower human potential, we combine 
+          cutting-edge artificial intelligence with intuitive design to create experiences 
+          that don't just meet expectations – they exceed them.
+        </p>
+        
+        <div class="about-highlights">
+          <div class="highlight" data-aos="fade-right" data-aos-delay="200">
+            <div class="highlight-icon">🎯</div>
+            <div class="highlight-content">
+              <h4>Mission-Driven</h4>
+              <p>Democratizing AI technology for businesses of all sizes</p>
+            </div>
+          </div>
+          <div class="highlight" data-aos="fade-right" data-aos-delay="300">
+            <div class="highlight-icon">🔬</div>
+            <div class="highlight-content">
+              <h4>Projects</h4>
+              <p>Continually pushing the boundary</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual" data-aos="fade-up">
+        <div class="visual-card main-card">
+          <div class="card-header">
+            <h3>Our Impact</h3>
+            <div class="status-indicator"></div>
+          </div>
+          <div class="impact-metrics">
+            <div class="metric">
+              <span class="metric-value">2.5M+</span>
+              <span class="metric-label">Users Reached</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">99.9%</span>
+              <span class="metric-label">Uptime</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="visual-card floating-card-1">
+          <div class="mini-chart">
+            <div class="chart-bars">
+              <div class="bar" style="height: 40%"></div>
+              <div class="bar" style="height: 70%"></div>
+              <div class="bar" style="height: 90%"></div>
+              <div class="bar" style="height: 60%"></div>
+            </div>
+            <span class="chart-label">Growth</span>
+          </div>
+        </div>
+        
+        <div class="visual-card floating-card-2">
+          <div class="tech-stack">
+            <div class="tech-icon">AI</div>
+            <div class="tech-icon">ML</div>
+            <div class="tech-icon">DL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-section" data-aos="fade-up" data-aos-delay="200">
+      <div class="stats-grid">
+        <div *ngFor="let stat of stats; let i = index" 
+             class="stat-card"
+             [style.animation-delay.ms]="i * 150">
+          <div class="stat-icon">{{ stat.icon }}</div>
+          <div class="stat-number">{{ stat.number }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-section">
+      <div class="team-header" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="team-title">Our Partners</h3>
+        <p class="team-description">
+          Collaborating with industry leaders to deliver exceptional solutions
+        </p>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel" [style.transform]="'translateX(' + (-currentIndex * (100 / visibleCards)) + '%)'">
+          <div *ngFor="let partner of partners" 
+               class="carousel-item">
+            <div class="carousel-card">
+              <img [src]="partner.image" [alt]="partner.name" loading="lazy">
+            </div>
           </div>
         </div>
       </div>
