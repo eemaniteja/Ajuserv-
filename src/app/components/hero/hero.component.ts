@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-hero',
@@ -10,6 +11,23 @@ import { CommonModule } from '@angular/common';
 })
 export class HeroComponent implements OnInit {
   particles: any[] = [];
+
+  showCookieBanner = !sessionStorage.getItem('cookiesPreference');
+  cookiesAccepted = false;
+
+  acceptCookies() {
+    this.cookiesAccepted = true;
+    sessionStorage.setItem('cookiesPreference', 'accepted');
+    this.showCookieBanner = false;
+  }
+
+  rejectCookies() {
+    sessionStorage.setItem('cookiesPreference', 'rejected');
+    this.showCookieBanner = false;
+  }
+
+
+
 
   ngOnInit() {
     this.generateParticles();
