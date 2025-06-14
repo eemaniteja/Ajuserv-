@@ -53,25 +53,7 @@
           Watch Demo
         </button>
       </div>
-      <div *ngIf="showCookieBanner" class="cookie-banner">
-        <div class="cookie-content">
-          <p class="cookie-message">
-            Welcome to <strong>ajuserv.com</strong>! In order to provide a more relevant experience for you, we use
-            cookies to enable some website functionality. Cookies help us see which articles most interest you; allow
-            you to share on social media; deliver tailored content, jobs, and ads.
-            For more info, see our
-            <a href="#" target="_blank">Cookies Policy</a> and
-            <a href="#" target="_blank">Privacy Statement</a>.
-          </p>
-
-          <div class="cookie-buttons">
-            <button class="reject-btn" (click)="rejectCookies()">Reject All</button>
-            <button class="accept-btn" (click)="acceptCookies()" [disabled]="cookiesAccepted">
-              Accept All Cookies
-            </button>
-          </div>
-        </div>
-      </div>
+      
 
 
 
@@ -118,3 +100,24 @@
   </div>
 
 </section>
+
+<div *ngIf="showCookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+          <p class="cookie-message">
+            Welcome to <strong>ajuserv.com</strong>! In order to provide a more relevant experience for you, we use
+            cookies to enable some website functionality. Cookies help us see which articles most interest you; allow
+            you to share on social media; deliver tailored content, jobs, and ads.
+            For more info, see our
+            <a href="#" target="_blank">Cookies Policy</a> and
+            <a href="#" target="_blank">Privacy Statement</a>.
+          </p>
+
+          <div class="cookie-buttons">
+            <button class="reject-btn" (click)="rejectCookies()">Reject All</button>
+            <button class="accept-btn" (click)="acceptCookies()" [disabled]="cookiesAccepted">
+              Accept All Cookies
+            </button>
+          </div>
+        
+  </div>
+</div>
