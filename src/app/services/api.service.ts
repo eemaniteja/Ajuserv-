@@ -58,7 +58,53 @@ export class ApiService {
         featured: true,
         demoUrl: '#',
         githubUrl: '#'
+      },
+      {
+        id: 5,
+        title: 'Mobile Banking App',
+        description: 'Secure and user-friendly mobile banking application with advanced features.',
+        image: 'https://images.pexels.com/photos/8386423/pexels-photo-8386423.jpeg?auto=compress&cs=tinysrgb&w=800',
+        technologies: ['Flutter', 'Firebase', 'Dart'],
+        category: 'Mobile',
+        featured: false,
+        demoUrl: '#',
+        githubUrl: '#'
+      },
+      {
+        id: 6,
+        title: 'E-commerce Platform',
+        description: 'Full-featured e-commerce solution with payment integration and inventory management.',
+        image: 'https://images.pexels.com/photos/8386424/pexels-photo-8386424.jpeg?auto=compress&cs=tinysrgb&w=800',
+        technologies: ['React', 'Node.js', 'Stripe', 'MongoDB'],
+        category: 'Web',
+        featured: true,
+        demoUrl: '#',
+        githubUrl: '#'
+      },
+      {
+        id: 7,
+        title: 'IoT Smart Home System',
+        description: 'Connected IoT solution for home automation with real-time monitoring and control.',
+        image: 'https://images.pexels.com/photos/8386425/pexels-photo-8386425.jpeg?auto=compress&cs=tinysrgb&w=800',
+        technologies: ['Arduino', 'MQTT', 'React Native'],
+        category: 'AI',
+        featured: false,
+        demoUrl: '#',
+        githubUrl: '#'
+      },
+      {
+        id: 8,
+        title: 'Data Visualization Tool',
+        description: 'Interactive data visualization platform for business intelligence and reporting.',
+        image: 'https://images.pexels.com/photos/8386426/pexels-photo-8386426.jpeg?auto=compress&cs=tinysrgb&w=800',
+        technologies: ['D3.js', 'Python', 'Flask'],
+        category: 'Analytics',
+        featured: true,
+        demoUrl: '#',
+        githubUrl: '#'
       }
+
+
     ];
     return of(mockProjects);
   }
