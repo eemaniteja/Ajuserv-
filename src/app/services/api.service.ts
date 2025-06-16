@@ -10,7 +10,7 @@ import { Service } from '../models/service.model';
 export class ApiService {
   private baseUrl = 'https://api.example.com'; // Replace with your backend URL
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // For demo purposes, returning mock data. Replace with actual HTTP calls
   getProjects(): Observable<Project[]> {
@@ -67,34 +67,122 @@ export class ApiService {
     const mockServices: Service[] = [
       {
         id: 1,
-        title: 'AI Development',
-        description: 'Custom AI solutions powered by machine learning and deep learning technologies.',
-        icon: '🤖',
-        features: ['Machine Learning Models', 'Neural Networks', 'Computer Vision', 'NLP Processing'],
+        icon: '💡', // Example emoji icon
+        title: 'AI Strategy & Consulting',
+        description: 'We provide AI strategy and consulting services to help you identify opportunities, design solutions, and implement AI effectively. Our experts guide you in aligning AI initiatives with your business goals for maximum impact.',
+        features: [
+          'AI Readiness Assessment',
+          'Use Case Identification',
+          'ROI Projections',
+          'Ethical AI Frameworks'
+        ],
         category: 'AI'
       },
       {
         id: 2,
-        title: 'Full-Stack Development',
-        description: 'End-to-end web and mobile application development with modern frameworks.',
-        icon: '💻',
-        features: ['React/Angular/Vue', 'Node.js/Python/Java', 'Cloud Deployment', 'API Development'],
-        category: 'Development'
+        icon: '🧠',
+        title: 'AI and ML Services', // Your requested card
+        description: 'Our data science team uses AI to deliver insights, automate tasks, and improve decision-making. We offer services like predictive analytics, NLP, Document Intelligence, and computer vision.',
+        features: [
+          'Azure Cognitive Services',
+          'Microsoft fabric implantation',
+          'Building and implementing customer ML models',
+          'Co-pilot implementation'
+        ],
+        category: 'AI'
       },
       {
         id: 3,
-        title: 'Data Analytics',
-        description: 'Transform your data into actionable insights with advanced analytics solutions.',
-        icon: '📊',
-        features: ['Data Visualization', 'Predictive Analytics', 'Big Data Processing', 'Business Intelligence'],
+        icon: '✨', // New icon for Generative AI
+        title: 'Generative AI Solutions', // Your requested card
+        description: 'Our AI experts specialize in generative models to deliver innovative solutions like content creation, synthetic data, and automation. We provide customized services to meet diverse business needs.',
+        features: [
+          'Content Generation ',
+          'Creative Automation',
+          'Synthetic Data Generation',
+          'Chatboits and Virtual Assistants'
+        ],
         category: 'AI'
       },
       {
         id: 4,
-        title: 'Technical Consulting',
-        description: 'Strategic technology consulting to accelerate your digital transformation.',
-        icon: '🎯',
-        features: ['Architecture Design', 'Code Review', 'Performance Optimization', 'Team Training'],
+        icon: '💻',
+        title: 'Web Development', // Your requested card
+        description: 'We offer end-to-end web development services to build responsive, user-friendly websites and web apps. Our solutions are tailored to meet your business goals with modern design and robust functionality.',
+        features: [
+          'Frontend Development (Angular, React, Vue)',
+          'Backend Development (Node.js, Python, .NET)',
+          'API Design & Integration',
+          'E-commerce Solutions'
+        ],
+        category: 'Development'
+      },
+      {
+        id: 5,
+        icon: '⚙️', // Icon for Power Platform
+        title: 'Power Platform Development and Integration Services', // Your requested card
+        description: 'We build custom business apps using Microsoft PowerApps for mobile, web, and desktop to streamline your processes. Our services include automation with Power Automate and Azure Logic Apps, and reporting with Power BI.',
+        features: [
+          'Power Apps ',
+          'Power Automate ',
+          'Power Automate Desktop',
+          'Azure Logic Apps',
+          'Azure Function Apps', 
+          'Power BI '
+          
+        ],
+        category: 'Development'
+      },
+      {
+        id: 6,
+        icon: '☁️', // Icon for Azure Cloud
+        title: 'Azure Cloud Services', // Your requested card
+        description: 'We offer Azure cloud solutions to help you scale your business and boost efficiency. Our services include cloud migration, management, optimization, and custom app development on Azure.',
+        features: [
+          'Cloud Migration Services',
+          'Devops Services',
+          'Application Modernization Services',
+          'Data Engineering and Data Migration Services', 
+        ],
+        category: 'Development'
+      },
+      {
+        id: 7,
+        icon: '💬', // Icon for Chatbot
+        title: 'Chatbot & Conversational AI', // Your requested card
+        description: 'Building intelligent conversational agents for enhanced customer and employee experiences.',
+        features: [
+          'Custom Chatbot Development',
+          'Natural Language Understanding (NLU)',
+          'Voice Assistant Integration',
+          'Multi-channel Deployment'
+        ],
+        category: 'AI'
+      },
+      {
+        id: 8,
+        icon: '📱',
+        title: 'Mobile App Development',
+        description: 'Crafting intuitive and high-performance mobile experiences for iOS and Android.',
+        features: [
+          'Native iOS/Android Apps',
+          'Cross-Platform Development (React Native, Flutter)',
+          'UI/UX Design',
+          'App Store Optimization'
+        ],
+        category: 'Development'
+      },
+      {
+        id: 9,
+        icon: '🛡️',
+        title: 'Cybersecurity Solutions',
+        description: 'Protecting your digital assets with advanced security measures and proactive strategies.',
+        features: [
+          'Security Audits & Assessments',
+          'Threat Detection & Response',
+          'Data Protection & Privacy',
+          'Compliance Consulting'
+        ],
         category: 'Consulting'
       }
     ];
