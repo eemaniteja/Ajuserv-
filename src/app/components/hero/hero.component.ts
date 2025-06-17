@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,HostListener} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -11,6 +11,18 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HeroComponent implements OnInit {
   particles: any[] = [];
+  showBackToTop = false;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showBackToTop = window.pageYOffset > 300;
+  }
+ 
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 
   showCookieBanner = !sessionStorage.getItem('cookiesPreference');
   cookiesAccepted = false;
