@@ -16,7 +16,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   projects: Project[] = [];
   filteredProjects: Project[] = [];
   selectedCategory: string = 'All';
-  categories: string[] = ['All', 'AI', 'Web', 'Mobile', 'Analytics'];
+  categories: string[] = ['All', 'AI', 'Web', 'Mobile', 'Data Enginner', 'Power Platform'];
   Math = Math;
   
   // Carousel variables
@@ -36,12 +36,13 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   loadProjects() {
     this.apiService.getProjects().subscribe({
       next: (projects: Project[]) => {
-        this.projects = projects;
-        this.filteredProjects = projects;
-        this.projects.forEach(project => {
-          project.demoUrl = project.demoUrl || '#';
-          project.githubUrl = project.githubUrl || '#';
-        }); 
+        this.projects = projects.map(project => ({
+          ...project,
+          demoUrl: project.demoUrl || '#',
+          githubUrl: project.githubUrl || '#',
+          isExpanded: false // Initialize read more state for each project
+        }));
+        this.filteredProjects = this.projects;
         
         // Initialize carousel
         this.calculateCarouselDots();
@@ -51,6 +52,22 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         console.error('Error loading projects:', error);
       }
     });
+  }
+
+  // Read More functionality
+  getTruncatedText(text: string, maxLength: number): string {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substring(0, maxLength);
+  }
+
+  shouldShowReadMore(text: string, maxLength: number): boolean {
+    return text.length > maxLength;
+  }
+
+  toggleReadMore(project: any): void {
+    project.isExpanded = !project.isExpanded;
   }
 
   calculateCarouselDots() {
@@ -104,6 +121,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     this.currentSlide = 0;
     this.currentOffset = 0;
   }
+
   ngOnDestroy() {
     if (this.carouselInterval) {
       this.carouselInterval.unsubscribe();

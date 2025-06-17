@@ -79,27 +79,23 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  overflow-x: auto; /* Allow horizontal scrolling */
-  -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   margin-bottom: 2rem;
 }
 
-/* Hide scrollbar for Chrome, Safari, Opera */
 .carousel-container::-webkit-scrollbar {
   display: none;
 }
 
 .carousel-track {
   display: flex;
-  /* REMOVED: transform property as it will interfere with native scroll-snap */
-  /* If your Angular component is controlling translateX, you might need to adjust or remove that logic */
-  
-  width: max-content; /* Allows track to be as wide as its content */
-  padding: 0.5rem 2rem; /* Important: Padding for start/end alignment matching projects-container */
-  scroll-snap-type: x mandatory; /* Enable mandatory scroll snapping */
-  scroll-behavior: smooth; /* Smooth scrolling to snap points */
-  align-items: flex-start; /* Align items to the top if they have different heights */
+  width: max-content;
+  padding: 0.5rem 2rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  align-items: flex-start;
 }
 
 .carousel-nav {
@@ -157,7 +153,8 @@
   border: 1px solid #f1f5f9;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
-  height: 400px;
+  height: auto;
+  min-height: 400px;
   animation:
     slideIn 0.2s forwards,
     cardFloat 6s ease-in-out infinite;
@@ -243,6 +240,7 @@
     background: linear-gradient(135deg, #ef4444, #dc2626);
   }
 }
+
 .card-5 {
   border-top: 4px solid #667eea;
   animation-delay: calc(0.1s * 1), 0s;
@@ -262,6 +260,7 @@
     background: linear-gradient(135deg, #667eea, #764ba2);
   }
 }
+
 .card-6 {
   border-top: 4px solid #10b981;
   animation-delay: calc(0.1s * 2), 1.5s;
@@ -281,6 +280,7 @@
     background: linear-gradient(135deg, #10b981, #059669);
   }
 }
+
 .card-7 {
   border-top: 4px solid #f59e0b;
   animation-delay: calc(0.1s * 3), 3s;
@@ -300,6 +300,7 @@
     background: linear-gradient(135deg, #f59e0b, #d97706);
   }
 }
+
 .card-8 {
   border-top: 4px solid #ef4444;
   animation-delay: calc(0.1s * 4), 4.5s;
@@ -320,18 +321,16 @@
   }
 }
 
-
 .carousel-card {
-  width: calc(100% - 3rem); /* On mobile, take full width minus padding for container */
-  max-width: 350px; /* Max width for consistency */
+  width: calc(100% - 3rem);
+  max-width: 350px;
   flex-shrink: 0;
-  margin-right: 1.5rem; /* Space between cards */
-  scroll-snap-align: start; /* Snap to the start of the card */
-  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  margin-right: 1.5rem;
+  scroll-snap-align: start;
+  box-sizing: border-box;
   transition: transform 0.3s ease;
 }
 
-/* Remove extra margins as padding on carousel-track handles spacing */
 .carousel-track .carousel-card:first-child {
   margin-left: 0;
 }
@@ -339,7 +338,6 @@
 .carousel-track .carousel-card:last-child {
   margin-right: 0;
 }
-
 
 .carousel-card:hover {
   transform: translateY(-5px) scale(1.02);
@@ -462,17 +460,60 @@
   flex-shrink: 0;
 }
 
+/* Read More Functionality Styles */
+.project-description-container {
+  margin-bottom: 16px;
+}
+
 .project-description {
   color: #64748b;
-  flex: 1;
   font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 16px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.project-description:not(.expanded) {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+}
+
+.project-description.expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+}
+
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.read-more-btn:hover {
+  color: #1d4ed8;
+  transform: translateX(2px);
+}
+
+.read-more-icon {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.read-more-icon.rotated {
+  transform: rotate(180deg);
 }
 
 .project-technologies {
@@ -558,16 +599,14 @@
 
 @media (min-width: 769px) {
   .carousel-card {
-    /* Show 2 cards, accounting for gap */
-    width: calc((100% / 2) - 0.75rem); /* (gap / 2) */
-    margin-right: 1.5rem; /* Maintain consistent gap */
+    width: calc((100% / 2) - 0.75rem);
+    margin-right: 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .carousel-card {
-    /* Show 3 cards, accounting for gap */
-    width: calc((100% / 3) - 1rem); /* (gap * 2 / 3) */
+    width: calc((100% / 3) - 1rem);
   }
 }
 
@@ -608,8 +647,8 @@
   }
 
   .carousel-card {
-    width: calc(100% - 3rem); /* Full width minus track padding */
-    margin-right: 1.5rem; /* Gap between cards */
+    width: calc(100% - 3rem);
+    margin-right: 1.5rem;
   }
 
   .project-card {
@@ -618,9 +657,8 @@
   }
 }
 
-/* Additional media query for very small screens if needed */
 @media (max-width: 480px) {
   .carousel-card {
-    width: calc(100% - 3rem); /* Remains full width minus track padding */
+    width: calc(100% - 3rem);
   }
 }

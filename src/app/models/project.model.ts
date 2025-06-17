@@ -4,7 +4,7 @@ export interface Project {
   description: string;
   image: string;
   technologies: string[];
-  category: 'AI' | 'Web' | 'Mobile' | 'Analytics';
+  category: 'AI' | 'Web' | 'Mobile' | 'Data Enginner' | 'Power Platform';
   featured: boolean;
   demoUrl?: string;
   githubUrl?: string;
@@ -12,4 +12,6 @@ export interface Project {
     views: number;
     likes: number;
   };
+  showFullDescription?: boolean;
+  isExpanded?: boolean;
 }
