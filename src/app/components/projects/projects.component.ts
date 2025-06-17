@@ -16,7 +16,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   projects: Project[] = [];
   filteredProjects: Project[] = [];
   selectedCategory: string = 'All';
-  categories: string[] = ['All', 'AI', 'Web', 'Mobile', 'Data Enginner', 'Power Platform'];
+  categories: string[] = ['All', 'AI', 'Web', 'Mobile', 'Data Engineer', 'Power Platform'];
   Math = Math;
   
   // Carousel variables

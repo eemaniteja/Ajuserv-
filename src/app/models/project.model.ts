@@ -4,7 +4,7 @@ export interface Project {
   description: string;
   image: string;
   technologies: string[];
-  category: 'AI' | 'Web' | 'Mobile' | 'Data Enginner' | 'Power Platform';
+  category: 'AI' | 'Web' | 'Mobile' | 'Data Engineer' | 'Power Platform';
   featured: boolean;
   demoUrl?: string;
   githubUrl?: string;
