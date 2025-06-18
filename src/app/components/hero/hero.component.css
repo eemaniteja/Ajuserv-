@@ -1,5 +1,6 @@
+/* Global styles (no changes needed) */
 body {
-  font-family: 'Inter', sans-serif; /* Recommended font for modern web */
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,24 +14,24 @@ a {
   color: inherit;
 }
 
-/* Hero Section Styles */
+/* Hero Section (no changes needed) */
 .hero {
   position: relative;
   min-height: 107vh;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-color: #0d1a2f; /* Fallback background color */
+  background-color: #0d1a2f;
 }
 
 .hero-background-image {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;  /* Ensures the image always takes full width */
-  height: 100%; /* Ensures the image always takes full height */
-  object-fit: cover; /* This will cover the area, cropping if necessary to maintain aspect ratio */
-  object-position: center; /* Centers the image within the container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   z-index: 1;
 }
 
@@ -41,9 +42,8 @@ a {
   right: 0;
   bottom: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
-  z-index: 1; /* Keep it below particles and content, but above the image */
+  z-index: 1;
 }
-
 
 .particles {
   position: absolute;
@@ -53,44 +53,6 @@ a {
   bottom: 0;
   pointer-events: none;
   z-index: 2;
-}
-
-.particle {
-  position: absolute;
-  background: rgba(200, 220, 255, 0.6);
-  border-radius: 50%;
-  animation: float infinite ease-in-out;
-  opacity: 0; /* Start invisible for the animation */
-  animation-fill-mode: forwards; /* Maintain the final state of the animation */
-
-  &.small {
-    width: 2px;
-    height: 2px;
-    animation-duration: 10s;
-    opacity: 0.7;
-    animation-delay: 0s;
-  }
-  &.medium {
-    width: 4px;
-    height: 4px;
-    animation-duration: 15s;
-    opacity: 0.8;
-    animation-delay: 2s;
-  }
-  &.large {
-    width: 6px;
-    height: 6px;
-    animation-duration: 20s;
-    opacity: 0.9;
-    animation-delay: 4s;
-  }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateY(-50px) rotate(360deg); opacity: 0; }
 }
 
 .hero-container {
@@ -122,15 +84,14 @@ a {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
-
-/* .badge-text {
-  font-size: clamp(0.75rem, 2vw, 0.875rem);
-  font-weight: 600;
-  color: white;
-} */
 
 .hero-title {
   font-size: clamp(2.8rem, 6vw, 4rem);
@@ -167,19 +128,19 @@ a {
   display: flex;
   gap: clamp(2rem, 4vw, 3rem);
   margin-bottom: clamp(2rem, 4vw, 3rem);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .stat {
   text-align: center;
 }
-
 .stat-number {
   display: block;
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 800;
   color: white;
 }
-
 .stat-label {
   font-size: clamp(0.75rem, 2vw, 0.875rem);
   opacity: 0.8;
@@ -190,6 +151,8 @@ a {
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn-primary {
@@ -206,7 +169,6 @@ a {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .btn-primary:hover {
   background: rgba(200, 220, 255, 0.4);
   transform: translateY(-2px);
@@ -225,7 +187,6 @@ a {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.6);
@@ -250,9 +211,9 @@ a {
 
 .card-1 {
   top: clamp(5%, 2vh, 10%);
-  left: 35%;
-  width: clamp(140px, 20vw, 180px);
+  left: 50%;
   transform: translateX(-50%);
+  width: clamp(140px, 20vw, 180px);
   animation-delay: 0s;
 }
 
@@ -274,52 +235,18 @@ a {
   animation-delay: 4s;
 }
 
-.card-2 .card-content h3,
-.card-3 .card-content h3 {
-  font-size: clamp(0.75rem, 1.8vw, 0.875rem);
-}
-
-.card-2 .card-icon,
-.card-3 .card-icon {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-}
-
-.card-2 .progress-bar,
-.card-3 .progress-bar {
-  width: clamp(80px, 12vw, 100px);
-}
-
-.card-2 .chart,
-.card-3 .chart {
-  right: 30%;
-  width: clamp(50px, 8vw, 60px);
-  height: clamp(25px, 4vw, 30px);
-}
-
-.card-2 .metric-value,
-.card-3 .metric-value {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-}
-
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
-}
-
 .card-content {
   color: white;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
-
 .card-icon {
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   margin-bottom: 0.5rem;
-  color: #87CEEB;
+  color: #87ceeb;
 }
-
 .card-content h3 {
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(0.75rem, 1.8vw, 0.875rem);
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -331,37 +258,38 @@ a {
   border-radius: 3px;
   overflow: hidden;
 }
-
 .progress {
   height: 100%;
-  background: linear-gradient(90deg, #87CEEB, #4682B4);
+  background: linear-gradient(90deg, #87ceeb, #4682b4);
   border-radius: 3px;
   animation: progressFill 3s ease-in-out infinite;
 }
-
 @keyframes progressFill {
-  0% { width: 0%; }
-  100% { width: 87%; }
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 87%;
+  }
 }
 
 .chart {
   display: flex;
   gap: 4px;
   align-items: end;
-  align-content: center;
   height: clamp(30px, 5vw, 40px);
   width: clamp(60px, 10vw, 80px);
 }
-
 .bar {
   flex: 1;
-  background: linear-gradient(to top, #87CEEB, #4682B4);
+  background: linear-gradient(to top, #87ceeb, #4682b4);
   border-radius: 2px;
   animation: barGrow 2s ease-in-out infinite;
 }
-
 @keyframes barGrow {
-  0% { height: 0%; }
+  0% {
+    height: 0%;
+  }
 }
 
 .metric {
@@ -369,13 +297,11 @@ a {
   flex-direction: column;
   gap: 0.25rem;
 }
-
 .metric-value {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 800;
-  color: #87CEEB;
+  color: #87ceeb;
 }
-
 .metric-unit {
   font-size: clamp(0.625rem, 1.5vw, 0.75rem);
   opacity: 0.8;
@@ -387,327 +313,326 @@ a {
   transform: translateY(30px);
   transition: all 0.8s ease;
 }
-
-.animate-on-scroll.animate-in {
+.animate-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Responsive Media Queries */
+.walking-bot-container {
+  position: absolute;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  /* Start from bottom-left corner off-screen */
+  bottom: -150px;
+  left: 10vw; /* Using vw for a responsive start position */
+  transform: translateX(-50%); /* Centering relative to its 'left' position */
+  transition: opacity 0.5s ease-out;
+}
+
+/* State: Entering */
+.walking-bot-container.entering {
+  opacity: 1;
+  bottom: 25vh; /* Responsive end vertical position */
+  left: 50vw; /* Responsive end horizontal position (middle) */
+  transform: translateX(-50%); /* Keeps it centered */
+  transition: bottom 1.5s ease-out, left 1.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* State: Displaying (stable in the middle) */
+.walking-bot-container.displaying {
+  opacity: 1;
+  bottom: 25vh;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+
+/* State: Exiting */
+.walking-bot-container.exiting {
+  opacity: 0;
+  bottom: 30vh; /* Slightly move up while fading out */
+  left: 50vw;
+  transform: translateX(-50%) scale(0.8);
+  transition: bottom 1s ease-in, transform 1s ease-in, opacity 1s ease-in;
+}
+
+.bot-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.bot-image {
+  width: clamp(70px, 10vw, 90px); /* Responsive width */
+  height: clamp(70px, 10vw, 90px); /* Responsive height */
+  object-fit: contain;
+  animation: botIdle 2s ease-in-out infinite alternate;
+}
+
+@keyframes botIdle {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.bot-banner {
+  background-color: #87ceeb;
+  color: #0d1a2f;
+  padding: clamp(6px, 1vw, 8px) clamp(10px, 2vw, 15px); /* Responsive padding */
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 2vw, 0.9rem); /* Responsive font size */
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ... (existing responsive media queries up to 1024px) ... */
+
+/* Up to 768px (mobile) */
+@media (max-width: 768px) {
+  /* ... (other mobile styles) ... */
+
+  /* Bot adjustments for mobile */
+  .walking-bot-container {
+    left: 5vw; /* Adjust starting left position */
+  }
+  .walking-bot-container.entering,
+  .walking-bot-container.displaying,
+  .walking-bot-container.exiting {
+    /* Adjusted end vertical position for mobile */
+    /* This is the key change: */
+    bottom: 25%; /* Use a percentage for a more consistent relative position on mobile */
+    /* OR you could try a fixed pixel value from the bottom if percentage is still off: */
+    /* bottom: 120px; */
+  }
+  .bot-image {
+    width: clamp(50px, 7vw, 70px); /* Smaller size for mobile */
+    height: clamp(50px, 7vw, 70px);
+  }
+  .bot-banner {
+    font-size: clamp(0.65rem, 1.6vw, 0.75rem); /* Smaller font size */
+    padding: clamp(4px, 0.7vw, 6px) clamp(6px, 1.2vw, 10px);
+  }
+}
+
+
+/* Up to 1024px (tablets) */
 @media (max-width: 1024px) {
   .hero-container {
     gap: clamp(1.5rem, 4vw, 3rem);
     padding: clamp(0.75rem, 2vw, 1.5rem);
   }
-
   .hero-title {
     font-size: clamp(2rem, 4.5vw, 3rem);
   }
-
   .hero-description {
     font-size: clamp(0.875rem, 2vw, 1.125rem);
   }
-
   .hero-visual {
     height: clamp(350px, 45vh, 450px);
   }
-
   .floating-card {
     width: clamp(160px, 22vw, 200px);
   }
-
   .card-2,
   .card-3 {
     width: clamp(120px, 18vw, 160px);
-    height: clamp(180px, 25vh,200px);
+    height: clamp(180px, 25vh, 200px);
     padding: clamp(0.5rem, 1.5vw, 0.75rem);
   }
-
   .card-2 .progress-bar,
   .card-3 .progress-bar {
     width: clamp(70px, 10vw, 90px);
   }
-
   .card-2 .chart,
   .card-3 .chart {
     width: clamp(40px, 7vw, 50px);
     height: clamp(20px, 4vw, 25px);
   }
-
+  .card-content h3 {
+    font-size: clamp(0.6875rem, 1.8vw, 0.8125rem);
+  }
+  .card-icon {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+  .metric-value {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+  /* Card position adjustments */
   .card-1 {
     top: clamp(4%, 3vh, 8%);
   }
-
   .card-2 {
     bottom: clamp(5%, 3vh, 8%);
     left: clamp(6%, 4vw, 10%);
   }
-
   .card-3 {
     bottom: clamp(5%, 3vh, 8%);
     right: clamp(6%, 4vw, 10%);
   }
+
+  /* Bot adjustments for tablets */
+  .walking-bot-container.entering,
+  .walking-bot-container.displaying,
+  .walking-bot-container.exiting {
+    bottom: 20vh; /* Slightly lower for tablets */
+  }
+  .bot-image {
+    width: clamp(60px, 8vw, 80px); /* Adjusted size */
+    height: clamp(60px, 8vw, 80px);
+  }
+  .bot-banner {
+    font-size: clamp(0.7rem, 1.8vw, 0.8rem); /* Adjusted font size */
+    padding: clamp(5px, 0.8vw, 7px) clamp(8px, 1.5vw, 12px);
+  }
 }
 
+/* Up to 768px (mobile) */
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
     padding: clamp(3rem, 6vw, 4rem) 0;
   }
-
   .hero-container {
     grid-template-columns: 1fr;
     gap: clamp(1.5rem, 4vw, 2rem);
     text-align: center;
     padding: clamp(0.5rem, 2vw, 1rem);
   }
-
   .hero-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
   }
-
   .hero-description {
     font-size: clamp(0.8125rem, 2.5vw, 1rem);
   }
-
   .hero-stats {
     flex-direction: column;
-    gap: clamp(1rem, 3vw, 1.5rem);
-    justify-content: center;
+    gap: 1rem;
   }
-
   .hero-actions {
     flex-direction: column;
     gap: 1rem;
-    align-items: stretch;
+    width: 100%;
   }
-
   .hero-visual {
     height: clamp(250px, 40vh, 300px);
   }
-
   .floating-card {
     width: clamp(140px, 40vw, 180px);
   }
-
-  .card-2,
-  .card-3 {
-    width: clamp(100px, 30vw, 100px);
-    height: clamp(130px, 30vw, 130px);
-    padding: clamp(0.5rem, 1.5vw, 0.75rem);
-  }
-
-  .card-1 {
-    width: clamp(150px, 30vw, 150px);
-    top: clamp(5%, 2vh, 10%);
-    left: 35%;
-    transform: translateX(-50%) scale(0.8);
-  }
-
-  .card-2 {
-    bottom: clamp(5%, 2vh, 10%);
-    left: clamp(20%, 5vw, 20%);
-  }
-
-  .card-3 {
-    bottom: clamp(5%, 2vh, 10%);
-    right: clamp(30%, 5vw, 30%);
-  }
-
-  .card-content h3 {
-    font-size: clamp(0.75rem, 2vw, 0.875rem);
-  }
-
-  .card-2 .card-content h3,
-  .card-3 .card-content h3 {
-    font-size: clamp(0.6875rem, 1.8vw, 0.8125rem);
-  }
-
-  .card-2 .card-icon,
-  .card-3 .card-icon {
-    font-size: clamp(1rem, 3vw, 1.25rem);
-  }
-
-  .progress-bar {
-    width: clamp(80px, 15vw, 100px);
-  }
-
-  .card-2 .progress-bar,
-  .card-3 .progress-bar {
-    width: clamp(60px, 10vw, 80px);
-  }
-
-  .chart {
-    width: clamp(50px, 10vw, 60px);
-    height: clamp(25px, 5vw, 30px);
-  }
-
-  .card-2 .chart,
-  .card-3 .chart {
-    width: clamp(35px, 7vw, 45px);
-    height: clamp(18px, 4vw, 22px);
-  }
-
-  .metric-value {
-    font-size: clamp(1rem, 3vw, 1.25rem);
-  }
-
-  .card-2 .metric-value,
-  .card-3 .metric-value {
-    font-size: clamp(0.875rem, 2.5vw, 1rem);
-  }
-  .back-to-top {
-    width: 35px;
-    height: 35px;
-    bottom: 10px;
-    right: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: clamp(2rem, 5vw, 3rem) 0;
-  }
-
-  .hero-container {
-    padding: clamp(0.25rem, 2vw, 0.75rem);
-  }
-
-  .hero-title {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-  }
-
-  .hero-description {
-    font-size: clamp(0.75rem, 2.5vw, 0.875rem);
-  }
-
-  .hero-stats {
-    gap: 1rem;
-  }
-
-  .stat-number {
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
-  }
-
-  .stat-label {
-    font-size: clamp(0.625rem, 1.5vw, 0.75rem);
-  }
-
-  .hero-actions {
-    gap: 0.75rem;
-  }
-
-  .btn-primary,
-  .btn-outline {
-    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
-    font-size: clamp(0.75rem, 2vw, 0.875rem);
-  }
-
-  .hero-visual {
-    height: clamp(200px, 35vh, 250px);
-  }
-
-  .floating-card {
-    width: clamp(120px, 35vw, 160px);
-    padding: clamp(0.75rem, 2vw, 1rem);
-  }
-
   .card-2,
   .card-3 {
     width: clamp(90px, 25vw, 120px);
+    height: clamp(130px, 30vw, 130px);
     padding: clamp(0.5rem, 1vw, 0.75rem);
   }
-
-  .card-2 .card-content h3,
-  .card-3 .card-content h3 {
+  .card-content h3 {
     font-size: clamp(0.625rem, 1.8vw, 0.75rem);
   }
-
-  .card-2 .card-icon,
-  .card-3 .card-icon {
+  .card-icon {
     font-size: clamp(0.875rem, 3vw, 1rem);
   }
-
-  .card-2 .progress-bar,
-  .card-3 .progress-bar { /* Corrected selector for card-3 progress bar */
+  .progress-bar {
     width: clamp(50px, 10vw, 70px);
   }
-
   .card-2 .chart,
   .card-3 .chart {
     width: clamp(30px, 7vw, 40px);
     height: clamp(15px, 4vw, 20px);
   }
-
-  .card-2 .metric-value,
-  .card-3 .metric-value {
+  .metric-value {
     font-size: clamp(0.75rem, 2.5vw, 0.875rem);
   }
-
+  /* Card position adjustments for mobile */
   .card-1 {
     top: clamp(5%, 2vh, 8%);
   }
-
   .card-2 {
     bottom: clamp(5%, 2vh, 8%);
     left: clamp(2%, 3vw, 5%);
   }
-
   .card-3 {
     bottom: clamp(5%, 2vh, 8%);
     right: clamp(2%, 3vw, 5%);
   }
+  /* Back to top button size */
   .back-to-top {
     width: 35px;
     height: 35px;
     bottom: 10px;
     right: 10px;
   }
+
+  /* Bot adjustments for mobile */
+  .walking-bot-container {
+    left: 5vw; /* Adjust starting left position */
+  }
+  .walking-bot-container.entering,
+  .walking-bot-container.displaying,
+  .walking-bot-container.exiting {
+    bottom: 15vh; /* Adjusted end vertical position */
+  }
+  .bot-image {
+    width: clamp(50px, 7vw, 70px); /* Smaller size for mobile */
+    height: clamp(50px, 7vw, 70px);
+  }
+  .bot-banner {
+    font-size: clamp(0.65rem, 1.6vw, 0.75rem); /* Smaller font size */
+    padding: clamp(4px, 0.7vw, 6px) clamp(6px, 1.2vw, 10px);
+  }
 }
 
+/* Extra large screens (min-width 1400px) */
 @media (min-width: 1400px) {
   .hero-container {
     max-width: clamp(1400px, 90vw, 1600px);
   }
-
   .hero-title {
     font-size: clamp(3rem, 5vw, 4rem);
   }
-
   .hero-description {
     font-size: clamp(1.125rem, 2vw, 1.375rem);
   }
-
   .hero-visual {
     height: clamp(500px, 55vh, 600px);
   }
-
   .floating-card {
     width: clamp(170px, 25vw, 240px);
   }
-
   .card-2,
   .card-3 {
     width: clamp(130px, 20vw, 200px);
     padding: clamp(0.75rem, 1.5vw, 1rem);
   }
-
-  .card-1 {
-    top: clamp(5%, 2vh, 8%);
-  }
-
+  /* Larger positions for large screens */
   .card-2 {
-    bottom: clamp(5%, 2vh, 8%);
     left: clamp(10%, 5vw, 20%);
   }
-
   .card-3 {
-    bottom: clamp(5%, 2vh, 8%);
     right: clamp(10%, 5vw, 20%);
+  }
+
+  /* Bot adjustments for large screens */
+  .walking-bot-container.entering,
+  .walking-bot-container.displaying,
+  .walking-bot-container.exiting {
+    bottom: 30vh; /* Higher for larger screens */
+  }
+  .bot-image {
+    width: clamp(80px, 12vw, 100px); /* Larger size */
+    height: clamp(80px, 12vw, 100px);
+  }
+  .bot-banner {
+    font-size: clamp(0.9rem, 2.2vw, 1rem); /* Larger font size */
+    padding: clamp(8px, 1.2vw, 10px) clamp(12px, 2.5vw, 18px);
   }
 }
 
-/* Cookies Banner */
+/* Cookies Banner (no changes needed) */
 .cookie-banner {
   position: fixed;
   bottom: 0;
@@ -717,72 +642,58 @@ a {
   z-index: 9999;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
   padding: 1rem;
-
   display: flex;
   justify-content: center;
+}
 
-  .cookie-banner-content {
-    width: 100%;
-    max-width: 1400px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    font-size: 0.95rem;
-    color: #111;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    p {
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    a {
-      color: #1d4ed8;
-      font-weight: 500;
-      text-decoration: underline;
-    }
-  }
-
-  .cookie-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-
-    button {
-      padding: 0.5rem 1.2rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .accept-btn {
-      background-color: #4682B4;
-      color: white;
-      &:hover {
-        background-color: #317cbf;
-      }
-    }
-
-    .reject-btn {
-      background-color: #6b7280;
-      color: white;
-      &:hover {
-        background-color: #4b5563;
-      }
-    }
+.cookie-content {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: #111;
+}
+@media (min-width: 768px) {
+  .cookie-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
-/* Back to Top Button */
+.cookie-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cookie-buttons button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.accept-btn {
+  background-color: #4682b4;
+  color: white;
+}
+.accept-btn:hover {
+  background-color: #317cbf;
+}
+.reject-btn {
+  background-color: #6b7280;
+  color: white;
+}
+.reject-btn:hover {
+  background-color: #4b5563;
+}
+
+/* Back to Top Button (no changes needed) */
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -801,19 +712,16 @@ a {
   transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
   z-index: 1000;
 }
-
 .back-to-top.visible {
   opacity: 1;
   visibility: visible;
 }
-
 .back-to-top:hover {
   transform: translateY(-3px);
   background-color: #1557b0;
 }
-
 .back-to-top svg {
-  color: white;
   width: 24px;
   height: 24px;
+  fill: #fff;
 }
