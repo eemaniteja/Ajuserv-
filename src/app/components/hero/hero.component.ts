@@ -38,9 +38,6 @@ export class HeroComponent implements OnInit {
     this.showCookieBanner = false;
   }
 
-
-
-
   ngOnInit() {
     this.generateParticles();
   }
