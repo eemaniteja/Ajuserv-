@@ -4,13 +4,21 @@ import { Observable, of } from 'rxjs';
 import { Project } from '../models/project.model';
 import { Service } from '../models/service.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'https://api.example.com'; // Replace with your backend URL
+  // private baseUrl = 'https://api.example.com'; // Replace with your backend URL
+  private backendUrl = 'http://localhost:3000';
+  sendContactForm(formData: any): Observable<any> {
+    return this.http.post(`${this.backendUrl}/send-email`, formData);
+  }
+
 
   constructor(private http: HttpClient) { }
+
+
 
   // For demo purposes, returning mock data. Replace with actual HTTP calls
   getProjects(): Observable<Project[]> {
@@ -25,7 +33,7 @@ export class ApiService {
         featured: true,
         demoUrl: '#',
         githubUrl: '#',
-        showFullDescription: false 
+        showFullDescription: false
       },
       {
         id: 2,
@@ -62,10 +70,10 @@ export class ApiService {
       },
       {
         id: 5,
-        title: 'StoryForge' ,
+        title: 'StoryForge',
         description: 'StoryForge is an innovative platform that revolutionizes storytelling by leveraging cutting-edge AI technologies. Built on a robust tech stack including Python, the Transformers library, Streamlit, Hugging Face Hub, and OpenAI API, StoryForge seamlessly transforms images into captivating narratives and converts text into immersive audio experiences. Users can effortlessly upload images to generate descriptive texts, which are then expanded into engaging stories using advanced language models. These stories can be experienced through audio narration, enhancing accessibility and engagement. StoryForge addresses the inefficiencies of traditional storytelling by automating the conversion process and providing a user-friendly interface for creating and sharing dynamic tales. Whether for personal anecdotes, fictional stories, or educational content, StoryForge empowers users to craft and enjoy rich, interactive storytelling experiences.',
         image: 'https://ajuserv.com/projects/img/page12.png',
-        technologies: ['Hugging Face', 'OpenAI', ],
+        technologies: ['Hugging Face', 'OpenAI',],
         category: 'AI',
         featured: true,
         demoUrl: '#',
@@ -83,7 +91,7 @@ export class ApiService {
         githubUrl: '#'
       },
 
-       {
+      {
         id: 7,
         title: 'HugChat',
         description: 'HugChat presents a streamlined solution to the limitations of traditional chat applications, harnessing the prowess of Hugging Faces chatbot API within a user-friendly interface developed on Streamlit. Users engage with the virtual assistant effortlessly, receiving intelligent and contextually relevant responses to their queries. By abstracting complexities in setting up and integrating chatbot services, HugChat simplifies the process, making it accessible for various applications and workflows. This dynamic platform enhances communication efficiency, offering personalized assistance and information retrieval, ultimately addressing the frustrations associated with conventional chat interfaces.',
@@ -94,7 +102,7 @@ export class ApiService {
         demoUrl: '#',
         githubUrl: '#'
       },
-       {
+      {
         id: 7,
         title: 'Mirror Chatbot',
         description: 'MirrorChatbot revolutionizes the landscape of conversational tools with its innovative approach, offering users an immersive experience where their input is mirrored back to them in real-time. Powered by Streamlit, its intuitive interface ensures seamless engagement, inviting users into dynamic conversations rich with spontaneity and creativity. Unlike traditional chatbots constrained by scripted responses, MirrorChat fosters interactive storytelling, self-reflection, and exploration of conversational dynamics. With Python at its core and a suite of NLP libraries, MirrorChat simplifies chatbot development, democratizing access to this technology across diverse skill levels. Say goodbye to the complexities of setup and deployment; MirrorChat streamlines the process, empowering users to dive into engaging conversations effortlessly.',
@@ -163,7 +171,7 @@ export class ApiService {
       {
         id: 13,
         title: 'Batch Data Processing in Azure',
-        description :'Our solution employs Azure Data Lake Storage (ADLS) and Azure Databricks to streamline batch data processing, addressing challenges of inefficiency, errors, and transparency. Leveraging Apache Spark, we automate data ingestion, transformation, and loading, enhancing efficiency and ensuring consistent data quality. Through Azure Data Factory, we orchestrate scheduled transfers to ADLS, while Databricks notebooks handle data transformation tasks such as cleaning, schema definition, and validation. Our approach incorporates dimension and fact tables for robust data modelling, utilizing Spark SQL for complex transformations and aggregations. The integration with Power BI enables interactive dashboards for insightful data visualization, empowering users with self-service BI capabilities. This comprehensive solution offers improved efficiency, reduced errors, enhanced transparency, and scalability, catering to evolving data needs with agility and reliability.',
+        description: 'Our solution employs Azure Data Lake Storage (ADLS) and Azure Databricks to streamline batch data processing, addressing challenges of inefficiency, errors, and transparency. Leveraging Apache Spark, we automate data ingestion, transformation, and loading, enhancing efficiency and ensuring consistent data quality. Through Azure Data Factory, we orchestrate scheduled transfers to ADLS, while Databricks notebooks handle data transformation tasks such as cleaning, schema definition, and validation. Our approach incorporates dimension and fact tables for robust data modelling, utilizing Spark SQL for complex transformations and aggregations. The integration with Power BI enables interactive dashboards for insightful data visualization, empowering users with self-service BI capabilities. This comprehensive solution offers improved efficiency, reduced errors, enhanced transparency, and scalability, catering to evolving data needs with agility and reliability.',
         image: 'https://ajuserv.com/projects/img/page3.png',
         technologies: ['Azure Event Hubs', 'Apache Spark', 'Power BI'],
         category: 'Data Engineer',
@@ -171,11 +179,11 @@ export class ApiService {
         demoUrl: '#',
         githubUrl: '#'
       },
-      
+
       {
         id: 14,
         title: 'Real-time Log Processing and Reporting in Azure',
-        description :'Introducing our cutting-edge solution: Real-time Log Processing and Reporting. Leveraging Azure Event Hubs for seamless ingestion of high-volume log files, Azure Stream Analytics for real-time data processing and insights extraction through T-SQL queries, and Power BI for dynamic visualization and sharing of live reports and dashboards, our solution empowers organizations to handle 10,000 files per second, enabling immediate action and informed decision-making. With our integrated approach, we ensure scalability, reliability, and actionable insights, transforming log data into valuable assets for real-time monitoring and analysis.',
+        description: 'Introducing our cutting-edge solution: Real-time Log Processing and Reporting. Leveraging Azure Event Hubs for seamless ingestion of high-volume log files, Azure Stream Analytics for real-time data processing and insights extraction through T-SQL queries, and Power BI for dynamic visualization and sharing of live reports and dashboards, our solution empowers organizations to handle 10,000 files per second, enabling immediate action and informed decision-making. With our integrated approach, we ensure scalability, reliability, and actionable insights, transforming log data into valuable assets for real-time monitoring and analysis.',
         image: 'https://ajuserv.com/projects/img/page4.png',
         technologies: ['Azure Event Hubs', 'Azure Stream Analytics', 'Power BI'],
         category: 'Data Engineer',
@@ -185,10 +193,10 @@ export class ApiService {
       },
       {
         id: 15,
-        title: 'Inventory Plugin CloudDeployment',
-        description :'Utilizing Visual Studio Code (VSCode) for coding and editing and Python for backend development, the project aims to deploy the Inventory Co-Pilot Plugin to Microsoft Azures cloud infrastructure, ensuring seamless functionality and accessibility. This involves migrating the database to enable scalability, reliability, and efficient storage utilizing Azure services such as Blob Storage, Data Explorer, Repos, and Web App. Challenges include the need for scalable infrastructure, database performance optimization, limited plugin functionality, and collaboration inefficiencies. To address these, the project focuses on cloud deployment for scalability, leveraging Azure services for storage and analytics, implementing smooth migration processes, and enhancing collaboration using Azure Repos, thus streamlining development workflows and ensuring continuous operation of the plugin.',
+        title: 'Inventory Plugin Cloud Deployment',
+        description: 'Utilizing Visual Studio Code (VSCode) for coding and editing and Python for backend development, the project aims to deploy the Inventory Co-Pilot Plugin to Microsoft Azures cloud infrastructure, ensuring seamless functionality and accessibility. This involves migrating the database to enable scalability, reliability, and efficient storage utilizing Azure services such as Blob Storage, Data Explorer, Repos, and Web App. Challenges include the need for scalable infrastructure, database performance optimization, limited plugin functionality, and collaboration inefficiencies. To address these, the project focuses on cloud deployment for scalability, leveraging Azure services for storage and analytics, implementing smooth migration processes, and enhancing collaboration using Azure Repos, thus streamlining development workflows and ensuring continuous operation of the plugin.',
         image: 'https://images.pexels.com/photos/8386426/pexels-photo-8386426.jpeg?auto=compress&cs=tinysrgb&w=800',
-        technologies: ['D3.js', 'Python', 'Flask'],
+        technologies: ['JS', 'Python', 'Flask','HTML', 'CSS', 'Gen AI', 'Service Now'],
         category: 'AI',
         featured: true,
         demoUrl: '#',
@@ -197,7 +205,7 @@ export class ApiService {
       {
         id: 16,
         title: 'Live Streaming Using Microsoft Fabric ',
-        description :'Our Microsoft Fabric-powered live streaming solution enables telecom companies to process high-velocity data from IoT devices, network logs, and financial transactions in real time. By leveraging Fabric’s seamless integration with Azure services, we deliver instant analytics, anomaly detection, and predictive insights, helping telecom operators optimize network performance, reduce downtime, and enhance customer experiences.',
+        description: 'Our Microsoft Fabric-powered live streaming solution enables telecom companies to process high-velocity data from IoT devices, network logs, and financial transactions in real time. By leveraging Fabric’s seamless integration with Azure services, we deliver instant analytics, anomaly detection, and predictive insights, helping telecom operators optimize network performance, reduce downtime, and enhance customer experiences.',
         image: 'https://ajuserv.com/projects/img/page.png',
         technologies: ['Azure Event Hubs', 'Microsoft Fabric', 'Power BI'],
         category: 'Data Engineer',
@@ -208,7 +216,7 @@ export class ApiService {
       {
         id: 17,
         title: 'Batch Processing Using Microsoft Fabric',
-        description :'Our Microsoft Fabric-based batch processing solution empowers telecom companies to efficiently handle large-scale data workloads, including network performance metrics, customer billing records, and operational logs, through a fully integrated cloud analytics platform. By leveraging Fabrics seamless integration of Notebooks for Spark-based data processing, Data Factory for pipeline orchestration, Lakehouse for unified storage, and Power BI for advanced analytics, we enable telecom operators to transform raw data into actionable insights with unprecedented speed and reliability. This solution delivers cost-effective scalability, reducing processing times from hours to minutes while ensuring enterprise-grade security and compliance—allowing telecom providers to optimize network performance, enhance customer experiences, and drive data-informed decision-making across their organization. The platforms built-in AI capabilities further enhance operations by enabling predictive analytics for churn prevention, fraud detection, and infrastructure maintenance.',
+        description: 'Our Microsoft Fabric-based batch processing solution empowers telecom companies to efficiently handle large-scale data workloads, including network performance metrics, customer billing records, and operational logs, through a fully integrated cloud analytics platform. By leveraging Fabrics seamless integration of Notebooks for Spark-based data processing, Data Factory for pipeline orchestration, Lakehouse for unified storage, and Power BI for advanced analytics, we enable telecom operators to transform raw data into actionable insights with unprecedented speed and reliability. This solution delivers cost-effective scalability, reducing processing times from hours to minutes while ensuring enterprise-grade security and compliance—allowing telecom providers to optimize network performance, enhance customer experiences, and drive data-informed decision-making across their organization. The platforms built-in AI capabilities further enhance operations by enabling predictive analytics for churn prevention, fraud detection, and infrastructure maintenance.',
         image: 'https://ajuserv.com/projects/img/page2.png',
         technologies: ['Notebooks', 'Microsoft Fabric', 'Power BI'],
         category: 'Data Engineer',
@@ -219,7 +227,7 @@ export class ApiService {
       {
         id: 18,
         title: 'Medical Hospital Management Solution',
-        description :'Medical Hospital Management Solution leverages a centralized database-driven system to streamline and digitize key operational workflows across patient care, staff administration, and asset management. Built with full CRUD (Create, Read, Update, Delete) capabilities, the solution enables efficient data entry and maintenance for patients, doctors, medical equipment (including types and models), suppliers, user profiles, and financial account details. By replacing traditional, disconnected, and often manual systems with a unified platform, this solution improves accuracy, enhances collaboration among departments, and supports real-time access to critical information. It empowers hospital staff to manage daily operations more effectively while ensuring data consistency, operational transparency, and scalability for future healthcare IT needs.',
+        description: 'Medical Hospital Management Solution leverages a centralized database-driven system to streamline and digitize key operational workflows across patient care, staff administration, and asset management. Built with full CRUD (Create, Read, Update, Delete) capabilities, the solution enables efficient data entry and maintenance for patients, doctors, medical equipment (including types and models), suppliers, user profiles, and financial account details. By replacing traditional, disconnected, and often manual systems with a unified platform, this solution improves accuracy, enhances collaboration among departments, and supports real-time access to critical information. It empowers hospital staff to manage daily operations more effectively while ensuring data consistency, operational transparency, and scalability for future healthcare IT needs.',
         image: 'https://www.bluebase.in/wp-content/uploads/2021/10/Hospital-Management-Software-software-development.jpg',
         technologies: ['Angular', '.Net', 'MySQL'],
         category: 'Web',
@@ -230,7 +238,7 @@ export class ApiService {
       {
         id: 19,
         title: 'Counterfeit Application',
-        description :'The Counterfeit Application facilitates uploading and downloading of essential forms and documents via SharePoint, accessible by branches with role-based privileges. It supports Maker/Checker approval, email alerts, and report generation. Branches report counterfeit notes detected through various sources by entering details in the system and uploading required annexures (I, II, III, IV, VI, VIII, X). Upon submission, the system auto-triggers notifications to the FNVC team. FNVC verifies, updates NCRB, and generates police letters. Acknowledgements from police are uploaded for record. All physical notes are preserved by branches and submitted to RBI with proof. Monthly confirmation (including NIL cases) is mandatory.',
+        description: 'The Counterfeit Application facilitates uploading and downloading of essential forms and documents via SharePoint, accessible by branches with role-based privileges. It supports Maker/Checker approval, email alerts, and report generation. Branches report counterfeit notes detected through various sources by entering details in the system and uploading required annexures (I, II, III, IV, VI, VIII, X). Upon submission, the system auto-triggers notifications to the FNVC team. FNVC verifies, updates NCRB, and generates police letters. Acknowledgements from police are uploaded for record. All physical notes are preserved by branches and submitted to RBI with proof. Monthly confirmation (including NIL cases) is mandatory.',
         image: '../assets/counterfiet.png',
         technologies: ['Share Point Online', 'React JS', 'Share Point Framework'],
         category: 'Web',
@@ -243,7 +251,7 @@ export class ApiService {
     ];
     return of(mockProjects);
   }
-  
+
 
   getServices(): Observable<Service[]> {
     const mockServices: Service[] = [
@@ -309,9 +317,9 @@ export class ApiService {
           'Power Automate ',
           'Power Automate Desktop',
           'Azure Logic Apps',
-          'Azure Function Apps', 
+          'Azure Function Apps',
           'Power BI '
-          
+
         ],
         category: 'Development'
       },
@@ -324,7 +332,7 @@ export class ApiService {
           'Cloud Migration Services',
           'Devops Services',
           'Application Modernization Services',
-          'Data Engineering and Data Migration Services', 
+          'Data Engineering and Data Migration Services',
         ],
         category: 'Development'
       },
@@ -372,8 +380,8 @@ export class ApiService {
   }
 
   // Replace with actual backend calls
-  submitContact(data: any): Observable<any> {
-    // return this.http.post(`${this.baseUrl}/contact`, data);
-    return of({ success: true, message: 'Message sent successfully!' });
-  }
+  // submitContact(data: any): Observable<any> {
+  //   // return this.http.post(`${this.baseUrl}/contact`, data);
+  //   return of({ success: true, message: 'Message sent successfully!' });
+  // }
 }

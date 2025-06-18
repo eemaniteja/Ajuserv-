@@ -161,7 +161,7 @@
 }
 
 /* Individual Card Styling with Staggered Animation Delays */
-.card-1, .card-9 {
+.card-1, .card-9 , .card-13, .card-17, .card-21{
   border-top: 4px solid #667eea;
   animation-delay: calc(0.1s * 1), 0s;
 
@@ -181,7 +181,7 @@
   }
 }
 
-.card-2, .card-10 {
+.card-2, .card-10, .card-14, .card-18, .card-22 {
   border-top: 4px solid #10b981;
   animation-delay: calc(0.1s * 2), 1.5s;
 
@@ -201,7 +201,7 @@
   }
 }
 
-.card-3, .card-11 {
+.card-3, .card-11, .card-15, .card-19, .card-23 {
   border-top: 4px solid #f59e0b;
   animation-delay: calc(0.1s * 3), 3s;
 
@@ -221,7 +221,7 @@
   }
 }
 
-.card-4, .card-12 {
+.card-4, .card-12, .card-16, .card-20, .card-24 {
   border-top: 4px solid #ef4444;
   animation-delay: calc(0.1s * 4), 4.5s;
 
