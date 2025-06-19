@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "concurrently \"ng serve\" \"node server.js\"",
     "build": "ng build",
     "dev": "ng serve"
   },
@@ -32,6 +32,7 @@
     "@angular/compiler-cli": "^19.2.0",
     "@types/aos": "^3.0.7",
     "@types/node": "^20.11.0",
+    "concurrently": "^9.1.2",
     "typescript": "^5.8.2"
   }
 }
