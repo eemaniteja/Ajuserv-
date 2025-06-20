@@ -6,6 +6,7 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { AboutComponent } from '../about/about.component';
 import { ContactComponent } from '../contact/contact.component';
 import { AnimationService } from '../../services/animation.service';
+import { ExpertTeamComponent } from '../expert-team/expert-team.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ import { AnimationService } from '../../services/animation.service';
     ServicesComponent,
     ProjectsComponent,
     AboutComponent,
-    ContactComponent
+    ExpertTeamComponent,
+    ContactComponent,
   ],
   template: `
     <div id="home">
@@ -30,6 +32,9 @@ import { AnimationService } from '../../services/animation.service';
     </div>
     <div id="about">
       <app-about></app-about>
+    </div>
+    <div id="expert-team">
+       <app-expert-team></app-expert-team>
     </div>
     <div id="contact">
       <app-contact></app-contact>
