@@ -22,6 +22,14 @@ export class AboutComponent implements OnInit, OnDestroy {
       image: 'https://1000logos.net/wp-content/uploads/2020/08/Infosys-Logo.jpg'
     },
     {
+      name: 'Robo soft',
+      image: 'https://www.topdevelopers.co/upload/20190211103124611698604.jpg'
+    },
+    {
+      name: 'ahana',
+      image: 'https://ahanait.com/wp-content/uploads/2024/02/New1-Ahana-2024-website-Logo-Medium.svg'
+    },
+    {
       name: 'TCS',
       image: 'https://i.pinimg.com/736x/87/86/45/878645d72068089487aca9e4779a48f1.jpg'
     },
