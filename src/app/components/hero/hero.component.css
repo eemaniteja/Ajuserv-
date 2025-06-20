@@ -53,7 +53,7 @@ a {
   right: 0;
   bottom: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 2; 
 }
 
 .hero-container {
@@ -465,8 +465,104 @@ a {
   }
 }
 
+@media (max-width: 430px) {
+  .hero {
+    min-height: auto;
+    padding: clamp(3rem, 6vw, 4rem) 0;
+  }
+  .hero-background-image {
+    background-attachment: scroll; /* Change to scroll for mobile */
+  }
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 4vw, 2rem);
+    text-align: center;
+    padding: clamp(0.5rem, 2vw, 1rem);
+  }
+  .hero-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+  .hero-description {
+    font-size: clamp(0.8125rem, 2.5vw, 1rem);
+  }
+  .hero-stats {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .hero-actions {
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+  }
+  .hero-visual {
+    height: clamp(250px, 40vh, 300px);
+  }
+  .floating-card {
+    width: clamp(140px, 40vw, 180px);
+  }
+  .card-2,
+  .card-3 {
+    width: clamp(90px, 25vw, 120px);
+    height: clamp(130px, 30vw, 130px);
+    padding: clamp(0.5rem, 1vw, 0.75rem);
+  }
+  .card-content h3 {
+    font-size: clamp(0.625rem, 1.8vw, 0.75rem);
+  }
+  .card-icon {
+    font-size: clamp(0.875rem, 3vw, 1rem);
+  }
+  .progress-bar {
+    width: clamp(50px, 10vw, 70px);
+  }
+  .card-2 .chart,
+  .card-3 .chart {
+    width: clamp(30px, 7vw, 40px);
+    height: clamp(15px, 4vw, 20px);
+  }
+  .metric-value {
+    font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+  }
+  /* Card position adjustments for mobile */
+  .card-1 {
+    top: clamp(5%, 2vh, 8%);
+  }
+  .card-2 {
+    bottom: clamp(5%, 2vh, 8%);
+    left: clamp(2%, 3vw, 5%);
+  }
+  .card-3 {
+    bottom: clamp(5%, 2vh, 8%);
+    right: clamp(2%, 3vw, 5%);
+  }
+  /* Back to top button size */
+  .back-to-top {
+    width: 35px;
+    height: 35px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  /* Bot adjustments for mobile */
+  .walking-bot-container {
+    left: 5vw; /* Adjust starting left position */
+  }
+  .walking-bot-container.entering,
+  .walking-bot-container.displaying,
+  .walking-bot-container.exiting {
+    bottom: 55vh; /* Adjusted end vertical position */
+  }
+  .bot-image {
+    width: clamp(70px, 7vw, 90px); /* Smaller size for mobile */
+    height: clamp(70px, 7vw, 90px);
+  }
+  .bot-banner {
+    font-size: clamp(0.65rem, 1.6vw, 0.75rem); /* Smaller font size */
+    padding: clamp(4px, 0.7vw, 6px) clamp(6px, 1.2vw, 10px);
+  }
+}
 /* Up to 768px (mobile) */
-@media (max-width: 480px) {
+@media (min-width:431)and(max-width: 480px) {
   .hero {
     min-height: auto;
     padding: clamp(3rem, 6vw, 4rem) 0;
