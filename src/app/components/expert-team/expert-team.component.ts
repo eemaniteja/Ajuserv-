@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 export interface TeamMember {
   id: string;
   name: string;
-  position: string;
   image: string;
   socialLinks: {
     linkedin?: string;
@@ -25,17 +24,15 @@ export class ExpertTeamComponent implements OnInit {
     {
       id: '1',
       name: 'Dinesh Vitakula',
-      position: 'Technical Consultant',
       image: 'assets/Expert_Team/Dinesh.jpg',
       socialLinks: {
         linkedin: 'https://www.linkedin.com/in/dineshvitakula?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
         email: 'Dinesh_Vitakula@ajuserv.com'
       }
     },
-        {
+    {
       id: '2',
       name: 'Prajwal Sankar Kolakaluri',
-      position: 'Sr .Software Engineer',
       image: 'assets/Expert_Team/Prajwal.jpg',
       socialLinks: {
         linkedin: 'https://www.linkedin.com/in/prajwal-sankar-kolakaluri/',
@@ -45,7 +42,6 @@ export class ExpertTeamComponent implements OnInit {
     {
       id: '3',
       name: 'Sai Achyuth Chittemsetty',
-      position: 'Software Engineer',
       image: 'assets/Expert_Team/Achuth.jpeg',
       socialLinks: {
         linkedin: 'https://www.linkedin.com/in/sai-achyuth',
@@ -55,7 +51,6 @@ export class ExpertTeamComponent implements OnInit {
     {
       id: '4',
       name: 'Ragini Daram',
-      position: 'Software Engineer',
       image: 'assets/Expert_Team/Ragini.jpg',
       socialLinks: {
         linkedin: 'https://www.linkedin.com/in/ragini-d-502b70265',
@@ -65,7 +60,6 @@ export class ExpertTeamComponent implements OnInit {
     {
       id: '5',
       name: 'Ravindra Reddy Varra',
-      position: 'Software Engineer',
       image: 'assets/Expert_Team/Ravi.jpg',
       socialLinks: {
         linkedin: 'https://www.linkedin.com/in/ravindra-reddy-8a6ba92a3/',
@@ -75,7 +69,6 @@ export class ExpertTeamComponent implements OnInit {
     {
       id: '6',
       name: 'KumaraSwamy Pacharla',
-      position: 'Software Engineer',
       image: 'assets/Expert_Team/Kumar.jpg',
       socialLinks: {
         linkedin: 'https://www.linkedin.com/in/kumar-swamy-pacharla/',
@@ -85,7 +78,6 @@ export class ExpertTeamComponent implements OnInit {
     {
       id: '7',
       name: 'Sri Varshini Reddy Kaku',
-      position: 'Associate Software Engineer',
       image: 'assets/Expert_Team/Varsha.jpg',
       socialLinks: {
         linkedin: 'https://www.linkedin.com/in/sri-varshini-reddy-kaku-7872022a9?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
@@ -95,7 +87,6 @@ export class ExpertTeamComponent implements OnInit {
     {
       id: '8',
       name: 'Vamsi Thallapelli',
-      position: 'Associate Software Engineer',
       image: 'assets/Expert_Team/Vamsi.jpg',
       socialLinks: {
         linkedin: 'https://www.linkedin.com/in/vamsi-thallapelli/',

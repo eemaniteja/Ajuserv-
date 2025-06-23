@@ -107,7 +107,7 @@
 
 .team-grid {
   display: grid;
-  gap: 32px;
+  gap: 28px;
   justify-items: center;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -141,13 +141,13 @@
 .team-member-card {
   background: white;
   border-radius: 24px;
-  padding: 32px;
+  padding: 24px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 280px;
+  max-width: 220px;
   animation: fadeInUp 0.6s ease forwards;
 }
 
@@ -177,7 +177,7 @@
   position: relative;
   width: 120px;
   height: 120px;
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -214,8 +214,8 @@
 }
 
 .social-link {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: none;
   display: flex;
@@ -238,8 +238,8 @@
 }
 
 .social-link svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 /* Social Link Colors */
@@ -255,17 +255,14 @@
   background: #ea4335;
 }
 
-/* Add Instagram icon styling */
 .social-link.instagram {
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
-/* Add YouTube icon styling */
 .social-link.youtube {
   background: #ff0000;
 }
 
-/* Add Facebook icon styling */
 .social-link.facebook {
   background: #1877f2;
 }
@@ -276,15 +273,15 @@
 }
 
 .member-name {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.0rem;
+  font-weight: 500;
   color: #1e293b;
   margin-bottom: 8px;
   letter-spacing: -0.015em;
 }
 
 .member-position {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #6366f1;
   font-weight: 500;
   margin: 0;
@@ -353,45 +350,60 @@
   .section-title {
     font-size: 2.5rem;
   }
-  
+
   .expert-team-section {
     padding: 80px 0;
   }
-  
+
   .section-header {
     margin-bottom: 60px;
   }
-  
+
   .nav-arrow-left {
-    left: -14px;
+    left: -20px;
   }
-  
+
   .nav-arrow-right {
-    right: -14px;
+    right: -20px;
   }
-  
+
   .nav-arrow {
     width: 48px;
     height: 48px;
   }
-  
+
   .nav-arrow svg {
     width: 20px;
     height: 20px;
   }
-  
+
+  .team-member-card {
+    max-width: 180px;
+    padding: 20px;
+  }
+
+  .member-photo-container {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 18px;
+  }
+
+  .member-name {
+    font-size: 0.95rem;
+  }
+
   .social-links {
     right: 12px;
   }
-  
+
   .social-link {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
-  
+
   .social-link svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 }
 
@@ -399,62 +411,107 @@
   .container {
     padding: 0 16px;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .section-subtitle {
     font-size: 1.1rem;
   }
-  
-  .team-member-card {
-    max-width: 100%;
-    padding: 24px;
-  }
-  
-  .member-photo-container {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .nav-arrow-left,
-  .nav-arrow-right {
-    position: static;
-    margin: 20px auto;
-  }
-  
-  .carousel-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .carousel-track {
-    order: 1;
-    width: 100%;
-  }
-  
+
+  /* Keep arrows on left and right for mobile */
   .nav-arrow-left {
-    order: 0;
+    left: -15px;
   }
-  
+
   .nav-arrow-right {
-    order: 2;
+    right: -15px;
   }
-  
+
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .team-member-card {
+    max-width: 160px;
+    padding: 16px;
+  }
+
+  .member-photo-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+  }
+
+  .member-name {
+    font-size: 0.9rem;
+  }
+
   .social-links {
     right: 8px;
     gap: 8px;
   }
-  
+
   .social-link {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-link svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .nav-arrow-left {
+    left: -10px;
+  }
+
+  .nav-arrow-right {
+    right: -10px;
+  }
+
+  .nav-arrow {
     width: 36px;
     height: 36px;
   }
-  
-  .social-link svg {
+
+  .nav-arrow svg {
     width: 16px;
     height: 16px;
+  }
+
+  .team-member-card {
+    max-width: 140px;
+    padding: 14px;
+  }
+
+  .member-photo-container {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 14px;
+  }
+
+  .member-name {
+    font-size: 0.85rem;
+  }
+
+  .social-link {
+    width: 26px;
+    height: 26px;
+  }
+
+  .social-link svg {
+    width: 12px;
+    height: 12px;
   }
 }
