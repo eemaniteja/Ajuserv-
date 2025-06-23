@@ -1,4 +1,4 @@
-<section class="services-section">
+<!-- <section class="services-section">
   <div class="services-container">
     <div class="section-header" data-aos="fade-up" data-aos-delay="200">
       <span class="section-badge">Our Expertise</span>
@@ -76,5 +76,106 @@
     </div>
   </div>
 </div>
+  </div>
+</section> --> 
+
+<section class="services-section">
+  <div class="services-container">
+    <div class="section-header" data-aos="fade-up" data-aos-delay="200">
+      <span class="section-badge">Our Expertise</span>
+      <h2 class="section-title">Services That Drive Innovation</h2>
+      <p class="section-description">
+        We offer comprehensive technology solutions that transform businesses
+        and accelerate digital growth through cutting-edge AI and development services.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div
+        *ngFor="let service of services; let i = index"
+        class="service-card "
+        data-aos="fade-up"
+        [attr.data-aos-delay]="i * 200"
+        [class.expanded]="selectedService?.id === service.id"
+        (click)="selectService(service)">
+
+        <div class="service-icon">
+          <span class="icon-emoji">{{ service.icon }}</span>
+        </div>
+
+        <div class="service-content">
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+
+          <div class="service-features" [class.expanded]="selectedService?.id === service.id">
+            <ul class="features-list">
+              <li *ngFor="let feature of service.features" class="feature-item">
+                <svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                {{ feature }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-category">
+          <span class="category-badge" [class]="'category-' + service.category.toLowerCase()">
+            {{ service.category }}
+          </span>
+        </div>
+
+        <div class="expand-indicator">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-cta" data-aos="fade-up" data-aos-delay="400">
+      <div class="cta-content">
+        <h3>Our Activities</h3>
+        <div class="activities-carousel">
+          <div class="carousel-track" (mousedown)="startDrag($event)" (touchstart)="startDrag($event)">
+            <div class="carousel-slide">
+              <img src="assets/Activities/Team.jpg" alt="Team Activity">
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/Activities/Team2.jpg" alt="Activity 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/Activities/Team3.jpg" alt="Activity 3">
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/Activities/Team5.jpg" alt="Activity 4">
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/Activities/Team3.jpg" alt="Activity 5">
+            </div>
+          </div>
+
+          <button class="carousel-nav-button carousel-prev" (click)="prevSlide()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="carousel-nav-button carousel-next" (click)="nextSlide()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="carousel-dots">
+            <span
+              *ngFor="let slide of [0,1,2,3,4]; let i = index"
+              class="carousel-dot"
+              [class.active]="currentIndex === i"
+              (click)="goToSlide(i)">
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
