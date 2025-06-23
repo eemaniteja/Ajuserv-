@@ -527,7 +527,7 @@
 .projects-cta {
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(135deg, #16dbe4, #d2fcfd);
+  background: linear-gradient(135deg, #317cbf,#317cbf );
   border-radius: 16px;
   margin-top: 2rem;
 }
@@ -535,13 +535,13 @@
 .projects-cta h3 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #ecedee;
   margin-bottom: 1rem;
 }
 
 .projects-cta p {
   font-size: 1rem;
-  color: #64748b;
+  color: #f5f7f9;
   margin-bottom: 1.5rem;
   max-width: 500px;
   margin-left: auto;
