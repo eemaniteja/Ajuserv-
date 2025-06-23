@@ -15,13 +15,13 @@ export class FooterComponent {
     services: [
       { name: 'AI Development', href: '#services' },
       { name: 'Web Development', href: '#services' },
-      { name: 'Data Analytics', href: '#services' },
+      { name: 'Azure Cloud', href: '#services' },
       { name: 'Consulting', href: '#services' }
     ],
     company: [
       { name: 'About Us', href: '#about' },
-      { name: 'Our Team', href: '#about' },
-      { name: 'Careers', href: '#' },
+      { name: 'Our Team', href: '#expert-team' },
+      { name: 'Projects', href: '#projects' },
       { name: 'Contact', href: '#contact' }
     ],
     resources: [

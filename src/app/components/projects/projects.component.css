@@ -229,16 +229,16 @@
   border-top: 4px solid #ef4444;
   animation-delay: calc(0.1s * 4), 4.5s;
 }
-.card-4 .project-category, .card-12 .project-category {
+.card-4 .project-category, .card-12 .project-category , .card-20 .project-category {
   background: rgba(239, 68, 68, 0.1);
   color: #ef4444;
 }
-.card-4 .tech-tag, .card-12 .tech-tag {
+.card-4 .tech-tag, .card-12 .tech-tag , .card-20 .tech-tag {
   background: rgba(239, 68, 68, 0.1);
   color: #ef4444;
   border-color: rgba(239, 68, 68, 0.3);
 }
-.card-4 .featured-badge, .card-12 .featured-badge {
+.card-4 .featured-badge, .card-12 .featured-badge ,  .card-12 .featured-badge {
   background: linear-gradient(135deg, #ef4444, #dc2626);
 }
 
@@ -551,6 +551,7 @@
 .cta-button {
   display: inline-flex;
   align-items: center;
+  justify-items: center;
   gap: 0.5rem;
   background: rgb(15, 17, 30);
   color: white;

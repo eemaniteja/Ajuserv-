@@ -1,9 +1,8 @@
-// src/app/contact/contact.component.ts
 import { Component, ViewChild, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
-import { HttpClientModule } from '@angular/common/http'; // <--- IMPORT THIS
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http'; // <--- IMPORT THIS
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule // <--- ADD HttpClientModule HERE for standalone component
+    HttpClientModule
   ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
@@ -22,18 +21,17 @@ export class ContactComponent implements OnDestroy {
   contactForm = {
     name: '',
     email: '',
-    subject: '', // Keeping 'company' as per your HTML and using it for email subject
+    subject: '',
     message: '',
-   
   };
 
   isSubmitting = false;
   submitMessage = '';
-   showPopup = false;
+  showPopup = false;
   popupMessage = '';
   isSuccessPopup = false;
 
-  private popupTimeout: any; 
+  private popupTimeout: any;
 
   // Validation states
   validationErrors: any = {};
@@ -43,25 +41,71 @@ export class ContactComponent implements OnDestroy {
     message: false
   };
 
-   // Inject ChangeDetectorRef
   constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {}
 
-  // Lifecycle hook to clear timeout when component is destroyed
   ngOnDestroy(): void {
+    this.clearPopupTimeout();
+  }
+
+  private clearPopupTimeout(): void {
     if (this.popupTimeout) {
       clearTimeout(this.popupTimeout);
       this.popupTimeout = null;
     }
   }
 
+  private showSuccessPopupWithPageReload(message: string): void {
+    // Clear any existing timeout first
+    this.clearPopupTimeout();
+    
+    // Set success popup state
+    this.popupMessage = message;
+    this.isSuccessPopup = true;
+    this.showPopup = true;
+    
+    // Force change detection to ensure popup is shown
+    this.cdr.detectChanges();
+    
+    console.log('Success popup shown. Page will reload in 2 seconds.');
+    
+    // Set timeout to reload page after 2 seconds
+    this.popupTimeout = setTimeout(() => {
+      console.log('2 seconds elapsed. Reloading page...');
+      window.location.reload();
+    }, 2000); // 2 seconds as requested
+  }
+
+  private showErrorPopupWithAutoHide(message: string): void {
+    // Clear any existing timeout first
+    this.clearPopupTimeout();
+    
+    // Set error popup state
+    this.popupMessage = message;
+    this.isSuccessPopup = false;
+    this.showPopup = true;
+    
+    // Force change detection to ensure popup is shown
+    this.cdr.detectChanges();
+    
+    console.log('Error popup shown. Will hide in 2 seconds.');
+    
+    // Set timeout to hide popup after 2 seconds
+    this.popupTimeout = setTimeout(() => {
+      console.log('Error popup timeout fired. Hiding popup.');
+      this.hidePopup();
+    }, 2000);
+  }
+
+  private hidePopup(): void {
+    this.showPopup = false;
+    this.popupMessage = '';
+    this.cdr.detectChanges();
+    this.clearPopupTimeout();
+  }
 
   onSubmit() {
-    // Clear any existing popup timeout to prevent conflicts if a new submission happens quickly
-    if (this.popupTimeout) {
-      clearTimeout(this.popupTimeout);
-      this.popupTimeout = null; // Important to reset
-    }
-    // Clear any previous popup state at the start of submission attempt
+    // Clear any existing popup and timeout
+    this.clearPopupTimeout();
     this.showPopup = false;
     this.popupMessage = '';
     this.isSuccessPopup = false;
@@ -71,63 +115,47 @@ export class ContactComponent implements OnDestroy {
 
     if (this.isValidForm()) {
       this.isSubmitting = true;
-      this.submitMessage = ''; // Clear previous regular message
+      this.submitMessage = '';
 
       this.apiService.sendContactForm(this.contactForm).subscribe({
         next: (response) => {
-          this.popupMessage =
-            'Your message has been sent successfully! We will get back to you soon.';
-          this.isSuccessPopup = true;
-          this.showPopup = true; // Show popup on success
-          this.isSubmitting = false;
-          this.resetForm();
           console.log('Backend response:', response);
-
-          // Automatically hide popup after 4 seconds (3000 milliseconds)
-           this.popupTimeout = setTimeout(() => {
-            console.log('Success popup timeout fired. Hiding popup.');
-            this.showPopup = false; // Directly set to false
-            this.cdr.detectChanges(); // Manually trigger change detection
-            this.popupMessage = ''; // Clear message after hiding
-          }, 2000); // Changed to 2 seconds
+          this.isSubmitting = false;
+          
+          // Show success popup and reload page after 2 seconds
+          this.showSuccessPopupWithPageReload(
+            'Your message has been sent successfully! We will get back to you soon.'
+          );
         },
         error: (error) => {
           console.error('Error sending message:', error);
-          const errorMessage =
-            error.error && error.error.message
-              ? error.error.message
-              : 'Something went wrong. Please try again later.';
-          this.popupMessage = `Failed to send message: ${errorMessage}`;
-          this.isSuccessPopup = false;
-          this.showPopup = true; // Show popup on error
           this.isSubmitting = false;
-
-          // Automatically hide popup after 4 seconds for error too
-          this.popupTimeout = setTimeout(() => {
-            console.log('Error popup timeout fired. Hiding popup.');
-            this.showPopup = false; // Directly set to false
-            this.cdr.detectChanges(); // Manually trigger change detection
-            this.popupMessage = ''; // Clear message after hiding
-          }, 2000); // Changed to 2 seconds
+          
+          const errorMessage = error.error && error.error.message
+            ? error.error.message
+            : 'Something went wrong. Please try again later.';
+          
+          // Show error popup with auto-hide (no page reload for errors)
+          this.showErrorPopupWithAutoHide(
+            `Failed to send message: ${errorMessage}`
+          );
         },
       });
-    } else {
-      // If form is not valid, the user can see inline validation messages.
-      // We don't need to pop up a generic "form invalid" message every time
-      // they click submit when there are already inline errors.
     }
   }
 
-  // New method to close the popup
+  // Method to manually close the popup (if you want to add a close button)
   closePopup() {
-  
-    if (this.popupTimeout) {
-      clearTimeout(this.popupTimeout);
-      this.popupTimeout = null; // Reset the timeout ID
+    if (this.isSuccessPopup) {
+      // If it's a success popup, reload the page immediately
+      window.location.reload();
+    } else {
+      // If it's an error popup, just hide it
+      this.hidePopup();
     }
   }
 
-  // --- Your existing validation and helper methods (no changes needed here) ---
+  // Validation methods remain the same
   validateName() {
     const name = this.contactForm.name.trim();
     if (!name) {
@@ -220,7 +248,6 @@ export class ContactComponent implements OnDestroy {
   }
 
   isValidForm(): boolean {
-    // Re-run all validations to ensure accuracy before final check
     const isNameValid = this.validateName();
     const isEmailValid = this.validateEmail();
     const isMessageValid = this.validateMessage();
@@ -242,7 +269,6 @@ export class ContactComponent implements OnDestroy {
       email: '',
       subject: '',
       message: '',
-      
     };
     this.validationErrors = {};
     this.touched = {
@@ -250,11 +276,11 @@ export class ContactComponent implements OnDestroy {
       email: false,
       message: false
     };
-    // Use setTimeout to ensure Angular has a chance to update the DOM
-    // before attempting to reset the native form element.
-    // This is often needed with NgForm.
+    
     setTimeout(() => {
-      this.contactFormRef.resetForm();
+      if (this.contactFormRef) {
+        this.contactFormRef.resetForm();
+      }
     }, 0);
     this.submitMessage = '';
   }
