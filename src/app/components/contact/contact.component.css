@@ -37,38 +37,128 @@
 
 .section-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #ffffff33, #ffffff0f);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #111;
+  position: relative;
+  background: linear-gradient(145deg, rgba(255,255,255,0.25), rgba(255,255,255,0.4));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: black;
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
-              0 4px 6px rgba(0, 0, 0, 0.1);
-  transform: perspective(600px) rotateX(0deg) rotateY(0deg);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: float-badge 3s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 
+    0 4px 15px rgba(0,0,0,0.1),
+    0 2px 5px rgba(0,0,0,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.section-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.3) 50%, 
+    rgba(255,255,255,0) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: -1;
 }
 
 .section-badge:hover {
-  transform: perspective(600px) rotateX(5deg) rotateY(5deg) scale(1.05);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2),
-              0 8px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.15),
+    0 4px 10px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
-/* Animation for a floating effect */
-@keyframes float-badge {
+.section-badge:hover::before {
+  transform: translateX(100%);
+}
+
+.section-badge:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 
+    0 2px 8px rgba(0,0,0,0.1),
+    0 1px 3px rgba(0,0,0,0.05),
+    inset 0 -1px 0 rgba(255,255,255,0.4);
+}
+
+@keyframes float {
   0%, 100% {
-    transform: translateY(0) perspective(600px) rotateX(0deg) rotateY(0deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px) perspective(600px) rotateX(2deg) rotateY(2deg);
+    transform: translateY(-4px);
   }
 }
 
+/* Glow effect for dark mode */
+@media (prefers-color-scheme: dark) {
+  .section-badge {
+    color: white;
+    background: linear-gradient(145deg, rgba(0,0,0,0.25), rgba(0,0,0,0.4));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 4px 15px rgba(0,0,0,0.3),
+      0 2px 5px rgba(0,0,0,0.2),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  
+  .section-badge:hover {
+    box-shadow: 
+      0 8px 25px rgba(0,0,0,0.4),
+      0 4px 10px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  
+  .section-badge:active {
+    box-shadow: 
+      0 2px 8px rgba(0,0,0,0.2),
+      0 1px 3px rgba(0,0,0,0.15),
+      inset 0 -1px 0 rgba(255,255,255,0.1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+    animation: float-mobile 3s ease-in-out infinite;
+  }
+  
+  @keyframes float-mobile {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .section-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+}
 
 .section-title {
   font-size: 3rem;
