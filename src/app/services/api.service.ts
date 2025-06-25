@@ -168,7 +168,7 @@ export class ApiService {
       },
       {
         id: 13,
-        title: 'Enginnering Change Request',
+        title: 'Engineering Change Request',
         description: 'Our Engineering Change Request (ECR) solution integrates Power Apps, Power Automate, and SharePoint to streamline and modernize the ECR process. By replacing manual forms and disconnected systems with a centralized platform, we enhance efficiency, reduce errors, and improve collaboration among engineering, localization, vendor management, and quality teams. Automated workflows ensure timely routing of ECRs and trigger actions based on status changes, while real-time access to information increases transparency and visibility into ECR progress. This comprehensive solution addresses the inefficiencies, errors, and lack of transparency often associated with traditional ECR processes, empowering teams to drive impactful changes effectively.',
         image: 'https://ajuserv.com/projects/img/page5.png',
         technologies: ['Power Apps', 'SharePoint', 'Power Automate'],
