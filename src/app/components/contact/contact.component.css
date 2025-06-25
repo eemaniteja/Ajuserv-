@@ -32,21 +32,43 @@
 }
 
 .contact-info {
-  color: black;
+  color: white;
 }
 
 .section-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: black;
-  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #ffffff33, #ffffff0f);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #111;
+  padding: 0.6rem 1.2rem;
   border-radius: 50px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
+              0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: perspective(600px) rotateX(0deg) rotateY(0deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: float-badge 3s ease-in-out infinite;
 }
+
+.section-badge:hover {
+  transform: perspective(600px) rotateX(5deg) rotateY(5deg) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2),
+              0 8px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation for a floating effect */
+@keyframes float-badge {
+  0%, 100% {
+    transform: translateY(0) perspective(600px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-5px) perspective(600px) rotateX(2deg) rotateY(2deg);
+  }
+}
+
 
 .section-title {
   font-size: 3rem;
@@ -139,7 +161,7 @@
 }
 
 .form-label {
-  color: black;
+  color: white;
   font-weight: 600;
   font-size: 0.875rem;
 }
@@ -226,7 +248,7 @@
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: black;
+  color: white;
   padding: 1rem 2rem;
   border-radius: 50px;
   font-weight: 600;
