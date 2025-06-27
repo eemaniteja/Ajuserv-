@@ -71,6 +71,15 @@
 .nav-link:hover::after {
   width: 100%;
 }
+
+.nav-link.active {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
  
 .contact-btn {
   /* background: linear-gradient(135deg, #667eea, #764ba2); */

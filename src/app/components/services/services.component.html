@@ -16,7 +16,7 @@
         data-aos="fade-up"
         [attr.data-aos-delay]="i * 200"
         [class.expanded]="selectedService?.id === service.id"
-        (click)="selectService(service)">
+        (click)="selectService(service, $event)">
 
         <div class="service-icon">
           <span class="icon-emoji">{{ service.icon }}</span>

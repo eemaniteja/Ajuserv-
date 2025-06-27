@@ -21,22 +21,22 @@ import { ExpertTeamComponent } from '../expert-team/expert-team.component';
     ContactComponent,
   ],
   template: `
-    <div id="home">
+    <div id="home" class="section-wrapper">
       <app-hero></app-hero>
     </div>
-    <div id="services">
+    <div id="services" class="section-wrapper section-transition">
       <app-services></app-services>
     </div>
-    <div id="projects">
+    <div id="projects" class="section-wrapper section-transition">
       <app-projects></app-projects>
     </div>
-    <div id="about">
+    <div id="about" class="section-wrapper section-transition">
       <app-about></app-about>
     </div>
-    <div id="expert-team">
+    <div id="expert-team" class="section-wrapper section-transition">
        <app-expert-team></app-expert-team>
     </div>
-    <div id="contact">
+    <div id="contact" class="section-wrapper section-transition">
       <app-contact></app-contact>
     </div>
   `,

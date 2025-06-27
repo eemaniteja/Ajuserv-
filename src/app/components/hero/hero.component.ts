@@ -9,14 +9,9 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
 })
-export class HeroComponent implements OnInit, OnDestroy { // Implement OnDestroy
+export class HeroComponent implements OnInit, OnDestroy {
   particles: any[] = [];
   showBackToTop = false;
-  botState: 'hidden' | 'entering' | 'displaying' | 'exiting' = 'hidden'; // More granular bot state
-
-  private botEnterTimeout: any; // To clear timeout on component destruction
-  private botDisplayTimeout: any;
-  private botExitTimeout: any;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -46,14 +41,10 @@ export class HeroComponent implements OnInit, OnDestroy { // Implement OnDestroy
 
   ngOnInit() {
     this.generateParticles();
-    this.initiateBotAnimation(); // Call the new method to manage bot animation
   }
 
   ngOnDestroy() {
-    // Clear timeouts to prevent memory leaks if the component is destroyed
-    clearTimeout(this.botEnterTimeout);
-    clearTimeout(this.botDisplayTimeout);
-    clearTimeout(this.botExitTimeout);
+    // Component cleanup if needed
   }
 
   generateParticles() {
@@ -72,25 +63,5 @@ export class HeroComponent implements OnInit, OnDestroy { // Implement OnDestroy
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  }
-
-  initiateBotAnimation() {
-    // Phase 1: Bot enters after a delay (e.g., 0.5 seconds after page load)
-    this.botEnterTimeout = setTimeout(() => {
-      this.botState = 'entering';
-
-      // Phase 2: Bot displays for a duration (e.g., 3 seconds)
-      this.botDisplayTimeout = setTimeout(() => {
-        this.botState = 'exiting';
-
-        // Phase 3: Bot disappears (animation duration in CSS)
-        // Then set to hidden completely after exit animation finishes
-        const exitAnimationDuration = 1000; // Match .bot-figure.exiting transition duration in CSS
-        this.botExitTimeout = setTimeout(() => {
-          this.botState = 'hidden';
-        }, exitAnimationDuration);
-
-      }, 3000); // Bot stays in the middle for 3 seconds
-    }, 500); // Initial delay before bot starts entering
   }
 }

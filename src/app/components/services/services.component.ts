@@ -181,7 +181,18 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
     return service.id.toString();
   }
 
-  selectService(service: Service): void {
+  selectService(service: Service, event?: Event): void {
+    // Add immediate visual feedback for better responsiveness
+    if (event) {
+      const cardElement = (event.target as HTMLElement).closest('.service-card') as HTMLElement;
+      if (cardElement) {
+        cardElement.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          cardElement.style.transform = '';
+        }, 150);
+      }
+    }
+    
     this.selectedService = this.selectedService?.id === service.id ? null : service;
   }
 }
