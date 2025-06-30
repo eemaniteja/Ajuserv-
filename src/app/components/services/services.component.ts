@@ -182,17 +182,79 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   selectService(service: Service, event?: Event): void {
-    // Add immediate visual feedback for better responsiveness
-    if (event) {
-      const cardElement = (event.target as HTMLElement).closest('.service-card') as HTMLElement;
-      if (cardElement) {
-        cardElement.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-          cardElement.style.transform = '';
-        }, 150);
-      }
+    // If clicking the same service, collapse it
+    if (this.selectedService?.id === service.id) {
+      this.selectedService = null;
+      this.resetCardPositions();
+      return;
     }
+
+    // Expand the clicked card
+    this.selectedService = service;
+    this.adjustAdjacentCards(service);
+  }
+
+  private adjustAdjacentCards(expandedService: Service): void {
+    // Reset all cards first
+    this.resetCardPositions();
     
-    this.selectedService = this.selectedService?.id === service.id ? null : service;
+    // Find the index of the expanded service
+    const expandedIndex = this.services.findIndex(s => s.id === expandedService.id);
+    if (expandedIndex === -1) return;
+
+    // Determine grid columns based on screen size
+    const gridColumns = this.getGridColumns();
+    const columnPosition = expandedIndex % gridColumns;
+
+    // Apply appropriate classes to all cards based on expanded card position
+    setTimeout(() => {
+      const allCards = document.querySelectorAll('.service-card');
+      allCards.forEach((card, index) => {
+        if (index !== expandedIndex) {
+          const cardColumnPosition = index % gridColumns;
+          
+          // Apply specific adjustment class based on both expanded card position and current card position
+          if (columnPosition === 0) {
+            // 1st column expanded - all others move right
+            card.classList.add('adjust-for-column-0');
+          } else if (columnPosition === 1) {
+            // 2nd column expanded - all others move left
+            card.classList.add('adjust-for-column-1');
+          } else if (columnPosition === 2) {
+            // 3rd column expanded - adjust based on card position
+            if (cardColumnPosition < 2) {
+              card.classList.add('adjust-for-column-2-left');
+            } else {
+              card.classList.add('adjust-for-column-2-right');
+            }
+          } else if (columnPosition === 3) {
+            // 4th column expanded - adjust based on card position
+            if (cardColumnPosition === 2) {
+              // 3rd card needs special adjustment when 4th card expands
+              card.classList.add('adjust-for-column-3-adjacent');
+            } else {
+              // Other cards get normal adjustment
+              card.classList.add('adjust-for-column-3');
+            }
+          }
+        }
+      });
+    }, 50);
+  }
+
+  private getGridColumns(): number {
+    const width = window.innerWidth;
+    if (width <= 480) return 1;
+    if (width <= 768) return 2;
+    if (width <= 1023) return 3;
+    if (width <= 1199) return 3;
+    return 4;
+  }
+
+  private resetCardPositions(): void {
+    const allCards = document.querySelectorAll('.service-card');
+    allCards.forEach(card => {
+      card.classList.remove('adjust-for-column-0', 'adjust-for-column-1', 'adjust-for-column-2', 'adjust-for-column-3', 'adjust-for-column-2-left', 'adjust-for-column-2-right', 'adjust-for-column-3-adjacent');
+    });
   }
 }

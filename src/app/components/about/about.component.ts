@@ -1,6 +1,13 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+interface CounterItem {
+  number: number;
+  suffix: string;
+  title: string;
+  currentValue: number;
+}
+
 @Component({
   selector: 'app-about',
   standalone: true,
@@ -75,11 +82,18 @@ export class AboutComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.updateVisibleCards();
     this.startCarousel();
+    this.setupIntersectionObserver();
   }
 
   ngOnDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
+    }
+    if (this.animationFrameId) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    if (this.observer) {
+      this.observer.disconnect();
     }
   }
 
@@ -127,5 +141,75 @@ export class AboutComponent implements OnInit, OnDestroy {
       visible.push(this.partners[index]);
     }
     return visible;
+  }
+
+   Math = Math;
+  
+  counterItems: CounterItem[] = [
+    { number: 18, suffix: '+', title: 'Years in Business', currentValue: 0 },
+    { number: 98, suffix: '%', title: 'Client Satisfaction', currentValue: 0 },
+    { number: 500, suffix: '+', title: 'Projects Delivered', currentValue: 0 },
+    { number: 200, suffix: '+', title: 'Global Clients', currentValue: 0 }
+  ];
+
+  private animationFrameId: number | null = null;
+  private observer: IntersectionObserver | null = null;
+
+  // ngOnInit() {
+  //   this.setupIntersectionObserver();
+  // }
+
+  // ngOnDestroy() {
+  //   if (this.animationFrameId) {
+  //     cancelAnimationFrame(this.animationFrameId);
+  //   }
+  //   if (this.observer) {
+  //     this.observer.disconnect();
+  //   }
+  // }
+
+  private setupIntersectionObserver() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.startCounterAnimation();
+            this.observer?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    // We'll observe the component after the view is ready
+    setTimeout(() => {
+      const section = document.querySelector('.counter-section');
+      if (section && this.observer) {
+        this.observer.observe(section);
+      }
+    }, 100);
+  }
+
+  private startCounterAnimation() {
+    const duration = 2000; // 2 seconds
+    const startTime = performance.now();
+
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+
+      this.counterItems.forEach((item) => {
+        item.currentValue = item.number * easeOutCubic;
+      });
+
+      if (progress < 1) {
+        this.animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    this.animationFrameId = requestAnimationFrame(animate);
   }
 }

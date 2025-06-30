@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div class="stats-section" data-aos="fade-up">
+    <!-- <div class="stats-section" data-aos="fade-up">
       <div class="stats-grid">
         <div *ngFor="let stat of stats; let i = index" class="stat-card" data-aos="fade-up"
           [attr.data-aos-delay]="i * 200">
@@ -87,7 +87,24 @@
           <div class="stat-label">{{ stat.label }}</div>
         </div>
       </div>
-    </div>
+    </div> -->
+      <section class="counter-section">
+      <div class="container">
+        <div class="counter-grid">
+          <div class="counter-card" *ngFor="let item of counterItems; let i = index">
+            <div class="counter-circle">
+              <div class="counter-dot"></div>
+              <div class="counter-content">
+                <h3 class="counter-number">
+                  {{ Math.floor(item.currentValue) }}{{ item.suffix }}
+                </h3>
+                <p class="counter-title">{{ item.title }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
     <div class="team-section">

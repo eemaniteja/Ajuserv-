@@ -1,0 +1,33 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="nav-container">
+    <div class="logo-section">
+      <div class="logo">
+      <img src="assets/logo1.png" alt="Ajuserv logo" class="logo-img" />
+      </div>
+    </div>
+
+    <div class="nav-links" [class.mobile-open]="isMobileMenuOpen">
+      <a (click)="scrollToSection('home')" 
+         class="nav-link" 
+         [class.active]="isActiveSection('home')">Home</a>
+      <a (click)="scrollToSection('services')" 
+         class="nav-link" 
+         [class.active]="isActiveSection('services')">Services</a>
+      <a (click)="scrollToSection('projects')" 
+         class="nav-link" 
+         [class.active]="isActiveSection('projects')">Projects</a>
+      <a (click)="scrollToSection('about')" 
+         class="nav-link" 
+         [class.active]="isActiveSection('about')">About</a>
+      <a (click)="scrollToSection('contact')" 
+         class="nav-link contact-btn" 
+         [class.active]="isActiveSection('contact')">Contact</a>
+    </div>
+
+    <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>

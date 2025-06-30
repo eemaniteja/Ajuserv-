@@ -502,3 +502,323 @@
   
 }
 
+.counter-section {
+  padding: 80px 0;
+  /* background: #ffffff; */
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  align-items: center;
+  justify-items: center;
+}
+
+.counter-card {
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.counter-card:hover {
+  transform: translateY(-5px);
+}
+
+.counter-circle {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border: 2px solid #4A90E2;
+  border-radius: 50%;
+  background: #F8F9FA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+}
+
+.counter-circle:hover {
+  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2);
+  border-color: #2171CE;
+}
+
+.counter-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #4A90E2;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(74, 144, 226, 0.3);
+  transition: all 0.3s ease;
+  
+  /* Position the dot to revolve around the circle border */
+  top: 50%;
+  left: 50%;
+  margin-top: -6px;
+  margin-left: -6px;
+  transform-origin: 0 0;
+}
+
+/* Different rotation speeds and starting positions for each dot */
+.counter-card:nth-child(1) .counter-dot {
+  animation: revolveAroundCircle 8s linear infinite;
+  transform: rotate(0deg) translateX(110px) rotate(0deg);
+}
+
+.counter-card:nth-child(2) .counter-dot {
+  animation: revolveAroundCircle 6s linear infinite;
+  transform: rotate(90deg) translateX(110px) rotate(-90deg);
+}
+
+.counter-card:nth-child(3) .counter-dot {
+  animation: revolveAroundCircle 10s linear infinite;
+  transform: rotate(180deg) translateX(110px) rotate(-180deg);
+}
+
+.counter-card:nth-child(4) .counter-dot {
+  animation: revolveAroundCircle 7s linear infinite;
+  transform: rotate(270deg) translateX(110px) rotate(-270deg);
+}
+
+@keyframes revolveAroundCircle {
+  from {
+    transform: rotate(0deg) translateX(110px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(110px) rotate(-360deg);
+  }
+}
+
+.counter-card:hover .counter-dot {
+  background: #2171CE;
+  transform: scale(1.2);
+  box-shadow: 0 3px 8px rgba(33, 113, 206, 0.4);
+}
+
+/* Pause animation on hover for better UX */
+.counter-card:hover .counter-dot {
+  animation-play-state: paused;
+}
+
+.counter-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.counter-number {
+  font-size: 48px;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin: 0 0 8px 0;
+  line-height: 1;
+  letter-spacing: -1px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.counter-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4A5568;
+  margin: 0;
+  line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .counter-section {
+    padding: 60px 0;
+  }
+  
+  .counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .counter-circle {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .counter-dot {
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    margin-left: -5px;
+  }
+  
+  .counter-card:nth-child(1) .counter-dot {
+    animation: revolveAroundCircleMobile 8s linear infinite;
+    transform: rotate(0deg) translateX(90px) rotate(0deg);
+  }
+
+  .counter-card:nth-child(2) .counter-dot {
+    animation: revolveAroundCircleMobile 6s linear infinite;
+    transform: rotate(90deg) translateX(90px) rotate(-90deg);
+  }
+
+  .counter-card:nth-child(3) .counter-dot {
+    animation: revolveAroundCircleMobile 10s linear infinite;
+    transform: rotate(180deg) translateX(90px) rotate(-180deg);
+  }
+
+  .counter-card:nth-child(4) .counter-dot {
+    animation: revolveAroundCircleMobile 7s linear infinite;
+    transform: rotate(270deg) translateX(90px) rotate(-270deg);
+  }
+  
+  @keyframes revolveAroundCircleMobile {
+    from {
+      transform: rotate(0deg) translateX(90px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(90px) rotate(-360deg);
+    }
+  }
+  
+  .counter-number {
+    font-size: 36px;
+  }
+  
+  .counter-title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .counter-section {
+    padding: 40px 0;
+  }
+  
+  .counter-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .counter-circle {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .counter-dot {
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    margin-left: -4px;
+  }
+  
+  .counter-card:nth-child(1) .counter-dot {
+    animation: revolveAroundCircleSmall 8s linear infinite;
+    transform: rotate(0deg) translateX(80px) rotate(0deg);
+  }
+
+  .counter-card:nth-child(2) .counter-dot {
+    animation: revolveAroundCircleSmall 6s linear infinite;
+    transform: rotate(90deg) translateX(80px) rotate(-90deg);
+  }
+
+  .counter-card:nth-child(3) .counter-dot {
+    animation: revolveAroundCircleSmall 10s linear infinite;
+    transform: rotate(180deg) translateX(80px) rotate(-180deg);
+  }
+
+  .counter-card:nth-child(4) .counter-dot {
+    animation: revolveAroundCircleSmall 7s linear infinite;
+    transform: rotate(270deg) translateX(80px) rotate(-270deg);
+  }
+  
+  @keyframes revolveAroundCircleSmall {
+    from {
+      transform: rotate(0deg) translateX(80px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(80px) rotate(-360deg);
+    }
+  }
+  
+  .counter-number {
+    font-size: 32px;
+  }
+  
+  .counter-title {
+    font-size: 13px;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}
+
+/* Animation for when cards come into view */
+.counter-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.counter-card:nth-child(1) { animation-delay: 0.1s; }
+.counter-card:nth-child(2) { animation-delay: 0.2s; }
+.counter-card:nth-child(3) { animation-delay: 0.3s; }
+.counter-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced visual effects */
+.counter-circle::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #4A90E2, #2171CE, #4A90E2);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.counter-card:hover .counter-circle::before {
+  opacity: 0.1;
+}
+
+/* Glowing effect for dots */
+.counter-dot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 144, 226, 0.3) 0%, transparent 70%);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+}

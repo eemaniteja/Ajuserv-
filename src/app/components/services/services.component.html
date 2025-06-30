@@ -23,10 +23,13 @@
         </div>
 
         <div class="service-content">
-          <h3 class="service-title">{{ service.title }}</h3>
-          <p class="service-description">{{ service.description }}</p>
+          <div class="main-content">
+            <h3 class="service-title">{{ service.title }}</h3>
+            <p class="service-description">{{ service.description }}</p>
+          </div>
 
-          <div class="service-features" [class.expanded]="selectedService?.id === service.id">
+          <div class="service-features" *ngIf="selectedService?.id === service.id">
+            <h4 class="features-title">Key Features</h4>
             <ul class="features-list">
               <li *ngFor="let feature of service.features" class="feature-item">
                 <svg class="feature-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -44,11 +47,6 @@
           </span>
         </div>
 
-        <div class="expand-indicator">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6,9 12,15 18,9"/>
-          </svg>
-        </div>
       </div>
     </div>
 

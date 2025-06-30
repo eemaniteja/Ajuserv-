@@ -1,0 +1,195 @@
+<section class="projects-section">
+  <div class="projects-container">
+    <div class="section-header">
+      <span class="section-badge">Our Portfolio</span>
+      <h2 class="section-title">Technology Features</h2>
+      <p class="section-description">
+        Explore our latest AI innovations and cutting-edge solutions that have transformed 
+        businesses and created lasting impact across various industries.
+      </p>
+    </div>
+
+    <div class="filter-tabs">
+      <button 
+        *ngFor="let category of categories"
+        class="filter-tab"
+        [class.active]="selectedCategory === category"
+        (click)="filterProjects(category)">
+        {{ category }}
+      </button>
+    </div>
+
+    <!-- Carousel for All Projects -->
+    <div>
+    <div *ngIf="selectedCategory === 'All'" class="carousel-container" #carousel (scroll)="handleScroll()">
+      <div class="carousel-track">
+        <div 
+          *ngFor="let project of filteredProjects; let i = index" 
+          class="project-card carousel-card"
+          [class.card-1]="i === 0"
+          [class.card-2]="i === 1"
+          [class.card-3]="i === 2"
+          [class.card-4]="i === 3"
+          [class.card-5]="i === 4"
+          [class.card-6]="i === 5"
+          [class.card-7]="i === 6"
+          [class.card-8]="i === 7"
+          [class.card-9]="i === 8"
+          [class.card-10]="i === 9"
+          [class.card-11]="i === 10"
+          [class.card-12]="i === 11"
+          [class.card-13]="i === 12"
+          [class.card-14]="i === 13"
+          [class.card-15]="i === 14"
+          [class.card-16]="i === 15"
+          [class.card-17]="i === 16"
+          [class.card-18]="i === 17"
+          [class.card-19]="i === 18"
+          [class.card-20]="i === 19">
+          
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.title" loading="lazy">
+            <div class="project-overlay">
+            </div>
+            <div class="featured-badge" *ngIf="project.featured">
+              ⭐ Featured
+            </div>
+          </div>
+
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <span class="project-category">
+                {{ project.category }}
+              </span>
+            </div>
+
+            <div class="project-description-container">
+              <p class="project-description" [class.expanded]="project.isExpanded">
+                {{ project.isExpanded ? project.description : getTruncatedText(project.description, 150) }}
+                <span *ngIf="shouldShowReadMore(project.description, 150) && !project.isExpanded">...</span>
+              </p>
+              
+              <button 
+                *ngIf="shouldShowReadMore(project.description, 150)"
+                class="read-more-btn"
+                (click)="toggleReadMore(project)">
+                <span>{{ project.isExpanded ? 'Read less' : 'Read more' }}</span>
+                <svg 
+                  class="read-more-icon" 
+                  [class.rotated]="project.isExpanded"
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  stroke-width="2">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="project-technologies">
+              <span 
+                *ngFor="let tech of project.technologies" 
+                class="tech-tag">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="carousel-nav" *ngIf="selectedCategory === 'All'">
+      <div 
+        *ngFor="let dot of carouselDots; let i = index"
+        class="carousel-dot"
+        [class.active]="currentSlide === i"
+        (click)="goToSlide(i)">
+      </div>
+    </div>
+  </div>
+
+    <div *ngIf="selectedCategory !== 'All'" class="projects-grid">
+      <div 
+        *ngFor="let project of filteredProjects; let i = index" 
+        class="project-card"
+        [class.card-1]="i === 0"
+        [class.card-2]="i === 1"
+        [class.card-3]="i === 2"
+        [class.card-4]="i === 3"
+        [class.card-5]="i === 4"
+        [class.card-6]="i === 5"
+        [class.card-7]="i === 6"
+        [class.card-8]="i === 7"
+        [class.card-9]="i === 8"
+        [class.card-10]="i === 9"
+        [class.card-11]="i === 10"
+        [class.card-12]="i === 11">
+        
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title" loading="lazy">
+          <div class="project-overlay">
+          </div>
+          <div class="featured-badge" *ngIf="project.featured">
+            ⭐ Featured
+          </div>
+        </div>
+
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <span class="project-category">
+              {{ project.category }}
+            </span>
+          </div>
+
+          <div class="project-description-container">
+            <p class="project-description" [class.expanded]="project.isExpanded">
+              {{ project.isExpanded ? project.description : getTruncatedText(project.description, 150) }}
+              <span *ngIf="shouldShowReadMore(project.description, 150) && !project.isExpanded">...</span>
+            </p>
+            
+            <button 
+              *ngIf="shouldShowReadMore(project.description, 150)"
+              class="read-more-btn"
+              (click)="toggleReadMore(project)">
+              <span>{{ project.isExpanded ? 'Read less' : 'Read more' }}</span>
+              <svg 
+                class="read-more-icon" 
+                [class.rotated]="project.isExpanded"
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="project-technologies">
+            <span 
+              *ngFor="let tech of project.technologies" 
+              class="tech-tag">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-cta">
+      <h3>Have a Project in Mind?</h3>
+      <p>Let's collaborate to bring your innovative ideas to life with cutting-edge technology.</p>
+      <button class="cta-button" (click)="scrollToContact()">
+        Contact Us
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
