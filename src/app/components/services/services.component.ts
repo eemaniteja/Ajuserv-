@@ -13,7 +13,10 @@ import { Service } from '../../models/service.model';
 })
 export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   services: Service[] = [];
+  serviceRows: Service[][] = [];
   selectedService: Service | null = null;
+  selectedRowIndex: number = -1;
+  selectedCardIndex: number = -1;
   loading = false;
   error: string | null = null;
 
@@ -23,8 +26,8 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   private isDragging = false;
   private track!: HTMLElement;
   private slides!: NodeListOf<HTMLElement>;
-  private _currentTranslate = 0; // New: stores the current translate position during drag
-  private _prevTranslate = 0;   // New: stores the translate position before dragging
+  private _currentTranslate = 0;
+  private _prevTranslate = 0;
 
   constructor(private apiService: ApiService) {}
 
@@ -49,6 +52,7 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
       this.track.removeEventListener('touchend', this.endDrag.bind(this));
       this.track.removeEventListener('mouseleave', this.endDrag.bind(this));
     }
+    
   }
 
   initCarousel() {
@@ -61,12 +65,11 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.track.addEventListener('mousedown', this.startDrag.bind(this));
     this.track.addEventListener('touchstart', this.startDrag.bind(this), { passive: false });
-    // Using global document listeners for mousemove/mouseup to handle cases where drag goes off the track
     document.addEventListener('mousemove', this.drag.bind(this));
     document.addEventListener('mouseup', this.endDrag.bind(this));
     this.track.addEventListener('touchmove', this.drag.bind(this), { passive: false });
     this.track.addEventListener('touchend', this.endDrag.bind(this));
-    this.track.addEventListener('mouseleave', this.endDrag.bind(this)); // For desktop users
+    this.track.addEventListener('mouseleave', this.endDrag.bind(this));
 
     this.updateCarousel();
   }
@@ -83,23 +86,23 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   nextSlide() {
     this.currentIndex = (this.currentIndex + 1) % this.slides.length;
     this.updateCarousel();
-    this.startAutoSlide(); // Restart timer
+    this.startAutoSlide();
   }
 
   prevSlide() {
     this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
     this.updateCarousel();
-    this.startAutoSlide(); // Restart timer
+    this.startAutoSlide();
   }
 
   goToSlide(index: number) {
     this.currentIndex = index;
     this.updateCarousel();
-    this.startAutoSlide(); // Reset auto-slide timer when manually navigating
+    this.startAutoSlide();
   }
 
   updateCarousel() {
-    this._currentTranslate = -this.currentIndex * 100; // Store percentage for accurate snap
+    this._currentTranslate = -this.currentIndex * 100;
     this.track.style.transform = `translateX(${this._currentTranslate}%)`;
   }
 
@@ -107,23 +110,20 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
     this.isDragging = true;
     this.startX = e instanceof MouseEvent ? e.pageX : e.touches[0].pageX;
     this.track.classList.add('grabbing');
-    this._prevTranslate = this._currentTranslate; // Save current position before starting drag
-    clearInterval(this.carouselInterval); // Stop auto-slide during drag
+    this._prevTranslate = this._currentTranslate;
+    clearInterval(this.carouselInterval);
   }
 
   drag(e: MouseEvent | TouchEvent) {
     if (!this.isDragging) return;
-    e.preventDefault(); // Prevent scrolling on mobile during drag
+    e.preventDefault();
 
     const currentX = e instanceof MouseEvent ? e.pageX : e.touches[0].pageX;
     const movedBy = currentX - this.startX;
 
-    // Calculate translation based on pixels, then convert to percentage
-    // Get the actual width of one slide (e.g., the first one)
     const slideWidth = this.slides[0].offsetWidth;
-    if (slideWidth === 0) return; // Avoid division by zero
+    if (slideWidth === 0) return;
 
-    // Calculate the new translate in pixels, then convert back to percentage
     const newTranslatePx = (-this.currentIndex * slideWidth) + movedBy;
     this._currentTranslate = (newTranslatePx / slideWidth) * 100;
 
@@ -139,25 +139,20 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
     const movedBy = endX - this.startX;
 
     const slideWidth = this.slides[0].offsetWidth;
-    if (slideWidth === 0) { // Should not happen if carousel is visible
+    if (slideWidth === 0) {
       this.updateCarousel();
       this.startAutoSlide();
       return;
     }
 
-    // Determine how many slides were "dragged" based on pixel movement
     const draggedSlides = movedBy / slideWidth;
-
-    // Calculate the target index by rounding the current visual position
-    // _prevTranslate is in percentage, convert it to 'slide units' (e.g., -0, -1, -2 for current index)
     const currentSlidePosition = -this._prevTranslate / 100;
     const targetIndex = Math.round(currentSlidePosition - draggedSlides);
 
-    // Ensure the target index is within bounds
     this.currentIndex = Math.max(0, Math.min(this.slides.length - 1, targetIndex));
 
     this.updateCarousel();
-    this.startAutoSlide(); // Restart auto-slide after drag
+    this.startAutoSlide();
   }
 
   loadServices() {
@@ -167,6 +162,7 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
     this.apiService.getServices().subscribe({
       next: (services) => {
         this.services = services;
+        this.createServiceRows();
         this.loading = false;
       },
       error: (error) => {
@@ -177,84 +173,37 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+  createServiceRows(): void {
+    this.serviceRows = [];
+    const cardsPerRow = 4;
+    
+    for (let i = 0; i < this.services.length; i += cardsPerRow) {
+      this.serviceRows.push(this.services.slice(i, i + cardsPerRow));
+    }
+  }
+
   trackByServiceId(index: number, service: Service): string {
     return service.id.toString();
   }
 
-  selectService(service: Service, event?: Event): void {
-    // If clicking the same service, collapse it
+  selectService(service: Service, rowIndex: number, cardIndex: number, event?: Event): void {
     if (this.selectedService?.id === service.id) {
       this.selectedService = null;
-      this.resetCardPositions();
+      this.selectedRowIndex = -1;
+      this.selectedCardIndex = -1;
       return;
     }
 
-    // Expand the clicked card
     this.selectedService = service;
-    this.adjustAdjacentCards(service);
+    this.selectedRowIndex = rowIndex;
+    this.selectedCardIndex = cardIndex;
   }
 
-  private adjustAdjacentCards(expandedService: Service): void {
-    // Reset all cards first
-    this.resetCardPositions();
-    
-    // Find the index of the expanded service
-    const expandedIndex = this.services.findIndex(s => s.id === expandedService.id);
-    if (expandedIndex === -1) return;
-
-    // Determine grid columns based on screen size
-    const gridColumns = this.getGridColumns();
-    const columnPosition = expandedIndex % gridColumns;
-
-    // Apply appropriate classes to all cards based on expanded card position
-    setTimeout(() => {
-      const allCards = document.querySelectorAll('.service-card');
-      allCards.forEach((card, index) => {
-        if (index !== expandedIndex) {
-          const cardColumnPosition = index % gridColumns;
-          
-          // Apply specific adjustment class based on both expanded card position and current card position
-          if (columnPosition === 0) {
-            // 1st column expanded - all others move right
-            card.classList.add('adjust-for-column-0');
-          } else if (columnPosition === 1) {
-            // 2nd column expanded - all others move left
-            card.classList.add('adjust-for-column-1');
-          } else if (columnPosition === 2) {
-            // 3rd column expanded - adjust based on card position
-            if (cardColumnPosition < 2) {
-              card.classList.add('adjust-for-column-2-left');
-            } else {
-              card.classList.add('adjust-for-column-2-right');
-            }
-          } else if (columnPosition === 3) {
-            // 4th column expanded - adjust based on card position
-            if (cardColumnPosition === 2) {
-              // 3rd card needs special adjustment when 4th card expands
-              card.classList.add('adjust-for-column-3-adjacent');
-            } else {
-              // Other cards get normal adjustment
-              card.classList.add('adjust-for-column-3');
-            }
-          }
-        }
-      });
-    }, 50);
+  isCardCompressed(service: Service, rowIndex: number): boolean {
+    // Only compress cards in the same row as the selected card
+    return this.selectedService !== null && 
+           this.selectedRowIndex === rowIndex && 
+           this.selectedService.id !== service.id;
   }
 
-  private getGridColumns(): number {
-    const width = window.innerWidth;
-    if (width <= 480) return 1;
-    if (width <= 768) return 2;
-    if (width <= 1023) return 3;
-    if (width <= 1199) return 3;
-    return 4;
-  }
-
-  private resetCardPositions(): void {
-    const allCards = document.querySelectorAll('.service-card');
-    allCards.forEach(card => {
-      card.classList.remove('adjust-for-column-0', 'adjust-for-column-1', 'adjust-for-column-2', 'adjust-for-column-3', 'adjust-for-column-2-left', 'adjust-for-column-2-right', 'adjust-for-column-3-adjacent');
-    });
-  }
 }

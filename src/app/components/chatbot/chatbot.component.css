@@ -346,7 +346,7 @@
 
 @media (max-width: 768px) {
   .chatbot-container {
-    bottom: 80px;
+    bottom: 55px;
     right: 10px;
   }
   
@@ -363,21 +363,5 @@
   
   .chat-text {
     display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .chatbot-container {
-    bottom: 85px;
-    right: 8px;
-  }
-  
-  .chatbot-toggle {
-    padding: 10px 14px;
-  }
-  
-  .bot-icon {
-    width: 20px;
-    height: 20px;
   }
 }
