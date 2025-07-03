@@ -146,10 +146,10 @@ export class AboutComponent implements OnInit, OnDestroy {
    Math = Math;
   
   counterItems: CounterItem[] = [
-    { number: 18, suffix: '+', title: 'Years in Business', currentValue: 0 },
+    { number: 16, suffix: '+', title: 'Years in Business', currentValue: 0 },
     { number: 98, suffix: '%', title: 'Client Satisfaction', currentValue: 0 },
-    { number: 500, suffix: '+', title: 'Projects Delivered', currentValue: 0 },
-    { number: 200, suffix: '+', title: 'Global Clients', currentValue: 0 }
+    { number: 50, suffix: '+', title: 'Projects Delivered', currentValue: 0 },
+    { number: 20, suffix: '+', title: 'Global Clients', currentValue: 0 }
   ];
 
   private animationFrameId: number | null = null;
