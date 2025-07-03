@@ -607,7 +607,7 @@ a {
     width: 35px;
     height: 35px;
     bottom: 10px;
-    right: 10px;
+    left: 10px;
   }
 
   /* Bot adjustments for mobile */
@@ -704,7 +704,7 @@ a {
     width: 35px;
     height: 35px;
     bottom: 10px;
-    right: 10px;
+    left: 10px;
   }
 
   /* Bot adjustments for mobile */
@@ -801,7 +801,7 @@ a {
     width: 35px;
     height: 35px;
     bottom: 10px;
-    right: 10px;
+    left: 10px;
   }
 
   /* Bot adjustments for mobile */
@@ -930,11 +930,11 @@ a {
   background-color: #4b5563;
 }
 
-/* Back to Top Button (no changes needed) */
+/* Back to Top Button - positioned to avoid chatbot overlap */
 .back-to-top {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
   width: 50px;
   height: 50px;
   background-color: #1a73e8;
