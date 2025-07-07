@@ -48,14 +48,23 @@ export class HeroComponent implements OnInit, OnDestroy {
   }
 
   generateParticles() {
-    for (let i = 0; i < 50; i++) {
+    // Reduce particles based on device performance
+    const particleCount = this.getParticleCount();
+    for (let i = 0; i < particleCount; i++) {
       this.particles.push({
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 4 + 1,
-        speed: Math.random() * 2 + 1
+        size: Math.random() * 3 + 1,
+        speed: Math.random() * 1.5 + 0.5
       });
     }
+  }
+
+  private getParticleCount(): number {
+    const width = window.innerWidth;
+    if (width < 768) return 15; // Mobile
+    if (width < 1024) return 25; // Tablet
+    return 35; // Desktop (reduced from 50)
   }
 
   scrollToProjects() {

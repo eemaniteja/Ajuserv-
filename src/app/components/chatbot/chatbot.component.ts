@@ -36,6 +36,9 @@ interface ChatMessage {
         
         <div class="chatbot-messages" #messagesContainer>
           <div class="welcome-message" *ngIf="messages.length === 0">
+            <div class="privacy-notice">
+              <p><strong>🔐 Privacy Notice:</strong> This chatbot provides information about Ajuserv services. We don't collect sensitive data like passwords or payment information. Conversations may be stored locally for session continuity.</p>
+            </div>
             <p>Hello! I'm here to help you with information about Ajuserv. Feel free to ask me about:</p>
             <ul>
               <li>Our services and solutions</li>
@@ -43,6 +46,9 @@ interface ChatMessage {
               <li>Project inquiries</li>
               <li>Contact information</li>
             </ul>
+            <div class="bot-limitations">
+              <p><em>🤖 Please note: I'm an AI assistant and cannot provide legal, financial, or medical advice. For complex technical discussions or specific project requirements, I'll connect you with our human experts.</em></p>
+            </div>
           </div>
           
           <div 
@@ -102,6 +108,9 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
   isTyping = false;
   hasNewMessage = false;
   private shouldScrollToBottom = false;
+  private messageCount = 0;
+  private sessionStartTime = Date.now();
+  private rateLimitWarningShown = false;
 
   constructor(private chatbotService: ChatbotService) {}
 
@@ -135,11 +144,22 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
       return;
     }
 
+    if (!this.checkRateLimit()) {
+      if (!this.rateLimitWarningShown) {
+        this.showRateLimitWarning();
+        this.rateLimitWarningShown = true;
+      }
+      this.userInput = '';
+      return;
+    }
+
     if (!this.isValidQuery(trimmedInput)) {
       this.showInvalidQueryMessage();
       this.userInput = '';
       return;
     }
+
+    this.messageCount++;
 
     const userMessage: ChatMessage = {
       id: this.generateId(),
@@ -176,7 +196,7 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
         setTimeout(() => {
           const errorMessage: ChatMessage = {
             id: this.generateId(),
-            text: 'Sorry, I encountered an error. Please try again later.',
+            text: 'I apologize, but I\'m experiencing technical difficulties. Please try again in a moment, or contact our team directly at ajuservitsolutions@gmail.com or +91 758541236 for immediate assistance.',
             isUser: false,
             timestamp: new Date()
           };
@@ -205,7 +225,11 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
     const spamPatterns = [
       /(.)\1{4,}/,
       /^[^a-zA-Z0-9\s]+$/,
-      /^\s*[!@#$%^&*()]+\s*$/
+      /^\s*[!@#$%^&*()]+\s*$/,
+      /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+      /<[^>]*>/g,
+      /javascript:/gi,
+      /on\w+\s*=/gi
     ];
 
     for (const pattern of spamPatterns) {
@@ -214,8 +238,24 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
       }
     }
 
+    const sensitiveDataPatterns = [
+      /\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b/,
+      /\b\d{3}-?\d{2}-?\d{4}\b/,
+      /password|pwd|pass/gi,
+      /credit card|debit card|card number/gi,
+      /ssn|social security/gi
+    ];
+
+    for (const pattern of sensitiveDataPatterns) {
+      if (pattern.test(query)) {
+        this.showSensitiveDataWarning();
+        return false;
+      }
+    }
+
     const inappropriateWords = [
-      'spam', 'hack', 'virus', 'malware', 'phishing'
+      'spam', 'hack', 'virus', 'malware', 'phishing', 'sql injection',
+      'xss', 'csrf', 'ddos', 'exploit', 'vulnerability'
     ];
 
     const lowerQuery = query.toLowerCase();
@@ -240,6 +280,44 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.shouldScrollToBottom = true;
   }
 
+  private showSensitiveDataWarning(): void {
+    const warningMessage: ChatMessage = {
+      id: this.generateId(),
+      text: '🔐 Security Notice: Please don\'t share sensitive information like passwords, credit card numbers, or personal identification. For secure communications, please contact us directly at ajuservitsolutions@gmail.com or +91 758541236.',
+      isUser: false,
+      timestamp: new Date()
+    };
+    
+    this.messages.push(warningMessage);
+    this.shouldScrollToBottom = true;
+  }
+
+  private checkRateLimit(): boolean {
+    const maxMessagesPerMinute = 10;
+    const timeWindow = 60000;
+    const currentTime = Date.now();
+    
+    if (currentTime - this.sessionStartTime > timeWindow) {
+      this.messageCount = 0;
+      this.sessionStartTime = currentTime;
+      this.rateLimitWarningShown = false;
+    }
+    
+    return this.messageCount < maxMessagesPerMinute;
+  }
+
+  private showRateLimitWarning(): void {
+    const warningMessage: ChatMessage = {
+      id: this.generateId(),
+      text: '⏰ Rate Limit: You\'re sending messages too quickly. Please wait a moment before sending another message. For urgent inquiries, contact us at ajuservitsolutions@gmail.com or +91 758541236.',
+      isUser: false,
+      timestamp: new Date()
+    };
+    
+    this.messages.push(warningMessage);
+    this.shouldScrollToBottom = true;
+  }
+
   formatTime(timestamp: Date): string {
     return timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
@@ -256,6 +334,7 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   private loadChatHistory(): void {
+    this.clearExpiredData();
     const savedMessages = localStorage.getItem('chatbot-messages');
     if (savedMessages) {
       try {
@@ -272,9 +351,27 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   private saveChatHistory(): void {
     try {
-      localStorage.setItem('chatbot-messages', JSON.stringify(this.messages));
+      const dataToSave = {
+        messages: this.messages,
+        timestamp: Date.now()
+      };
+      localStorage.setItem('chatbot-messages', JSON.stringify(dataToSave.messages));
+      localStorage.setItem('chatbot-session-time', dataToSave.timestamp.toString());
     } catch (error) {
       console.error('Error saving chat history:', error);
+    }
+  }
+
+  private clearExpiredData(): void {
+    const sessionTimeout = 15 * 60 * 1000;
+    const lastSessionTime = localStorage.getItem('chatbot-session-time');
+    
+    if (lastSessionTime) {
+      const timeDiff = Date.now() - parseInt(lastSessionTime);
+      if (timeDiff > sessionTimeout) {
+        localStorage.removeItem('chatbot-messages');
+        localStorage.removeItem('chatbot-session-time');
+      }
     }
   }
 }

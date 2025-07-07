@@ -23,27 +23,37 @@
   display: inline-block;
   background: linear-gradient(135deg, #317cbf, #317cbf);
   color: white;
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: -0.005em;
   margin-bottom: 1rem;
+  transition: font-weight 0.2s ease, letter-spacing 0.2s ease;
 }
 
 .section-title {
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #1e293b;
   margin-bottom: 1rem;
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  transition: font-weight 0.3s ease, letter-spacing 0.3s ease;
 }
 
 .section-description {
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.25rem;
+  font-weight: 400;
   color: #64748b;
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  transition: font-weight 0.2s ease, color 0.2s ease;
 }
 
 .services-rows {

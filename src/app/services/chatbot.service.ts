@@ -12,14 +12,14 @@ interface ChatResponse {
 export class ChatbotService {
   private responses: { [key: string]: string[] } = {
     greeting: [
-      "Hello! Welcome to Ajuserv IT Solutions. I'm here to help you with information about our company and services. How can I assist you today?",
-      "Hi there! I'm the Ajuserv assistant. Feel free to ask me about our AI solutions, web development, cloud services, or anything else about our company.",
-      "Welcome to Ajuserv! We're a technology company specializing in AI, ML, and digital solutions. What would you like to know about us?"
+      "Hello! Welcome to Ajuserv IT Solutions. I'm here to help you with information about our company and services. How can I assist you today? ℹ️ Please note: I provide general information and cannot offer legal, financial, or medical advice.",
+      "Hi there! I'm the Ajuserv assistant. Feel free to ask me about our AI solutions, web development, cloud services, or anything else about our company. For complex discussions, our human experts are available!",
+      "Welcome to Ajuserv! We're a technology company specializing in AI, ML, and digital solutions. What would you like to know about us? ℹ️ I focus on company information - for detailed technical support, please connect with our specialists."
     ],
     services: [
-      "Ajuserv specializes in several key areas: 🔹 AI Strategy & Consulting 🔹 AI and ML Services 🔹 Generative AI Solutions 🔹 Web Development 🔹 Power Platform Development 🔹 Azure Cloud Services 🔹 Chatbot & Conversational AI. Which service interests you most?",
-      "Our main services include AI/ML solutions, web development, cloud services (Azure), Power Platform integration, and chatbot development. We also provide AI strategy consulting to help businesses implement AI effectively.",
-      "We offer comprehensive digital solutions: custom software development, artificial intelligence implementation, machine learning models, cloud migration, and conversational AI. What type of solution are you looking for?"
+      "Ajuserv specializes in several key areas: 🔹 AI Strategy & Consulting 🔹 AI and ML Services 🔹 Generative AI Solutions 🔹 Web Development 🔹 Power Platform Development 🔹 Azure Cloud Services 🔹 Chatbot & Conversational AI. Which service interests you most? ℹ️ Please note: I provide general information only and cannot offer legal, financial, or medical advice.",
+      "Our main services include AI/ML solutions, web development, cloud services (Azure), Power Platform integration, and chatbot development. We also provide AI strategy consulting to help businesses implement AI effectively. ℹ️ For detailed technical discussions, our human experts are available at ajuservitsolutions@gmail.com.",
+      "We offer comprehensive digital solutions: custom software development, artificial intelligence implementation, machine learning models, cloud migration, and conversational AI. What type of solution are you looking for? ℹ️ For specific project requirements, I recommend connecting with our specialists."
     ],
     team: [
       "Our expert team includes skilled professionals: Achuth, Dinesh, Kumar, Prajwal, Ragini, Ravi, Vamsi, and Varsha. Each brings specialized expertise in AI, software development, and digital transformation to deliver exceptional results.",
@@ -76,6 +76,11 @@ export class ChatbotService {
       "While I can help with general information about Ajuserv, for complex technical queries, specific project requirements, or topics beyond our company information, I'd recommend reaching out to our experts directly. Email ajuservitsolutions@gmail.com for personalized assistance - we guarantee a response within 24 hours!",
       "For detailed technical discussions, custom project planning, or queries outside Ajuserv's company information, our specialists can provide better assistance. Please contact ajuservitsolutions@gmail.com or call +91 758541236. We offer free consultations and respond within 24 hours!"
     ],
+    humanEscalation: [
+      "👨‍💻 I'd be happy to connect you with our human experts for detailed assistance! Please contact us at: 📧 ajuservitsolutions@gmail.com or 📞 +91 758541236. Our team offers free consultations and guarantees a response within 24 hours.",
+      "🤝 For personalized support and detailed project discussions, our human specialists are ready to help! Reach out via ajuservitsolutions@gmail.com or call +91 758541236. We provide free consultations with 24-hour response guarantee.",
+      "💬 Let me connect you with our expert team for comprehensive assistance! Contact ajuservitsolutions@gmail.com or +91 758541236. We offer free consultations and our specialists will respond within 24 hours to address your specific needs."
+    ],
     default: [
       "I'm here to help with information about Ajuserv's services, team, and capabilities. If your question is outside our company scope or requires detailed technical discussion, please contact our team at ajuservitsolutions@gmail.com or call +91 758541236. We offer free consultations with 24-hour response guarantee!",
       "That's an interesting question! While I focus on Ajuserv company information, our expert team can help with broader topics. For detailed assistance, please email ajuservitsolutions@gmail.com - we provide free consultations and respond within 24 hours.",
@@ -96,6 +101,7 @@ export class ChatbotService {
     cloud: ['cloud', 'azure', 'cloud services', 'cloud migration', 'infrastructure', 'cloud computing', 'microsoft azure'],
     consultation: ['consultation', 'free consultation', 'consult', 'advice', 'guidance', 'discuss', 'talk', 'meeting'],
     hours: ['hours', 'time', 'availability', 'when open', 'working hours', 'schedule', 'timing'],
+    humanEscalation: ['speak to human', 'talk to person', 'human agent', 'live chat', 'customer support', 'representative', 'escalate', 'speak to someone', 'real person'],
     outOfScope: ['weather', 'news', 'politics', 'sports', 'entertainment', 'personal', 'unrelated', 'joke', 'game']
   };
 
