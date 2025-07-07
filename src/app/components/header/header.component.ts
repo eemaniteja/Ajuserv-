@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeService, Theme } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +13,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isScrolled = false;
   isMobileMenuOpen = false;
   activeSection = 'home';
+  currentTheme: Theme = 'light';
   private scrollTimeout: any;
+
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit() {
     this.updateActiveSection();
+    
+    // Subscribe to theme changes
+    this.themeService.theme$.subscribe(theme => {
+      this.currentTheme = theme;
+    });
   }
 
   ngOnDestroy() {
@@ -123,5 +132,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   isActiveSection(sectionId: string): boolean {
     return this.activeSection === sectionId;
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+  }
+
+  isDarkMode(): boolean {
+    return this.currentTheme === 'dark';
   }
 }

@@ -2,6 +2,35 @@
   padding: 6rem 0;
   background: linear-gradient(135deg, #317cbf 0%,#317cbf 100%);
   position: relative;
+  transition: background 0.3s ease;
+}
+
+/* Dark theme - Contact section */
+:host-context(.dark-theme) .contact-section {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* Dark theme - Contact text colors */
+:host-context(.dark-theme) .contact-title {
+  color: #f1f5f9 !important;
+}
+
+:host-context(.dark-theme) .contact-description,
+:host-context(.dark-theme) .contact-info p,
+:host-context(.dark-theme) .form-label {
+  color: #cbd5e1 !important;
+}
+
+:host-context(.dark-theme) .contact-form input,
+:host-context(.dark-theme) .contact-form textarea {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(51, 65, 85, 0.5);
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .contact-form input::placeholder,
+:host-context(.dark-theme) .contact-form textarea::placeholder {
+  color: #94a3b8;
 }
 
 .contact-section::before {

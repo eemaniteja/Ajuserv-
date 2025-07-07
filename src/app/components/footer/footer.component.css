@@ -2,6 +2,27 @@
   background: #0f172a;
   color: white;
   padding: 4rem 0 0;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark theme - Footer */
+:host-context(.dark-theme) .footer {
+  background: #030712;
+}
+
+/* Dark theme - Footer text colors */
+:host-context(.dark-theme) .footer-title {
+  color: #f1f5f9 !important;
+}
+
+:host-context(.dark-theme) .footer-description,
+:host-context(.dark-theme) .footer-link,
+:host-context(.dark-theme) .footer-text {
+  color: #cbd5e1 !important;
+}
+
+:host-context(.dark-theme) .footer-link:hover {
+  color: #a78bfa !important;
 }
 
 .footer-container {

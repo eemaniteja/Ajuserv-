@@ -27,6 +27,19 @@
   height: 55px;
   box-sizing: border-box;
   width: 100%;
+  position: relative;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
  
 .logo {
@@ -130,6 +143,124 @@
   border-radius: 2px;
   transition: all 0.3s ease;
 }
+
+/* Header Controls */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 25px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.theme-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover .theme-icon {
+  transform: rotate(15deg);
+}
+
+.theme-text {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: letter-spacing 0.2s ease;
+}
+
+.theme-toggle-btn:hover .theme-text {
+  letter-spacing: 0.02em;
+}
+
+.sun-icon,
+.moon-icon {
+  transition: all 0.3s ease;
+}
+
+.sun-icon {
+  color: #f59e0b;
+}
+
+.moon-icon {
+  color: #6366f1;
+}
+
+/* Dark theme styles for header */
+:host-context(.dark-theme) .header {
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+}
+
+:host-context(.dark-theme) .header.scrolled {
+  background: rgba(15, 23, 42, 0.98);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+:host-context(.dark-theme) .nav-link {
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .nav-link:hover {
+  color: #8b5cf6;
+}
+
+:host-context(.dark-theme) .nav-link.active {
+  color: #8b5cf6;
+}
+
+:host-context(.dark-theme) .contact-btn {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  color: white;
+}
+
+:host-context(.dark-theme) .contact-btn:hover {
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+:host-context(.dark-theme) .theme-toggle-btn {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.2);
+  color: #e2e8f0;
+}
+
+:host-context(.dark-theme) .theme-toggle-btn:hover {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+:host-context(.dark-theme) .mobile-menu-btn span {
+  background: #e2e8f0;
+}
  
 /* Tablet responsiveness */
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -200,6 +331,25 @@
   .contact-btn {
     margin-left: 0;
     padding: 0.6rem 1.2rem;
+  }
+
+  /* Theme toggle adjustments for mobile */
+  .header-controls {
+    gap: 0.5rem;
+  }
+  
+  .theme-toggle-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .theme-text {
+    display: none; /* Hide text on mobile, show only icon */
+  }
+
+  /* Dark theme mobile menu */
+  :host-context(.dark-theme) .nav-links {
+    background: rgba(15, 23, 42, 0.98);
   }
 }
  

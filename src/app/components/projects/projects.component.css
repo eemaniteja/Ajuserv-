@@ -2,6 +2,12 @@
   padding: 4rem 0;
   background: white;
   margin: 0 auto;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark theme - Projects section */
+:host-context(.dark-theme) .projects-section {
+  background: #0f172a;
 }
 
 .projects-container {
@@ -21,7 +27,6 @@
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 50px;
-  font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -32,6 +37,7 @@
   color: #1e293b;
   margin-bottom: 1rem;
   line-height: 1.2;
+  transition: color 0.3s ease;
 }
 
 .section-description {
@@ -40,6 +46,16 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+/* Dark theme - Projects typography */
+:host-context(.dark-theme) .section-title {
+  color: #f1f5f9;
+}
+
+:host-context(.dark-theme) .section-description {
+  color: #cbd5e1;
 }
 
 .filter-tabs {
@@ -59,7 +75,46 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 0.875rem;
+}
+
+/* Dark theme - Filter tabs */
+:host-context(.dark-theme) .filter-tab {
+  border-color: rgba(51, 65, 85, 0.5);
+  background: rgba(30, 41, 59, 0.5);
+  color: #cbd5e1;
+}
+
+:host-context(.dark-theme) .filter-tab:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+}
+
+:host-context(.dark-theme) .filter-tab.active {
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
+}
+
+/* Dark theme - Project cards */
+:host-context(.dark-theme) .project-card {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(51, 65, 85, 0.3);
+}
+
+:host-context(.dark-theme) .project-card:hover {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+:host-context(.dark-theme) .project-title {
+  color: #f1f5f9 !important;
+}
+
+:host-context(.dark-theme) .project-description,
+:host-context(.dark-theme) .project-tech,
+:host-context(.dark-theme) .project-category {
+  color: #cbd5e1 !important;
 }
 
 .filter-tab:hover {

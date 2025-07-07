@@ -3,6 +3,34 @@
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   position: relative;
   overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+/* Dark theme - Expert team section */
+:host-context(.dark-theme) .expert-team-section {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* Dark theme - Expert team text colors */
+:host-context(.dark-theme) .section-title {
+  color: #f1f5f9 !important;
+}
+
+:host-context(.dark-theme) .section-description,
+:host-context(.dark-theme) .team-member-name,
+:host-context(.dark-theme) .team-member-role,
+:host-context(.dark-theme) .team-member-bio {
+  color: #cbd5e1 !important;
+}
+
+:host-context(.dark-theme) .team-card {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(51, 65, 85, 0.3);
+}
+
+:host-context(.dark-theme) .team-card:hover {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(139, 92, 246, 0.3);
 }
 
 .expert-team-section::before {

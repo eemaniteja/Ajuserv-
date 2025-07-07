@@ -4,6 +4,12 @@
   overflow: hidden;
   min-height: 100vh;
   background: #f8fafc;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark theme styles */
+:host-context(.dark-theme) .services-section {
+  background: #0f172a;
 }
 
 .services-container {
@@ -41,7 +47,7 @@
   margin-bottom: 1rem;
   line-height: 1.25;
   letter-spacing: -0.015em;
-  transition: font-weight 0.3s ease, letter-spacing 0.3s ease;
+  transition: font-weight 0.3s ease, letter-spacing 0.3s ease, color 0.3s ease;
 }
 
 .section-description {
@@ -53,7 +59,16 @@
   margin: 0 auto;
   line-height: 1.65;
   letter-spacing: -0.005em;
-  transition: font-weight 0.2s ease, color 0.2s ease;
+  transition: font-weight 0.2s ease, color 0.3s ease;
+}
+
+/* Dark theme - Typography */
+:host-context(.dark-theme) .section-title {
+  color: #f1f5f9;
+}
+
+:host-context(.dark-theme) .section-description {
+  color: #cbd5e1;
 }
 
 .services-rows {
@@ -98,6 +113,19 @@
 .service-card:hover {
   transform: translateY(-0px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark theme - Service Cards */
+:host-context(.dark-theme) .service-card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+:host-context(.dark-theme) .service-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+:host-context(.dark-theme) .service-card.expanded {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
 }
 
 .service-card.expanded {

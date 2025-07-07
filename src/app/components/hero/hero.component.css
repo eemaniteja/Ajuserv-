@@ -22,6 +22,38 @@ a {
   align-items: center;
   overflow: hidden;
   background-color: #0d1a2f;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark theme - Hero section */
+:host-context(.dark-theme) .hero {
+  background-color: #030712;
+}
+
+/* Dark theme - Text colors */
+:host-context(.dark-theme) .bot-banner {
+  color: #f1f5f9;
+}
+
+/* Dark theme - Cookie banner */
+:host-context(.dark-theme) .cookie-banner {
+  background-color: #f2f4f7;
+}
+
+:host-context(.dark-theme) .cookie-content {
+  color: #111 !important;
+}
+
+:host-context(.dark-theme) .cookie-message {
+  color: #111 !important;
+}
+
+:host-context(.dark-theme) .cookie-message strong {
+  color: #111 !important;
+}
+
+:host-context(.dark-theme) .cookie-message a {
+  color: #1a73e8 !important;
 }
 
 .hero-background-image {
@@ -429,6 +461,7 @@ a {
 .bot-banner {
   background-color: #87ceeb;
   color: #0d1a2f;
+  transition: color 0.3s ease;
   padding: clamp(6px, 1vw, 8px) clamp(10px, 2vw, 15px); /* Responsive padding */
   border-radius: 20px;
   font-weight: 600;
@@ -892,6 +925,7 @@ a {
   gap: 1rem;
   font-size: 0.95rem;
   color: #111;
+  transition: color 0.3s ease;
 }
 @media (min-width: 768px) {
   .cookie-content {

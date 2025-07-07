@@ -302,7 +302,251 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "kern" 1, "liga" 1;
-  transition: font-weight 0.2s ease, letter-spacing 0.2s ease;
+  transition: font-weight 0.2s ease, letter-spacing 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  color-scheme: dark;
+}
+
+.dark-theme body {
+  color: #e2e8f0;
+  background: #0f172a;
+}
+
+/* Dark Theme - Loading Screen */
+.dark-theme .loading-screen {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+.dark-theme .loading-text {
+  background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark-theme .loading-tagline {
+  color: #cbd5e1;
+}
+
+.dark-theme .loading-percentage {
+  color: #cbd5e1;
+}
+
+/* Dark Theme - Typography */
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark-theme p {
+  color: #cbd5e1 !important;
+}
+
+.dark-theme span {
+  color: #e2e8f0;
+}
+
+.dark-theme .text-dark,
+.dark-theme .text-black {
+  color: #f1f5f9 !important;
+}
+
+/* Dark theme - All text elements */
+.dark-theme * {
+  color: inherit;
+}
+
+.dark-theme [style*="color: #000"],
+.dark-theme [style*="color: black"],
+.dark-theme [style*="color: #1e293b"],
+.dark-theme [style*="color: #374151"],
+.dark-theme [style*="color: #4b5563"],
+.dark-theme [style*="color: #6b7280"],
+.dark-theme [style*="color: #64748b"],
+.dark-theme [style*="color: #475569"],
+.dark-theme [style*="color: #4A5568"] {
+  color: #e2e8f0 !important;
+}
+
+/* Dark theme - Comprehensive text color fixes */
+.dark-theme .text-gray-500,
+.dark-theme .text-gray-600,
+.dark-theme .text-gray-700,
+.dark-theme .text-gray-800,
+.dark-theme .text-gray-900,
+.dark-theme .text-slate-500,
+.dark-theme .text-slate-600,
+.dark-theme .text-slate-700,
+.dark-theme .text-slate-800,
+.dark-theme .text-slate-900 {
+  color: #cbd5e1 !important;
+}
+
+/* Dark theme - Ensure all dark text is visible */
+.dark-theme div,
+.dark-theme span,
+.dark-theme label,
+.dark-theme small,
+.dark-theme strong,
+.dark-theme em,
+.dark-theme i,
+.dark-theme b {
+  color: inherit;
+}
+
+/* Force light colors for specific dark colors */
+.dark-theme [class*="text-dark"],
+.dark-theme [class*="text-black"],
+.dark-theme [class*="text-gray-8"],
+.dark-theme [class*="text-gray-9"],
+.dark-theme [class*="text-slate-8"],
+.dark-theme [class*="text-slate-9"] {
+  color: #f1f5f9 !important;
+}
+
+/* Dark Theme - Links and Buttons */
+.dark-theme a {
+  color: #8b5cf6;
+}
+
+.dark-theme a:hover {
+  color: #a78bfa;
+}
+
+.dark-theme button {
+  background: rgba(139, 92, 246, 0.1);
+  color: #e2e8f0;
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.dark-theme button:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Dark Theme - Cards and Containers */
+.dark-theme .card,
+.dark-theme .container-bg {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(51, 65, 85, 0.3);
+}
+
+.dark-theme .card:hover {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Dark Theme - Sections */
+.dark-theme section {
+  background: #0f172a;
+}
+
+.dark-theme .section-alt {
+  background: #1e293b;
+}
+
+/* Dark Theme - Forms */
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme select {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(51, 65, 85, 0.5);
+  color: #e2e8f0;
+}
+
+.dark-theme input:focus,
+.dark-theme textarea:focus,
+.dark-theme select:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.dark-theme input::placeholder,
+.dark-theme textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Dark Theme - Gradients */
+.dark-theme .gradient-bg {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+}
+
+.dark-theme .gradient-text {
+  background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dark Theme - Shadows */
+.dark-theme .shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .shadow-lg {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark Theme - Particles */
+.dark-theme .particle {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+/* Dark Theme - Scrollbar */
+.dark-theme ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #7c3aed, #0891b2);
+}
+
+/* Dark Theme - Selection */
+.dark-theme ::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: #f1f5f9;
+}
+
+/* Light Theme Styles */
+.light-theme {
+  color-scheme: light;
+}
+
+.light-theme body {
+  color: #1e293b;
+  background: #ffffff;
+}
+
+/* Light Theme - Cards and Containers */
+.light-theme .card,
+.light-theme .container-bg {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(226, 232, 240, 0.5);
+}
+
+.light-theme .card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+/* Light Theme - Sections */
+.light-theme section {
+  background: #ffffff;
+}
+
+.light-theme .section-alt {
+  background: #f8fafc;
 }
 
 /* Typography */
