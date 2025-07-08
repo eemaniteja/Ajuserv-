@@ -17,20 +17,22 @@
 }
 
 :host-context(.dark-theme) .section-description,
-:host-context(.dark-theme) .team-member-name,
-:host-context(.dark-theme) .team-member-role,
+:host-context(.dark-theme) .member-name,
+:host-context(.dark-theme) .member-position,
 :host-context(.dark-theme) .team-member-bio {
   color: #cbd5e1 !important;
 }
 
-:host-context(.dark-theme) .team-card {
-  background: rgba(30, 41, 59, 0.5);
+:host-context(.dark-theme) .team-member-card {
+  background: rgba(30, 41, 59, 0.8);
   border-color: rgba(51, 65, 85, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
-:host-context(.dark-theme) .team-card:hover {
-  background: rgba(30, 41, 59, 0.7);
+:host-context(.dark-theme) .team-member-card:hover {
+  background: rgba(30, 41, 59, 0.9);
   border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
 }
 
 .expert-team-section::before {
