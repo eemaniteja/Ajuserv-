@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatbotService } from '../../services/chatbot.service';
@@ -15,8 +15,11 @@ interface ChatMessage {
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="chatbot-container" [class.open]="isOpen">
-      <div class="chatbot-toggle" (click)="toggleChat()">
+    <div class="chatbot-container" [class.open]="isOpen" [class.dragging]="isDragging"
+         [style.transform]="'translate(' + position.x + 'px, ' + position.y + 'px)'">
+      <div class="chatbot-toggle" (click)="toggleChat()" 
+           (mousedown)="onMouseDown($event)" 
+           (touchstart)="onTouchStart($event)">
         <img src="assets/Bot.gif" alt="Chat" class="bot-icon">
         <span class="chat-text">Chat with us</span>
         <div class="notification-dot" *ngIf="hasNewMessage && !isOpen"></div>
@@ -111,11 +114,18 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
   private messageCount = 0;
   private sessionStartTime = Date.now();
   private rateLimitWarningShown = false;
+  
+  position = { x: 0, y: 0 };
+  isDragging = false;
+  private dragOffset = { x: 0, y: 0 };
+  private startPosition = { x: 0, y: 0 };
+  private clickThreshold = 5;
 
   constructor(private chatbotService: ChatbotService) {}
 
   ngOnInit(): void {
     this.loadChatHistory();
+    this.loadPosition();
   }
 
   ngOnDestroy(): void {
@@ -130,6 +140,13 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   toggleChat(): void {
+    if (this.isDragging) {
+      return;
+    }
+    this.performToggleChat();
+  }
+
+  private performToggleChat(): void {
     this.isOpen = !this.isOpen;
     if (this.isOpen) {
       this.hasNewMessage = false;
@@ -374,4 +391,113 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
       }
     }
   }
+
+  onMouseDown(event: MouseEvent): void {
+    event.preventDefault();
+    this.startDrag(event.clientX, event.clientY);
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    event.preventDefault();
+    const touch = event.touches[0];
+    this.startDrag(touch.clientX, touch.clientY);
+  }
+
+  private startDrag(clientX: number, clientY: number): void {
+    this.isDragging = true;
+    this.startPosition.x = clientX;
+    this.startPosition.y = clientY;
+    this.dragOffset.x = clientX - this.position.x;
+    this.dragOffset.y = clientY - this.position.y;
+    
+    document.body.style.userSelect = 'none';
+    document.body.style.cursor = 'move';
+  }
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent): void {
+    if (this.isDragging) {
+      this.drag(event.clientX, event.clientY);
+    }
+  }
+
+  @HostListener('document:touchmove', ['$event'])
+  onTouchMove(event: TouchEvent): void {
+    if (this.isDragging) {
+      event.preventDefault();
+      const touch = event.touches[0];
+      this.drag(touch.clientX, touch.clientY);
+    }
+  }
+
+  private drag(clientX: number, clientY: number): void {
+    const newX = clientX - this.dragOffset.x;
+    const newY = clientY - this.dragOffset.y;
+    
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const chatbotWidth = 350;
+    const chatbotHeight = 80;
+    
+    const minX = -viewportWidth + chatbotWidth;
+    const maxX = viewportWidth - chatbotWidth;
+    const minY = -viewportHeight + chatbotHeight;
+    const maxY = viewportHeight - chatbotHeight;
+    
+    this.position.x = Math.max(minX, Math.min(maxX, newX));
+    this.position.y = Math.max(minY, Math.min(maxY, newY));
+  }
+
+  @HostListener('document:mouseup', ['$event'])
+  onMouseUp(event: MouseEvent): void {
+    if (this.isDragging) {
+      this.endDrag(event.clientX, event.clientY);
+    }
+  }
+
+  @HostListener('document:touchend', ['$event'])
+  onTouchEnd(event: TouchEvent): void {
+    if (this.isDragging) {
+      const touch = event.changedTouches[0];
+      this.endDrag(touch.clientX, touch.clientY);
+    }
+  }
+
+  private endDrag(clientX: number, clientY: number): void {
+    const dragDistance = Math.sqrt(
+      Math.pow(clientX - this.startPosition.x, 2) + 
+      Math.pow(clientY - this.startPosition.y, 2)
+    );
+    
+    const wasClick = dragDistance < this.clickThreshold;
+    
+    this.isDragging = false;
+    document.body.style.userSelect = '';
+    document.body.style.cursor = '';
+    
+    if (wasClick) {
+      // This was a click, not a drag - toggle the chat
+      setTimeout(() => this.performToggleChat(), 0);
+    } else {
+      // This was a drag - save position
+      this.savePosition();
+    }
+  }
+
+  private savePosition(): void {
+    localStorage.setItem('chatbot-position', JSON.stringify(this.position));
+  }
+
+  private loadPosition(): void {
+    const savedPosition = localStorage.getItem('chatbot-position');
+    if (savedPosition) {
+      try {
+        this.position = JSON.parse(savedPosition);
+      } catch (error) {
+        console.error('Error loading chatbot position:', error);
+        this.position = { x: 0, y: 0 };
+      }
+    }
+  }
+
 }
