@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { Service } from '../../models/service.model';
+import { Service, ServiceBulletPoint } from '../../models/service.model';
 
 @Component({
   selector: 'app-services',
@@ -19,6 +19,8 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
   selectedCardIndex: number = -1;
   loading = false;
   error: string | null = null;
+  isExpandedWithDetails = false;
+  selectedBulletPoint: ServiceBulletPoint | null = null;
 
   private carouselInterval: any;
   currentIndex = 0;
@@ -191,12 +193,33 @@ export class ServicesComponent implements OnInit, AfterViewInit, OnDestroy {
       this.selectedService = null;
       this.selectedRowIndex = -1;
       this.selectedCardIndex = -1;
+      this.isExpandedWithDetails = false;
+      this.selectedBulletPoint = null;
       return;
     }
 
     this.selectedService = service;
     this.selectedRowIndex = rowIndex;
     this.selectedCardIndex = cardIndex;
+    this.isExpandedWithDetails = false;
+    this.selectedBulletPoint = null;
+  }
+
+  expandWithDetails(service: Service, event: Event): void {
+    event.stopPropagation();
+    this.isExpandedWithDetails = true;
+    this.selectedBulletPoint = null;
+  }
+
+  collapseDetails(event: Event): void {
+    event.stopPropagation();
+    this.isExpandedWithDetails = false;
+    this.selectedBulletPoint = null;
+  }
+
+  selectBulletPoint(bulletPoint: ServiceBulletPoint, event: Event): void {
+    event.stopPropagation();
+    this.selectedBulletPoint = bulletPoint;
   }
 
   isCardCompressed(service: Service, rowIndex: number): boolean {

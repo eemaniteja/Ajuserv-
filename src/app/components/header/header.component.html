@@ -11,12 +11,23 @@
         <a (click)="scrollToSection('home')" 
            class="nav-link" 
            [class.active]="isActiveSection('home')">Home</a>
-        <a (click)="scrollToSection('services')" 
-           class="nav-link" 
-           [class.active]="isActiveSection('services')">Services</a>
-        <a (click)="scrollToSection('projects')" 
-           class="nav-link" 
-           [class.active]="isActiveSection('projects')">Projects</a>
+        
+        <div class="dropdown" [class.open]="isPortfolioOpen">
+          <a (click)="togglePortfolio()" 
+             class="nav-link dropdown-toggle"
+             [class.active]="isPortfolioActive()">
+            Portfolio
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 4.5 6 7.5 9 4.5"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a (click)="navigateToProducts()" class="dropdown-item">Products</a>
+            <a (click)="onDropdownItemClick('services')" class="dropdown-item" [class.active]="isActiveSection('services')">Services</a>
+            <a (click)="onDropdownItemClick('solutions')" class="dropdown-item" [class.active]="isActiveSection('solutions')">Solutions</a>
+          </div>
+        </div>
+        
         <a (click)="scrollToSection('about')" 
            class="nav-link" 
            [class.active]="isActiveSection('about')">About</a>

@@ -27,7 +27,7 @@ import { ExpertTeamComponent } from '../expert-team/expert-team.component';
     <div id="services" class="section-wrapper section-transition">
       <app-services></app-services>
     </div>
-    <div id="projects" class="section-wrapper section-transition">
+    <div id="solutions" class="section-wrapper section-transition">
       <app-projects></app-projects>
     </div>
     <div id="about" class="section-wrapper section-transition">

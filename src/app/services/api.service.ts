@@ -25,7 +25,7 @@ export class ApiService {
         description: 'Experience seamless language translation with our Speech Translation solution powered by Azure Cognitive Services. Using a robust tech stack including Python and Visual Studio Code, we have automated the translation process, allowing real-time transcription and translation of spoken language. By integrating Azure Speech-to-Text and Text Translation APIs, we ensure accurate and timely translations, breaking down language barriers and enabling effective communication. Our solution offers scalability, efficiency, and continuous improvement, guaranteeing reliable translation services tailored to your needs.',
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREFQl1pSRDFipxq3-YDgH2FL2ZcP30jqLiDw&s",
         technologies: ['TensorFlow', 'Python', 'React', 'PostgreSQL'],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: true,
         demoUrl: '#',
         githubUrl: '#',
@@ -37,7 +37,7 @@ export class ApiService {
         description: 'Our solution leverages cutting-edge technology to automate text-to-speech and speech-to-text conversions, addressing the challenges of manual conversion, accessibility, workflow inefficiencies, and scalability limitations. By integrating Azure Cognitive Services APIs, specifically Text-to-Speech and Speech-to-Text, with custom Python scripts developed in Visual Studio Code, we enable seamless and efficient conversion workflows. Our approach prioritizes real-time capabilities, allowing instant communication through accurate and reliable conversion services. Error handling mechanisms are embedded within the scripts to ensure robustness and reliability, while continuous improvement efforts drive enhancements in accuracy, efficiency, and user experience based on feedback and performance metrics. With our solution, we empower businesses to streamline communication processes and provide inclusive access to information for individuals with visual or hearing impairments.',
         image: "https://static.vecteezy.com/system/resources/previews/011/427/589/non_2x/speech-to-text-app-voice-recognition-application-convert-speech-to-text-multi-language-speech-recognizer-voice-to-text-software-concept-flat-modern-illustration-vector.jpg",
         technologies: ['PyTorch', 'Redis', 'FastAPI', 'MongoDB'],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: true,
         demoUrl: '#',
         githubUrl: '#'
@@ -48,7 +48,7 @@ export class ApiService {
         description: 'Our solution addresses the critical need for efficient and secure access to information contained within confidential documents for organizations. By leveraging cutting-edge technologies such as natural language processing (NLP) and machine learning, our chatbot acts as a virtual assistant, adeptly navigating through documents to extract relevant insights. The integration of the OpenAI API enhances the chatbots understanding of user queries, while advanced techniques like sentence embeddings and similarity search algorithms ensure pinpoint accuracy in retrieving pertinent passages from the documents. Built using Streamlit, our web-based interface provides a seamless user experience, allowing effortless interaction with the chatbot. Crucially, our solution prioritizes data privacy and security by processing documents locally, safeguarding sensitive information from unauthorized access. With our innovative approach, organizations can streamline workflows, enhance decision-making, and uphold the utmost confidentiality and security standards.',
         image: 'https://ajuserv.com/projects/img/page10.png',
         technologies: ['OpenAI', 'LangChain', 'Streamlit'],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: false,
         demoUrl: '#',
         githubUrl: '#'
@@ -59,7 +59,7 @@ export class ApiService {
         description: 'Streamlit Pro offers an unparalleled solution for showcasing data-driven insights through dynamic and interactive web applications. Utilizing Python for powerful data processing and Streamlit as the premier framework for creating elegant web apps, Streamlit Pro enables seamless public deployment on professional-grade hosting platforms. This ensures reliability, scalability, and security, allowing users to explore, analyze, and interact with visualizations and analyses in real-time. By transforming Python scripts into engaging web apps, Streamlit Pro overcomes the limitations of static reports and complex deployment processes, providing a user-friendly and efficient way to share data insights with a global audience.',
         image: "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_1000/v1709127737/catalog/1581333440855343104/kslfeiaynuroozvcyhhi.webp",
         technologies: ['Python', 'Streamlit'],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: true,
         demoUrl: '#',
         githubUrl: '#'
@@ -70,7 +70,7 @@ export class ApiService {
         description: 'StoryForge is an innovative platform that revolutionizes storytelling by leveraging cutting-edge AI technologies. Built on a robust tech stack including Python, the Transformers library, Streamlit, Hugging Face Hub, and OpenAI API, StoryForge seamlessly transforms images into captivating narratives and converts text into immersive audio experiences. Users can effortlessly upload images to generate descriptive texts, which are then expanded into engaging stories using advanced language models. These stories can be experienced through audio narration, enhancing accessibility and engagement. StoryForge addresses the inefficiencies of traditional storytelling by automating the conversion process and providing a user-friendly interface for creating and sharing dynamic tales. Whether for personal anecdotes, fictional stories, or educational content, StoryForge empowers users to craft and enjoy rich, interactive storytelling experiences.',
         image: 'https://ajuserv.com/projects/img/page12.png',
         technologies: ['Hugging Face', 'OpenAI',],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: true,
         demoUrl: '#',
         githubUrl: '#'
@@ -81,7 +81,7 @@ export class ApiService {
         description: 'Empowering Financial Decision-Making with Streamlit and Azure Integration" revolutionizes mortgage management by seamlessly integrating Streamlits interactive interface and Azures scalability. Utilizing Python and Pandas for data processing and Matplotlib for visualizations, the application simplifies complex mortgage calculations and presents repayment schedules in a user-friendly format. Traditional manual methods are replaced, ensuring accuracy and efficiency while empowering users to make informed decisions about their housing investments. By automating calculations and offering intuitive visualizations, Mortgage Master eliminates errors and provides users with a clear understanding of their financial obligations, ultimately enhancing their ability to plan and manage their finances effectively.',
         image : "https://www.shutterstock.com/shutterstock/photos/1710940759/display_1500/stock-vector-vector-mortgage-loan-illustration-concept-house-loan-money-investment-to-real-estate-property-1710940759.jpg",
         technologies: ['Microsoft Azure', 'Streamlit', 'Matplotlib'],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: false,
         demoUrl: '#',
         githubUrl: '#'
@@ -92,7 +92,7 @@ export class ApiService {
         description: 'HugChat presents a streamlined solution to the limitations of traditional chat applications, harnessing the prowess of Hugging Faces chatbot API within a user-friendly interface developed on Streamlit. Users engage with the virtual assistant effortlessly, receiving intelligent and contextually relevant responses to their queries. By abstracting complexities in setting up and integrating chatbot services, HugChat simplifies the process, making it accessible for various applications and workflows. This dynamic platform enhances communication efficiency, offering personalized assistance and information retrieval, ultimately addressing the frustrations associated with conventional chat interfaces.',
         image: "https://thumbs.dreamstime.com/b/chatbot-ai-customer-service-concept-young-woman-talking-chatbot-big-smartphone-screen-chat-bot-virtual-assistant-via-187850612.jpg",
         technologies: ['Flutter', 'Firebase', 'Dart'],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: false,
         demoUrl: '#',
         githubUrl: '#'
@@ -103,7 +103,7 @@ export class ApiService {
         description: 'MirrorChatbot revolutionizes the landscape of conversational tools with its innovative approach, offering users an immersive experience where their input is mirrored back to them in real-time. Powered by Streamlit, its intuitive interface ensures seamless engagement, inviting users into dynamic conversations rich with spontaneity and creativity. Unlike traditional chatbots constrained by scripted responses, MirrorChat fosters interactive storytelling, self-reflection, and exploration of conversational dynamics. With Python at its core and a suite of NLP libraries, MirrorChat simplifies chatbot development, democratizing access to this technology across diverse skill levels. Say goodbye to the complexities of setup and deployment; MirrorChat streamlines the process, empowering users to dive into engaging conversations effortlessly.',
         image: "https://plus.unsplash.com/premium_vector-1726086858625-4c4dd662f9ae?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8",
         technologies: ['Flutter', 'Firebase', 'Dart'],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: false,
         demoUrl: '#',
         githubUrl: '#'
@@ -191,7 +191,7 @@ export class ApiService {
         description: 'Utilizing Visual Studio Code (VSCode) for coding and editing and Python for backend development, the project aims to deploy the Inventory Co-Pilot Plugin to Microsoft Azures cloud infrastructure, ensuring seamless functionality and accessibility. This involves migrating the database to enable scalability, reliability, and efficient storage utilizing Azure services such as Blob Storage, Data Explorer, Repos, and Web App. Challenges include the need for scalable infrastructure, database performance optimization, limited plugin functionality, and collaboration inefficiencies. To address these, the project focuses on cloud deployment for scalability, leveraging Azure services for storage and analytics, implementing smooth migration processes, and enhancing collaboration using Azure Repos, thus streamlining development workflows and ensuring continuous operation of the plugin.',
         image:"https://img.freepik.com/premium-vector/team-members-collaborating-cloudbased-version-control-continuous-deployment_269730-3473.jpg",
         technologies: ['JS', 'Python', 'Flask','HTML', 'CSS', 'Gen AI', 'Service Now'],
-        category: 'AI',
+        category: 'AI/Gen AI',
         featured: true,
         demoUrl: '#',
         githubUrl: '#'
@@ -224,7 +224,7 @@ export class ApiService {
         description: 'Medical Hospital Management Solution leverages a centralized database-driven system to streamline and digitize key operational workflows across patient care, staff administration, and asset management. Built with full CRUD (Create, Read, Update, Delete) capabilities, the solution enables efficient data entry and maintenance for patients, doctors, medical equipment (including types and models), suppliers, user profiles, and financial account details. By replacing traditional, disconnected, and often manual systems with a unified platform, this solution improves accuracy, enhances collaboration among departments, and supports real-time access to critical information. It empowers hospital staff to manage daily operations more effectively while ensuring data consistency, operational transparency, and scalability for future healthcare IT needs.',
         image:"https://static.vecteezy.com/system/resources/previews/051/427/785/non_2x/telemedicine-concept-illustration-doctor-concept-vector.jpg",
         technologies: ['Angular', '.Net', 'MySQL'],
-        category: 'Web',
+        category: 'Full Stack',
         featured: false,
         demoUrl: '#',
         githubUrl: '#'
@@ -235,7 +235,7 @@ export class ApiService {
         description: 'The Counterfeit Application facilitates uploading and downloading of essential forms and documents via SharePoint, accessible by branches with role-based privileges. It supports Maker/Checker approval, email alerts, and report generation. Branches report counterfeit notes detected through various sources by entering details in the system and uploading required annexures (I, II, III, IV, VI, VIII, X). Upon submission, the system auto-triggers notifications to the FNVC team. FNVC verifies, updates NCRB, and generates police letters. Acknowledgements from police are uploaded for record. All physical notes are preserved by branches and submitted to RBI with proof. Monthly confirmation (including NIL cases) is mandatory.',
         image: '../../assets/counterfeit.png',
         technologies: ['Share Point Online', 'React JS', 'Share Point Framework'],
-        category: 'Web',
+        category: 'Full Stack',
         featured: false,
         demoUrl: '#',
         githubUrl: '#'
@@ -247,130 +247,246 @@ export class ApiService {
   private mockServices: Service[] = [
     {
       id: 1,
-      title: 'Data Analytics',
+      title: 'AI/Gen AI & Analytics',
       description: 'Turn complex data into actionable insights',
       icon: '📊',
-      category: 'Analytics',
-      // buttonText: 'See Examples',
+      buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
-      features: [
-        'Advanced data visualization',
-        'Predictive analytics',
-        'Real-time reporting',
-        'Custom dashboards',
-        'Data integration'
+      bulletPoints: [
+        {
+          title: 'AZURE COGNITIVE SERVICES',
+          description: 'A set of pre-trained Azure ML models that help with predictions, recommendations, and data analysis.'
+        },
+        {
+          title: 'GENERATIVE AI',
+          description: 'GenAI includes a range of AI technologies that can create new content, mimic human thought processes, and enhance human capabilities.'
+        },
+        {
+          title: 'CUSTOM ML MODELS',
+          description: 'Allows accurate predictions on custom datasets with greater control over fine-tuning and ML architecture.'
+        },
+        {
+          title: 'MICROSOFT COPILOTS',
+          description: 'Copilot significantly reduces the time needed to complete tasks across applications. Its AI-driven assistance streamlines routine processes, enabling employees to focus on strategic tasks.'
+        },
+        {
+          title: 'POWER BI',
+          description: 'Promotes an analytics-driven culture and encourages data literacy.'
+        }
       ]
     },
     {
       id: 2,
-      title: 'Custom Software',
+      title: 'Microsoft Modern Work',
       description: 'Tailored applications that grow with your business',
-      icon: '🔒',
-      category: 'Development',
-      // buttonText: 'Learn More',
+      icon: '💼',
+      buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
-      features: [
-        'Custom web applications',
-        'Mobile app development',
-        'API integration',
-        'Database design',
-        'System architecture'
+      bulletPoints: [
+        {
+          title: 'SHAREPOINT DEVELOPMENT',
+          description: 'Digitalize your business processes through SharePoint applications , use data storage, ,build workflows '
+        },
+        {
+          title: 'TENANT MIGRATIONS',
+          description: 'Migrate enterprise O365 data payloads from one tenant to another tenant'
+        },
+        {
+          title: 'M365 COMPONENT MIGRATIONS',
+          description: 'Migrate enterprise M365 data payloads from one tenant to another tenant'
+        },
+        {
+          title: 'M365 GOVERNANCE',
+          description: 'Setup governance mechanism around M365 payloads to ensure no data leakage, and ensure security'
+        },
+        {
+          title: 'POWER APPS',
+          description: 'Build apps without coding for manual business processes. Build workflows using LCNC'
+        }
       ]
     },
     {
       id: 3,
-      title: 'Cloud Solutions',
+      title: 'LCNC - Power Platform/RPA',
       description: 'Secure, scalable infrastructure for modern businesses',
-      icon: '🗃️',
-      category: 'Development',
-      // buttonText: 'View Portfolio',
+      icon: '🔧',
+      buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800',
-      features: [
-        'Cloud migration',
-        'Infrastructure setup',
-        'Security implementation',
-        'Monitoring & analytics',
-        'Cost optimization'
+      bulletPoints: [
+        {
+          title: 'POWER APPS/PAGES',
+          description: 'Build apps without coding for manual business processes..'
+        },
+        {
+          title: 'POWER AUTOMATE/ RPA',
+          description: 'Automate routine mundane tasks using Power Automate Desktop.'
+        },
+        {
+          title: 'POWER VIRTUAL AGENTS',
+          description: 'Build conversational Bots using Low code No code (LCNC) platform.'
+        },
+        {
+          title: 'AI BUILDER',
+          description: 'Build and train AI models with pre-trained available models. With minimal training, can get accurate results from the data and documents.'
+        },
+        {
+          title: 'POWER BI',
+          description: 'Foster an analytics-driven culture and promote data literacy..'
+        }
       ]
     },
     {
       id: 4,
-      title: 'Managed IT',
+      title: 'Azure Cloud and Data',
       description: 'Complete IT support so you can focus on growth',
       icon: '☁️',
-      category: 'Consulting',
-      // buttonText: 'Get Started',
+      buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
-      features: [
-        '24/7 technical support',
-        'System maintenance',
-        'Security monitoring',
-        'Backup & recovery',
-        'Performance optimization'
+      bulletPoints: [
+        {
+          title: 'Application Migration & Modernization',
+          description: 'Migrate legacy on-prem applications or modernize  and migrate to Azure cloud infrastructure	'
+        },
+        {
+          title: 'Data Engineering & Migration',
+          description: 'Migrate data from on-prem DB to Cloud DB for availability to business applications, analysis and reporting.'
+        },
+        {
+          title: 'Cloud Migrations',
+          description: 'Migrate on-prem servers to Azure Cloud, set up cloud infrastructure, and security'
+        },
+        {
+          title: 'Data Governance',
+          description: 'Implement Data governance in cloud using native tools'
+        }, 
       ]
     },
     {
       id: 5,
-      title: 'AI Solutions',
+      title: 'Azure Infrastructure and Security',
       description: 'Harness the power of AI to transform your business',
-      icon: '🤖',
-      category: 'AI',
-      // buttonText: 'Explore AI',
+      icon: '🔐',
+      buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=800',
-      features: [
-        'Machine learning models',
-        'Natural language processing',
-        'Computer vision applications',
-        'AI-driven analytics',
-        'Custom AI solutions'
+      bulletPoints: [
+        {
+          title: 'Infra as a Code (IaC)',
+          description: 'Automate Azure infrastructure setup through IaC'
+        },
+        {
+          title: 'CICD Pipelines',
+          description: 'Establish Azure CI/CD pipelines automated deployments'
+        },
+        {
+          title: 'Automation',
+          description: 'Automate infrastructure and code deployments.'
+        },
+        {
+          title: 'POCs',
+          description: 'Various industry POCs are built to show case benefits of Fabric technology than pipelines built on different clusters.'
+        },
+        {
+          title: 'BATCH PROCESSING',
+          description: 'Build Fabric data pipeline for near real time data and batch jobs.'
+        },
+        {
+          title: 'STREAM ANALYTICS',
+          description: 'Build Fabric data pipeline for real time data using streaming technology.'
+        },
+        {
+          title: 'AI INTEGRATION',
+          description: 'Build end to end data pipeline on Fabric cluster/environment, and provide the data to AI/Gen AI applications.'
+        }
       ]
     },
     {
       id: 6,
-      title: 'Blockchain Development',
+      title: 'Digital Apps and App Modernization',
       description: 'Secure and transparent solutions for modern transactions',
-      icon: '🔗',
-      category: 'AI',
-      // buttonText: 'Learn More',
+      icon: '🖥️',
+      buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&cs=tinysrgb&w=800',
-      features: [
-        'Smart contract development',
-        'Decentralized applications (dApps)',
-        'Blockchain integration',
-        'Tokenization solutions',
-        'Security audits'
+      bulletPoints: [
+        {
+          title: 'AZURE COGNITIVE SERVICES',
+          description: 'A set of pre-trained Azure ML models that help with predictions, recommendations, and data analysis.'
+        },
+        {
+          title: 'GENERATIVE AI',
+          description: 'GenAI includes a range of AI technologies that can create new content, mimic human thought processes, and enhance human capabilities.'
+        },
+        {
+          title: 'CUSTOM ML MODELS',
+          description: 'Allows accurate predictions on custom datasets with greater control over fine-tuning and ML architecture.'
+        },
+        {
+          title: 'MICROSOFT COPILOTS',
+          description: 'Copilot significantly reduces the time needed to complete tasks across applications. Its AI-driven assistance streamlines routine processes, enabling employees to focus on strategic tasks.'
+        },
+        {
+          title: 'POWER BI',
+          description: 'Promotes an analytics-driven culture and encourages data literacy.'
+        }
       ]
     },
     {
       id: 7,
-      title: 'Consulting Services',
+      title: 'Full Stack Development',
       description: 'Expert guidance to navigate your digital transformation',
-      icon: '💼',
-      category: 'Consulting',
-      // buttonText: 'Schedule a Call',
+      icon: '💻',
+      buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=800',
-      features: [
-        'Business strategy consulting',
-        'Digital transformation',
-        'IT strategy development',
-        'Change management',
-        'Risk assessment'
+      bulletPoints: [
+        {
+          title: 'AZURE COGNITIVE SERVICES',
+          description: 'A set of pre-trained Azure ML models that help with predictions, recommendations, and data analysis.'
+        },
+        {
+          title: 'GENERATIVE AI',
+          description: 'GenAI includes a range of AI technologies that can create new content, mimic human thought processes, and enhance human capabilities.'
+        },
+        {
+          title: 'CUSTOM ML MODELS',
+          description: 'Allows accurate predictions on custom datasets with greater control over fine-tuning and ML architecture.'
+        },
+        {
+          title: 'MICROSOFT COPILOTS',
+          description: 'Copilot significantly reduces the time needed to complete tasks across applications. Its AI-driven assistance streamlines routine processes, enabling employees to focus on strategic tasks.'
+        },
+        {
+          title: 'POWER BI',
+          description: 'Promotes an analytics-driven culture and encourages data literacy.'
+        }
       ]
     },
     {
       id: 8,
-      title: 'Cybersecurity',
+      title: 'Staffing Services',
       description: 'Protect your business with our comprehensive security solutions',
-      icon: '🔐',
-      category: 'Consulting',
-      // buttonText: 'Get a Quote',
+      icon: '🛡️',
+      buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181680/pexels-photo-1181680.jpeg?auto=compress&cs=tinysrgb&w=800',
-      features: [
-        'Threat detection and response',
-        'Vulnerability assessments',
-        'Security training',
-        'Incident response planning',
-        'Compliance support'
+      bulletPoints: [
+        {
+          title: 'AZURE COGNITIVE SERVICES',
+          description: 'A set of pre-trained Azure ML models that help with predictions, recommendations, and data analysis.'
+        },
+        {
+          title: 'GENERATIVE AI',
+          description: 'GenAI includes a range of AI technologies that can create new content, mimic human thought processes, and enhance human capabilities.'
+        },
+        {
+          title: 'CUSTOM ML MODELS',
+          description: 'Allows accurate predictions on custom datasets with greater control over fine-tuning and ML architecture.'
+        },
+        {
+          title: 'MICROSOFT COPILOTS',
+          description: 'Copilot significantly reduces the time needed to complete tasks across applications. Its AI-driven assistance streamlines routine processes, enabling employees to focus on strategic tasks.'
+        },
+        {
+          title: 'POWER BI',
+          description: 'Promotes an analytics-driven culture and encourages data literacy.'
+        }
       ]
     }
   ];

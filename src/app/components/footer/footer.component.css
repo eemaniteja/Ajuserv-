@@ -56,7 +56,6 @@
   
 }}
 
-
 .footer-description {
   color: white;
   line-height: 1.6;
@@ -124,6 +123,41 @@
 
 .footer-link:hover {
   color: #317cbf;
+}
+
+/* View More Button Styles */
+.view-more-button {
+  background: none;
+  border: none;
+  color: #317cbf;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.view-more-button:hover {
+  color: #4f9fe7;
+  transform: translateX(2px);
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  width: 16px;
+  height: 16px;
+}
+
+.view-more-button.expanded .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.view-more-button:focus {
+  outline: none;
+  color: #4f9fe7;
 }
 
 .footer-newsletter {

@@ -27,23 +27,59 @@
           <div class="service-overlay"></div>
 
           <div class="service-content">
-            <div class="service-icon">
-              <span class="icon-emoji">{{ service.icon }}</span>
+            <!-- Collapsed state - show icon, title, description -->
+            <div class="service-collapsed" *ngIf="selectedService?.id !== service.id || !isExpandedWithDetails">
+              <div class="service-icon">
+                <span class="icon-emoji">{{ service.icon }}</span>
+              </div>
+
+              <div class="service-text">
+                <h3 class="service-title">{{ service.title }}</h3>
+                <p class="service-description">{{ service.description }}</p>
+                
+                <button 
+                  *ngIf="selectedService?.id === service.id"
+                  class="service-button"
+                  (click)="expandWithDetails(service, $event)">
+                  Read More
+                  <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <div class="service-text">
-              <h3 class="service-title">{{ service.title }}</h3>
-              <p class="service-description">{{ service.description }}</p>
-              
-              <button 
-                *ngIf="selectedService?.id === service.id"
-                class="service-button"
-                (click)="$event.stopPropagation()">
-                {{ service.buttonText || 'Learn More' }}
-                <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </button>
+            <!-- Expanded state - show bullet points and details -->
+            <div class="service-expanded" *ngIf="selectedService?.id === service.id && isExpandedWithDetails">
+              <div class="expanded-content">
+                <div class="bullet-points-column">
+                  <h4 class="bullet-points-title">Key Features</h4>
+                  <ul class="bullet-points-list">
+                    <li 
+                      *ngFor="let point of service.bulletPoints" 
+                      class="bullet-point"
+                      [class.active]="selectedBulletPoint === point"
+                      (click)="selectBulletPoint(point, $event)">
+                      {{ point.title }}
+                    </li>
+                  </ul>
+                  <button 
+                    class="collapse-button"
+                    (click)="collapseDetails($event)">
+                    Show Less
+                  </button>
+                </div>
+                
+                <div class="details-column">
+                  <div class="detail-content" *ngIf="selectedBulletPoint">
+                    <h5 class="detail-title">{{ selectedBulletPoint.title }}</h5>
+                    <p class="detail-description">{{ selectedBulletPoint.description }}</p>
+                  </div>
+                  <div class="detail-placeholder" *ngIf="!selectedBulletPoint">
+                    <p>Click on a feature to see detailed information</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -56,7 +92,7 @@
         <div class="activities-carousel">
           <div class="carousel-track" (mousedown)="startDrag($event)" (touchstart)="startDrag($event)">
             <div class="carousel-slide">
-              <img src="assets/Activities/Team.jpg" alt="Team Activity">
+              <img src="assets/Activities/Team1.jpg" alt="Team Activity">
             </div>
             <div class="carousel-slide">
               <img src="assets/Activities/Team2.jpg" alt="Activity 2">
@@ -65,10 +101,10 @@
               <img src="assets/Activities/Team3.jpg" alt="Activity 3">
             </div>
             <div class="carousel-slide">
-              <img src="assets/Activities/Team5.jpg" alt="Activity 4">
+              <img src="assets/Activities/Team4.jpg" alt="Activity 4">
             </div>
             <div class="carousel-slide">
-              <img src="assets/Activities/Team3.jpg" alt="Activity 5">
+              <img src="assets/Activities/Team5.jpg" alt="Activity 5">
             </div>
           </div>
 

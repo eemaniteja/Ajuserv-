@@ -1,0 +1,22 @@
+<section id="products" class="products-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Products</h2>
+      <p class="section-subtitle">Innovative AI-powered solutions tailored for your business needs</p>
+      <div class="status-badge">{{ status }}</div>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of products">
+        <div class="product-content">
+          <h3 class="product-title">{{ product.title }}</h3>
+          <div class="product-arrow">→</div>
+          <p class="product-description">{{ product.description }}</p>
+        </div>
+        <div class="product-footer">
+          <span class="product-status">{{ product.status }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

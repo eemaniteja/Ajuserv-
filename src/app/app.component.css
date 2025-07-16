@@ -2,6 +2,7 @@
   min-height: calc(100vh - 140px);
   position: relative;
   overflow: hidden;
+  padding-top: 60px; /* Account for fixed header */
 }
 
 .main-content::before {
@@ -119,6 +120,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .main-content {
+    padding-top: 60px; /* Ensure fixed header doesn't overlap content */
+  }
+  
   .welcome-bot-container.entering,
   .welcome-bot-container.displaying {
     bottom: 25vh;
@@ -140,6 +145,10 @@
 }
 
 @media (max-width: 480px) {
+  .main-content {
+    padding-top: 60px; /* Ensure consistent padding on mobile */
+  }
+  
   .welcome-bot-container.entering,
   .welcome-bot-container.displaying {
     bottom: 20vh;
@@ -153,6 +162,13 @@
   .bot-banner {
     font-size: 0.8rem;
     padding: 6px 12px;
+  }
+}
+
+/* Tablet specific adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .main-content {
+    padding-top: 58px; /* Match tablet header height */
   }
 }
 

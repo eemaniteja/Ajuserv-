@@ -25,8 +25,8 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   partners = [
    {
-   name: 'Infosys',
-      image: 'https://1000logos.net/wp-content/uploads/2020/08/Infosys-Logo.jpg'
+   name: 'Tesync',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZD8pwPqGHSWVDxv-JqaFkXwc2nRjXTIRqwQ&s'
     },
     {
       name: 'Robo soft',
@@ -37,37 +37,27 @@ export class AboutComponent implements OnInit, OnDestroy {
       image: 'https://ahanait.com/wp-content/uploads/2024/02/New1-Ahana-2024-website-Logo-Medium.svg'
     },
     {
-      name: 'TCS',
-      image: 'https://i.pinimg.com/736x/87/86/45/878645d72068089487aca9e4779a48f1.jpg'
+      name: 'Technogen',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZRZ-4dmMX1cr55KMmnZ0HG_xo41Fe7_R7xrTUraV8lkDQRkEtgsir8f_L5Dr8wakBWA&usqp=CAU'
     },
     {
-      name: 'Cognizant',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cognizant_logo_2022.svg/1280px-Cognizant_logo_2022.svg.png'
+      name: 'Multiverse Solutions',
+      image: 'https://media.licdn.com/dms/image/v2/C4D0BAQFLPPAY1STFuQ/company-logo_200_200/company-logo_200_200/0/1675362164060/multiversesolutions_logo?e=2147483647&v=beta&t=_vV2flTJ0niCyjoJju_5arQ2XBEjNE2gKGa1OffL5Q4'
     },
     {
-      name: 'Capgemini',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Capgemini_201x_logo.svg/2560px-Capgemini_201x_logo.svg.png'
+      name: 'SBIOA',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJECm7dGZo91pIL9jDYWVLN7tRobdAzLloSxhaoL1HjW2Ch-oe06IPQS3138YGPGrP_pA&usqp=CAU'
     },
     {
-      name: 'Accenture',
-      image: 'https://www.clutch.com/wp-content/uploads/2018/04/Accenture-logo-no-background.png'
+      name: 'Pi',
+      image: 'https://www.equitypandit.com/wp-content/uploads/2023/08/pi-industries-ltd-2.png'
     },
     {
-      name:'Deloitee',
-      image:'https://upload.wikimedia.org/wikipedia/commons/5/56/Deloitte.svg'
+      name:'Tgsrtc',
+      image:'https://th-i.thgim.com/public/migration_catalog/article10538854.ece/alternates/FREE_1200/13hyskm06-TSRTChy14TSRTC-emblem.jp.jpg'
     },
-    {
-      name:'Amazon',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1280px-Amazon_logo.svg.png'
-    },
-    {
-      name:'Oracle',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/1280px-Oracle_logo.svg.png'
-    },
-    {
-      name:'Flipkart',
-      image: 'https://brandlogos.net/wp-content/uploads/2020/11/Flipkart-logo-1.png'
-    }
+
+    
   ];
 
   currentIndex = 0;
@@ -146,10 +136,10 @@ export class AboutComponent implements OnInit, OnDestroy {
    Math = Math;
   
   counterItems: CounterItem[] = [
-    { number: 16, suffix: '+', title: 'Years in Business', currentValue: 0 },
+    { number: 5, suffix: '+', title: 'Years in Business', currentValue: 0 },
     { number: 98, suffix: '%', title: 'Client Satisfaction', currentValue: 0 },
-    { number: 50, suffix: '+', title: 'Projects Delivered', currentValue: 0 },
-    { number: 20, suffix: '+', title: 'Global Clients', currentValue: 0 }
+    { number: 20, suffix: '+', title: 'Projects Delivered', currentValue: 0 },
+    { number: 10, suffix: '+', title: 'Global Clients', currentValue: 0 }
   ];
 
   private animationFrameId: number | null = null;

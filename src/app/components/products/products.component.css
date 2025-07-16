@@ -1,0 +1,253 @@
+.products-section {
+  padding: 6rem 0;
+  background: #f8fafc;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark theme styles */
+:host-context(.dark-theme) .products-section {
+  background: #0f172a;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  transition: font-weight 0.3s ease, letter-spacing 0.3s ease, color 0.3s ease;
+}
+
+.section-subtitle {
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto 1rem auto;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  transition: font-weight 0.2s ease, color 0.3s ease;
+}
+
+/* Dark theme - Typography */
+:host-context(.dark-theme) .section-title {
+  color: #f1f5f9;
+}
+
+:host-context(.dark-theme) .section-subtitle {
+  color: #cbd5e1;
+}
+
+.status-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #317cbf, #317cbf);
+  color: white;
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin-bottom: 1rem;
+  transition: font-weight 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+.product-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #317cbf;
+}
+
+/* Dark theme card styles */
+:host-context(.dark-theme) .product-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+:host-context(.dark-theme) .product-card:hover {
+  border-color: #317cbf;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.product-content {
+  flex-grow: 1;
+}
+
+.product-title {
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover .product-title {
+  color: #317cbf;
+}
+
+.product-arrow {
+  font-size: 1.5rem;
+  color: #317cbf;
+  margin-bottom: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-arrow {
+  transform: translateX(5px);
+}
+
+.product-description {
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover .product-description {
+  color: #475569;
+}
+
+/* Dark theme content styles */
+:host-context(.dark-theme) .product-title {
+  color: #f1f5f9;
+}
+
+:host-context(.dark-theme) .product-card:hover .product-title {
+  color: #317cbf;
+}
+
+:host-context(.dark-theme) .product-arrow {
+  color: #317cbf;
+}
+
+:host-context(.dark-theme) .product-description {
+  color: #cbd5e1;
+}
+
+:host-context(.dark-theme) .product-card:hover .product-description {
+  color: #e2e8f0;
+}
+
+.product-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.product-status {
+  font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.875rem;
+  color: #317cbf;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.product-status::before {
+  content: '●';
+  font-size: 0.75rem;
+  color: #10b981;
+}
+
+.product-card:hover .product-status {
+  color: #1e40af;
+}
+
+/* Dark theme footer styles */
+:host-context(.dark-theme) .product-footer {
+  border-color: #334155;
+}
+
+:host-context(.dark-theme) .product-status {
+  color: #317cbf;
+}
+
+:host-context(.dark-theme) .product-card:hover .product-status {
+  color: #60a5fa;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    padding: 1.5rem;
+    min-height: 250px;
+  }
+
+  .product-title {
+    font-size: 1.25rem;
+  }
+
+  .product-arrow {
+    font-size: 1.25rem;
+  }
+
+  .product-description {
+    font-size: 0.875rem;
+  }
+
+  .product-status {
+    font-size: 0.75rem;
+  }
+}

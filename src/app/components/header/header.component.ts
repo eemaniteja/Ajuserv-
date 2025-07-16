@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { ThemeService, Theme } from '../../services/theme.service';
 
 @Component({
@@ -14,9 +15,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isMobileMenuOpen = false;
   activeSection = 'home';
   currentTheme: Theme = 'light';
+  isPortfolioOpen = false;
   private scrollTimeout: any;
 
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private router: Router) {}
 
   ngOnInit() {
     this.updateActiveSection();
@@ -61,6 +63,32 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   scrollToSection(sectionId: string) {
+    // Close dropdowns and mobile menu first
+    this.isPortfolioOpen = false;
+    if (this.isMobileMenuOpen) {
+      this.toggleMobileMenu();
+    }
+
+    // If not on home page, navigate to home first, then scroll
+    if (this.router.url !== '/') {
+      this.router.navigate(['/']).then(() => {
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          this.performScroll(sectionId);
+        }, 100);
+      });
+    } else {
+      // Already on home page, scroll directly
+      this.performScroll(sectionId);
+    }
+  }
+
+  onDropdownItemClick(sectionId: string) {
+    // Handle dropdown item clicks for mobile
+    this.scrollToSection(sectionId);
+  }
+
+  private performScroll(sectionId: string) {
     // Add transition effect before scrolling
     this.addSectionTransition();
     
@@ -73,11 +101,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
       // Smooth scroll with custom implementation for better control
       this.smoothScrollTo(offsetPosition, 800);
-      
-      // Close mobile menu
-      if (this.isMobileMenuOpen) {
-        this.toggleMobileMenu();
-      }
       
       // Update active section immediately
       this.activeSection = sectionId;
@@ -110,7 +133,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   private updateActiveSection() {
-    const sections = ['home', 'services', 'projects', 'about', 'contact'];
+    const sections = ['home', 'services', 'solutions', 'about', 'contact'];
     const scrollPosition = window.scrollY + 100; // Offset for header
 
     for (let i = sections.length - 1; i >= 0; i--) {
@@ -140,5 +163,32 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   isDarkMode(): boolean {
     return this.currentTheme === 'dark';
+  }
+
+  togglePortfolio(): void {
+    this.isPortfolioOpen = !this.isPortfolioOpen;
+  }
+
+  navigateToProducts(): void {
+    this.router.navigate(['/products']);
+    this.isPortfolioOpen = false;
+    if (this.isMobileMenuOpen) {
+      this.toggleMobileMenu();
+    }
+  }
+
+  isPortfolioActive(): boolean {
+    return this.activeSection === 'services' || this.activeSection === 'solutions' || this.router.url === '/products';
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    const dropdown = document.querySelector('.dropdown');
+    
+    // Only close dropdown if clicking outside and not on mobile menu
+    if (dropdown && !dropdown.contains(target) && !this.isMobileMenuOpen) {
+      this.isPortfolioOpen = false;
+    }
   }
 }
