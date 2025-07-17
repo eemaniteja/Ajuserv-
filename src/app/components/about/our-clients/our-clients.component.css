@@ -1,0 +1,125 @@
+.team-section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.team-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.team-description {
+  font-size: 1.125rem;
+  color: #64748b;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1250px;
+  margin: 2rem auto;
+  margin-top: 5%;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 20%; /* Five cards visible on desktop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.05rem; /* Minimal spacing between cards */
+}
+
+.carousel-card {
+  background: white;
+  border-radius: 8px;
+  padding: 0.6rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 160px; /* Increased card width */
+  height: 70px; /* Increased card height */
+}
+
+.carousel-item img {
+  max-height: 50px; /* Increased logo height */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Tablet (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .carousel-item {
+    flex: 0 0 33.33%; /* Three cards visible on tablet */
+  }
+
+  .carousel-card {
+    max-width: 140px; /* Increased card width */
+    height: 60px; /* Increased card height */
+    padding: 0.5rem;
+  }
+
+  .carousel-item img {
+    max-height: 45px; /* Increased logo height */
+  }
+}
+
+/* Mobile (below 768px) */
+@media (max-width: 767px) {
+  .team-title {
+    font-size: 1.75rem;
+  }
+
+  .team-description {
+    font-size: 0.875rem;
+  }
+
+  .carousel-container {
+    max-width: 70%;
+  }
+
+  .carousel-item {
+    flex: 0 0 100%; /* One card visible on mobile */
+  }
+
+  .carousel-card {
+    max-width: 120px; /* Increased card width */
+    height: 50px; /* Increased card height */
+    padding: 0.4rem;
+  }
+
+  .carousel-item img {
+    max-height: 40px; /* Increased logo height */
+  }
+}
+
+/* Large screens (1024px and above) */
+@media (min-width: 1024px) {
+  .carousel-item {
+    flex: 0 0 20%;
+  }
+
+  .carousel-card {
+    max-width: 180px;
+    height: 70px;
+  }
+
+  .carousel-item img {
+    max-height: 50px;
+  }
+}

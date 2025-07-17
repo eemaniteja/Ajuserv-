@@ -1,0 +1,17 @@
+<section class="counter-section">
+  <div class="container">
+    <div class="counter-grid">
+      <div class="counter-card" *ngFor="let item of counterItems; let i = index">
+        <div class="counter-circle">
+          <div class="counter-dot"></div>
+          <div class="counter-content">
+            <h3 class="counter-number">
+              {{ Math.floor(item.currentValue) }}{{ item.suffix }}
+            </h3>
+            <p class="counter-title">{{ item.title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
