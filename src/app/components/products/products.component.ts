@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface Product {
   title: string;
@@ -16,6 +17,21 @@ interface Product {
 })
 export class ProductsComponent {
   status = 'Development In Progress';
+  showBackToTop = false;
+
+  constructor(private router: Router) {}
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showBackToTop = window.pageYOffset > 300;
+  }
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   
   products: Product[] = [
     {

@@ -302,10 +302,9 @@
   font-style: normal;
   font-weight: normal;
   text-align: center;
-  vertical-align: baseline;
   margin: 0;
   padding: 0;
-  width: 1.8rem;
+  width: 2.8rem;
   height: 1.8rem;
   flex-shrink: 0;
 }
@@ -390,6 +389,7 @@
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

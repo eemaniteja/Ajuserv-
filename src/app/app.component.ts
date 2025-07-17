@@ -1,10 +1,11 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import * as AOS from 'aos';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ import * as AOS from 'aos';
       <router-outlet></router-outlet>
     </main>
     
-    <app-footer></app-footer>
+    <app-footer *ngIf="shouldShowFooter"></app-footer>
     
     <!-- Chatbot Component -->
     <app-chatbot></app-chatbot>
@@ -51,10 +52,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   private botEnterTimeout: any;
   private botDisplayTimeout: any;
   private botExitTimeout: any;
+  shouldShowFooter: boolean = true;
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.initializeLoadingScreen();
     this.initializeAOS();
+    this.setupRouterSubscription();
   }
 
   ngAfterViewInit(): void {
@@ -82,6 +87,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       once: false,
       offset: 100,
       easing: 'ease-in-out-cubic'
+    });
+  }
+
+  private setupRouterSubscription(): void {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.shouldShowFooter = event.url !== '/products';
     });
   }
 
