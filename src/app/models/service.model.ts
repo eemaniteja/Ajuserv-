@@ -6,7 +6,7 @@ export interface ServiceBulletPoint {
 export interface Service {
   id: number;
   title: string;
-  description: string;
+  // description: string;
   icon: string;
   buttonText?: string;
   backgroundImage: string;
