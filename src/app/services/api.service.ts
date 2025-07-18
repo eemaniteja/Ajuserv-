@@ -248,8 +248,8 @@ export class ApiService {
     {
       id: 1,
       title: 'AI/Gen AI & Analytics',
-      description: 'Turn complex data into actionable insights',
-      icon: '📊',
+      description: 'Leverage AI, Gen AI, and Analytics to drive smarter, data-driven business decisions',
+      icon: '🤖',
       buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
       bulletPoints: [
@@ -278,7 +278,7 @@ export class ApiService {
     {
       id: 2,
       title: 'Microsoft Modern Work',
-      description: 'Tailored applications that grow with your business',
+      description: 'Empower productivity and collaboration with Microsoft Modern Work solutions and tools',
       icon: '💼',
       buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -308,7 +308,7 @@ export class ApiService {
     {
       id: 3,
       title: 'LCNC - Power Platform/RPA',
-      description: 'Secure, scalable infrastructure for modern businesses',
+      description: 'Empower productivity and collaboration with Microsoft Modern Work solutions and tools',
       icon: '🔧',
       buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -338,7 +338,7 @@ export class ApiService {
     {
       id: 4,
       title: 'Azure Cloud and Data',
-      description: 'Complete IT support so you can focus on growth',
+      description: 'Accelerate innovation with secure, scalable Azure Cloud and data-driven solutions',
       icon: '☁️',
       buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -364,7 +364,7 @@ export class ApiService {
     {
       id: 5,
       title: 'Azure Infrastructure and Security',
-      description: 'Harness the power of AI to transform your business',
+      description: 'Strengthen your business with secure, scalable Azure infrastructure and robust security solutions',
       icon: '🔐',
       buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -402,8 +402,8 @@ export class ApiService {
     {
       id: 6,
       title: 'Digital Apps and App Modernization',
-      description: 'Secure and transparent solutions for modern transactions',
-      icon: '🖥️',
+      description: 'Transform your business with modern digital applications and next-generation app modernization solutions',
+      icon: '📱',
       buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&cs=tinysrgb&w=800',
       bulletPoints: [
@@ -432,8 +432,8 @@ export class ApiService {
     {
       id: 7,
       title: 'Full Stack Development',
-      description: 'Expert guidance to navigate your digital transformation',
-      icon: '💻',
+      description: 'Deliver end-to-end web and mobile solutions with modern full stack development expertise',
+      icon: '🌐',
       buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=800',
       bulletPoints: [
@@ -462,8 +462,8 @@ export class ApiService {
     {
       id: 8,
       title: 'Staffing Services',
-      description: 'Protect your business with our comprehensive security solutions',
-      icon: '🛡️',
+      description: 'Streamline your hiring process with our expert staffing and recruitment solutions',
+      icon: '👥',
       buttonText: 'Read More',
       backgroundImage: 'https://images.pexels.com/photos/1181680/pexels-photo-1181680.jpeg?auto=compress&cs=tinysrgb&w=800',
       bulletPoints: [
