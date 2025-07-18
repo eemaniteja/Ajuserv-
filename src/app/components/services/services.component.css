@@ -86,7 +86,7 @@
   margin-bottom: 3rem;
   position: relative;
   overflow: visible;
-  min-height: 450px;
+  min-height: 250px;
   width: 100%;
   padding: 0 2rem;
 }
@@ -94,7 +94,7 @@
 .service-card {
   position: relative;
   width: 280px;
-  height: 400px;
+  height: 200px;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -256,7 +256,7 @@
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
   position: absolute;
-  top: 2rem;
+  top: -0.35rem;
   left: 2rem;
   z-index: 10;
   flex-shrink: 0;
@@ -338,7 +338,7 @@
   flex-direction: column;
   gap: 0.5rem;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  padding-top: 8rem;
+  padding-top: 4rem;
   min-height: 0;
 }
 
@@ -349,7 +349,7 @@
 
 .service-card.card-compressed .service-text {
   gap: 0.25rem;
-  padding-top: 6rem;
+  padding-top: 3rem;
 }
 
 
@@ -675,7 +675,7 @@
 
   .service-card {
     width: 320px;
-    height: 420px;
+    height: 220px;
   }
 
   .service-card.expanded {
@@ -731,7 +731,7 @@
 
   .service-card {
     width: 300px;
-    height: 400px;
+    height: 200px;
   }
 
   .service-card.expanded {
@@ -784,7 +784,7 @@
 
   .service-card {
     width: 280px;
-    height: 380px;
+    height: 190px;
   }
 
   .service-card.expanded {
@@ -875,7 +875,7 @@
 
   .service-card {
     width: 240px;
-    height: 350px;
+    height: 180px;
   }
 
   .service-card.expanded {
@@ -928,7 +928,7 @@
   }
   
   .service-text {
-    padding-top: 8rem;
+    padding-top: 4rem;
   }
   
   .service-card.expanded .service-text {
@@ -936,7 +936,7 @@
   }
   
   .service-card.card-compressed .service-text {
-    padding-top: 6rem;
+    padding-top: 3rem;
   }
 
   .service-card.expanded .service-icon {
@@ -1006,7 +1006,7 @@
 
   .service-card {
     width: 220px;
-    height: 340px;
+    height: 170px;
   }
 
   .service-card.expanded {
@@ -1039,7 +1039,7 @@
   }
   
   .service-text {
-    padding-top: 8rem;
+    padding-top: 4rem;
   }
   
   .service-card.expanded .service-text {
@@ -1047,7 +1047,7 @@
   }
   
   .service-card.card-compressed .service-text {
-    padding-top: 6rem;
+    padding-top: 3rem;
   }
 
   .service-card.expanded .service-icon {
@@ -1143,7 +1143,7 @@
 
   .service-card {
     width: 280px;
-    height: 360px;
+    height: 180px;
   }
 
   .service-card.expanded {
@@ -1178,7 +1178,7 @@
   }
   
   .service-text {
-    padding-top: 7rem;
+    padding-top: 3.5rem;
   }
   
   .service-card.expanded .service-text {
@@ -1186,7 +1186,7 @@
   }
   
   .service-card.card-compressed .service-text {
-    padding-top: 5.5rem;
+    padding-top: 2.5rem;
   }
 
   .service-card.expanded .service-icon {
@@ -1286,7 +1286,7 @@
 
   .service-card {
     width: 260px;
-    height: 340px;
+    height: 170px;
   }
 
   .service-card.expanded {
@@ -1319,7 +1319,7 @@
   }
   
   .service-text {
-    padding-top: 6.5rem;
+    padding-top: 3.5rem;
   }
   
   .service-card.expanded .service-text {
@@ -1327,7 +1327,7 @@
   }
   
   .service-card.card-compressed .service-text {
-    padding-top: 5rem;
+    padding-top: 2.5rem;
   }
 
   .service-card.expanded .service-icon {
@@ -1427,7 +1427,7 @@
 
   .service-card {
     width: 240px;
-    height: 320px;
+    height: 160px;
   }
 
   .service-card.expanded {
@@ -1460,7 +1460,7 @@
   }
   
   .service-text {
-    padding-top: 7rem;
+    padding-top: 3.5rem;
   }
   
   .service-card.expanded .service-text {
@@ -1468,7 +1468,7 @@
   }
   
   .service-card.card-compressed .service-text {
-    padding-top: 5.5rem;
+    padding-top: 2.5rem;
   }
 
   .service-card.expanded .service-icon {
