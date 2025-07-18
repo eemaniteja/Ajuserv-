@@ -79,6 +79,21 @@ export class ServicesComponent implements OnInit {
 
   expandWithDetails(service: Service, event: Event): void {
     event.stopPropagation();
+    
+    // Set the service as selected if it's not already selected
+    if (this.selectedService?.id !== service.id) {
+      this.selectedService = service;
+      // Find the row and card index for this service
+      for (let rowIndex = 0; rowIndex < this.serviceRows.length; rowIndex++) {
+        const cardIndex = this.serviceRows[rowIndex].findIndex(s => s.id === service.id);
+        if (cardIndex !== -1) {
+          this.selectedRowIndex = rowIndex;
+          this.selectedCardIndex = cardIndex;
+          break;
+        }
+      }
+    }
+    
     this.isExpandedWithDetails = true;
     this.selectedBulletPoint = null;
   }

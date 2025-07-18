@@ -362,7 +362,7 @@ export class ApiService {
     },
     {
       id: 5,
-      title: 'Azure Infrastructure and Security',
+      title: 'Azure Infrastructure & Security',
       
       icon: '🔐',
       buttonText: 'Read More',
@@ -380,10 +380,7 @@ export class ApiService {
           title: 'Automation',
           description: 'Automate infrastructure and code deployments.'
         },
-        {
-          title: 'POCs',
-          description: 'Various industry POCs are built to show case benefits of Fabric technology than pipelines built on different clusters.'
-        },
+        
         {
           title: 'BATCH PROCESSING',
           description: 'Build Fabric data pipeline for near real time data and batch jobs.'
@@ -391,16 +388,12 @@ export class ApiService {
         {
           title: 'STREAM ANALYTICS',
           description: 'Build Fabric data pipeline for real time data using streaming technology.'
-        },
-        {
-          title: 'AI INTEGRATION',
-          description: 'Build end to end data pipeline on Fabric cluster/environment, and provide the data to AI/Gen AI applications.'
         }
       ]
     },
     {
       id: 6,
-      title: 'Digital Apps and App Modernization',
+      title: 'Digital & Modernization Apps',
       
       icon: '📱',
       buttonText: 'Read More',
@@ -430,7 +423,7 @@ export class ApiService {
     },
     {
       id: 7,
-      title: 'Full Stack Development',
+      title: 'Full Stack Development                    ',
       
       icon: '🌐',
       buttonText: 'Read More',
@@ -460,7 +453,7 @@ export class ApiService {
     },
     {
       id: 8,
-      title: 'Staffing Services',
+      title: 'Staffing Services                                 ',
       
       icon: '👥',
       buttonText: 'Read More',
