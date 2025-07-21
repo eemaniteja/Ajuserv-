@@ -250,7 +250,7 @@ export class ApiService {
       title: 'AI/Gen AI & Analytics',
       icon: '🤖',
       buttonText: 'Read More',
-      backgroundImage: 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
+      backgroundImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       bulletPoints: [
         {
           title: 'AZURE COGNITIVE SERVICES',
@@ -280,7 +280,7 @@ export class ApiService {
       
       icon: '💼',
       buttonText: 'Read More',
-      backgroundImage: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
+      backgroundImage: 'https://images.unsplash.com/photo-1553028826-f4804a6dba3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       bulletPoints: [
         {
           title: 'SHAREPOINT DEVELOPMENT',
@@ -310,7 +310,7 @@ export class ApiService {
       
       icon: '🔧',
       buttonText: 'Read More',
-      backgroundImage: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800',
+      backgroundImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       bulletPoints: [
         {
           title: 'POWER APPS/PAGES',
@@ -340,7 +340,7 @@ export class ApiService {
       
       icon: '☁️',
       buttonText: 'Read More',
-      backgroundImage: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
+      backgroundImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       bulletPoints: [
         {
           title: 'Application Migration & Modernization',
@@ -366,7 +366,7 @@ export class ApiService {
       
       icon: '🔐',
       buttonText: 'Read More',
-      backgroundImage: 'https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=800',
+      backgroundImage: 'https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       bulletPoints: [
         {
           title: 'Infra as a Code (IaC)',
@@ -397,7 +397,7 @@ export class ApiService {
       
       icon: '📱',
       buttonText: 'Read More',
-      backgroundImage: 'https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&cs=tinysrgb&w=800',
+      backgroundImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       bulletPoints: [
         {
           title: 'AZURE COGNITIVE SERVICES',
@@ -427,7 +427,7 @@ export class ApiService {
       
       icon: '🌐',
       buttonText: 'Read More',
-      backgroundImage: 'https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&cs=tinysrgb&w=800',
+      backgroundImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       bulletPoints: [
         {
           title: 'AZURE COGNITIVE SERVICES',
@@ -457,7 +457,7 @@ export class ApiService {
       
       icon: '👥',
       buttonText: 'Read More',
-      backgroundImage: 'https://images.pexels.com/photos/1181680/pexels-photo-1181680.jpeg?auto=compress&cs=tinysrgb&w=800',
+      backgroundImage: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       bulletPoints: [
         {
           title: 'AZURE COGNITIVE SERVICES',

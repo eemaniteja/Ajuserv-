@@ -6,7 +6,7 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { AboutComponent } from '../about/about.component';
 import { ContactComponent } from '../contact/contact.component';
 import { AnimationService } from '../../services/animation.service';
-import { ExpertTeamComponent } from '../expert-team/expert-team.component';
+// import { ExpertTeamComponent } from '../expert-team/expert-team.component';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ import { ExpertTeamComponent } from '../expert-team/expert-team.component';
     ServicesComponent,
     ProjectsComponent,
     AboutComponent,
-    ExpertTeamComponent,
+    // ExpertTeamComponent,
     ContactComponent,
   ],
   template: `
@@ -33,9 +33,9 @@ import { ExpertTeamComponent } from '../expert-team/expert-team.component';
     <div id="about" class="section-wrapper section-transition">
       <app-about></app-about>
     </div>
-    <div id="expert-team" class="section-wrapper section-transition">
+    <!-- <div id="expert-team" class="section-wrapper section-transition">
        <app-expert-team></app-expert-team>
-    </div>
+    </div> -->
     <div id="contact" class="section-wrapper section-transition">
       <app-contact></app-contact>
     </div>

@@ -430,6 +430,27 @@
   padding: 0;
   margin: 0 0 1.5rem 0;
   flex: 1;
+  overflow-y: auto;
+  max-height: 200px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 126, 234, 0.5) transparent;
+}
+
+.bullet-points-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bullet-points-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bullet-points-list::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 3px;
+}
+
+.bullet-points-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.7);
 }
 
 .bullet-point {
@@ -602,6 +623,10 @@
     padding: 0 3rem;
   }
 
+  .bullet-points-list {
+    max-height: 240px;
+  }
+
   .service-card {
     width: 320px;
     height: 300px;
@@ -650,6 +675,10 @@
   .services-container {
     max-width: 1200px;
     padding: 0 2.5rem;
+  }
+
+  .bullet-points-list {
+    max-height: 220px;
   }
 
   .service-card {
@@ -850,6 +879,11 @@
     min-height: auto;
   }
 
+  .bullet-points-list {
+    max-height: none;
+    overflow-y: visible;
+  }
+
   .services-container {
     padding: 0 1rem;
   }
@@ -950,6 +984,11 @@
 @media (min-width: 414px) and (max-width: 567px) {
   .services-section {
     padding: 3rem 0;
+  }
+
+  .bullet-points-list {
+    max-height: none;
+    overflow-y: visible;
   }
 
   .services-container {
@@ -1064,6 +1103,11 @@
 @media (min-width: 360px) and (max-width: 413px) {
   .services-section {
     padding: 2.5rem 0;
+  }
+
+  .bullet-points-list {
+    max-height: none;
+    overflow-y: visible;
   }
 
   .services-container {
@@ -1228,6 +1272,11 @@
 @media (max-width: 359px) {
   .services-section {
     padding: 2rem 0;
+  }
+
+  .bullet-points-list {
+    max-height: none;
+    overflow-y: visible;
   }
 
   .services-container {
