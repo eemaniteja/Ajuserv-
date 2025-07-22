@@ -491,6 +491,13 @@
   gap: 1.25rem;
 }
 
+/* Dark mode popup styles */
+:host-context(.dark-theme) .popup-content {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
 .popup-content.success {
   border-color: #10b981; /* Green border for success */
   color: #10b981;
@@ -534,6 +541,11 @@
   color: black; /* Default to black, specific classes will override */
 }
 
+/* Dark mode popup title */
+:host-context(.dark-theme) .popup-title {
+  color: #f1f5f9;
+}
+
 .popup-content.success .popup-title {
   color: #10b981;
 }
@@ -547,6 +559,11 @@
   line-height: 1.6;
   margin-bottom: 1.5rem;
   color: rgba(0, 0, 0, 0.8); /* Slightly less prominent text */
+}
+
+/* Dark mode popup message */
+:host-context(.dark-theme) .popup-message {
+  color: #cbd5e1;
 }
 
 /* .popup-close-button {
