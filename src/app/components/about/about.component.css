@@ -107,6 +107,31 @@
 .about-visual {
   position: relative;
   height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+:host-context(.dark-theme) .about-image {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+:host-context(.dark-theme) .about-image:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .visual-card {
@@ -420,7 +445,14 @@
   }
 
   .about-visual {
-    height: 200px;
+    height: 300px;
+    margin-top: 2rem;
+  }
+  
+  .about-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
   }
   .card-header h3 {
   font-size: 0.6rem;

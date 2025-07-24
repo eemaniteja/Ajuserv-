@@ -24,11 +24,11 @@ export class ThemeService {
     }
 
     // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      return 'light';
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
     }
 
-    return 'dark';
+    return 'light';
   }
 
   getCurrentTheme(): Theme {

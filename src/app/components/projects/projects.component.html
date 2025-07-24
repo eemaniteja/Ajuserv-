@@ -1,7 +1,12 @@
 <section class="projects-section">
   <div class="projects-container">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up" data-aos-delay="200">
       <span class="section-badge">Our Portfolio</span>
+      <h2 class="section-title">Projects That Transform Ideas</h2>
+      <p class="section-description">
+        Explore our diverse portfolio of innovative solutions that showcase cutting-edge technology
+        and creative problem-solving across various industries and domains.
+      </p>
     </div>
 
     <div class="filter-tabs">
@@ -21,75 +26,42 @@
         <div 
           *ngFor="let project of filteredProjects; let i = index" 
           class="project-card carousel-card"
-          [class.card-1]="i === 0"
-          [class.card-2]="i === 1"
-          [class.card-3]="i === 2"
-          [class.card-4]="i === 3"
-          [class.card-5]="i === 4"
-          [class.card-6]="i === 5"
-          [class.card-7]="i === 6"
-          [class.card-8]="i === 7"
-          [class.card-9]="i === 8"
-          [class.card-10]="i === 9"
-          [class.card-11]="i === 10"
-          [class.card-12]="i === 11"
-          [class.card-13]="i === 12"
-          [class.card-14]="i === 13"
-          [class.card-15]="i === 14"
-          [class.card-16]="i === 15"
-          [class.card-17]="i === 16"
-          [class.card-18]="i === 17"
-          [class.card-19]="i === 18"
-          [class.card-20]="i === 19">
-          
-          <div class="project-image">
-            <img [src]="project.image" [alt]="project.title" loading="lazy">
-            <div class="project-overlay">
-            </div>
-            <div class="featured-badge" *ngIf="project.featured">
-              ⭐ Featured
-            </div>
-          </div>
+          data-aos="fade-up"
+          [attr.data-aos-delay]="i * 200"
+          [style.background-image]="'url(' + project.image + ')'"
+          (click)="selectProject(project, i, $event)">
+
+          <div class="project-overlay"></div>
 
           <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">{{ project.title }}</h3>
-              <span class="project-category">
-                {{ project.category }}
-              </span>
+            <div class="project-collapsed" *ngIf="!project.isExpanded">
+              <div class="project-icon">
+                <span class="icon-emoji">{{ getProjectIcon(project.category) }}</span>
+              </div>
+
+              <div class="project-text">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-preview desktop-tablet-only">{{ getTruncatedText(project.description, 80) }}{{ shouldShowReadMore(project.description, 80) ? '...' : '' }}</p>
+                
+                <button 
+                  class="project-button"
+                  (click)="expandWithDetails(project, $event)">
+                  {{ project.isExpanded ? 'Show Less' : 'Read More' }}
+                  <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <div class="project-description-container">
-              <p class="project-description" [class.expanded]="project.isExpanded">
-                {{ project.isExpanded ? project.description : getTruncatedText(project.description, 150) }}
-                <span *ngIf="shouldShowReadMore(project.description, 150) && !project.isExpanded">...</span>
-              </p>
-              
-              <button 
-                *ngIf="shouldShowReadMore(project.description, 150)"
-                class="read-more-btn"
-                (click)="toggleReadMore(project)">
-                <span>{{ project.isExpanded ? 'Read less' : 'Read more' }}</span>
-                <svg 
-                  class="read-more-icon" 
-                  [class.rotated]="project.isExpanded"
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  stroke-width="2">
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-              </button>
-            </div>
-
-            <div class="project-technologies">
-              <span 
-                *ngFor="let tech of project.technologies" 
-                class="tech-tag">
-                {{ tech }}
-              </span>
+            <div class="project-expanded" *ngIf="project.isExpanded">
+              <div class="expanded-content">
+                <div class="project-full-width">
+                  <div class="project-description">
+                    <p>{{ project.description }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -110,67 +82,42 @@
       <div 
         *ngFor="let project of filteredProjects; let i = index" 
         class="project-card"
-        [class.card-1]="i === 0"
-        [class.card-2]="i === 1"
-        [class.card-3]="i === 2"
-        [class.card-4]="i === 3"
-        [class.card-5]="i === 4"
-        [class.card-6]="i === 5"
-        [class.card-7]="i === 6"
-        [class.card-8]="i === 7"
-        [class.card-9]="i === 8"
-        [class.card-10]="i === 9"
-        [class.card-11]="i === 10"
-        [class.card-12]="i === 11">
-        
-        <div class="project-image">
-          <img [src]="project.image" [alt]="project.title" loading="lazy">
-          <div class="project-overlay">
-          </div>
-          <div class="featured-badge" *ngIf="project.featured">
-            ⭐ Featured
-          </div>
-        </div>
+        data-aos="fade-up"
+        [attr.data-aos-delay]="i * 200"
+        [style.background-image]="'url(' + project.image + ')'"
+        (click)="selectProject(project, i, $event)">
+
+        <div class="project-overlay"></div>
 
         <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">{{ project.title }}</h3>
-            <span class="project-category">
-              {{ project.category }}
-            </span>
+          <div class="project-collapsed" *ngIf="!project.isExpanded">
+            <div class="project-icon">
+              <span class="icon-emoji">{{ getProjectIcon(project.category) }}</span>
+            </div>
+
+            <div class="project-text">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="project-preview desktop-tablet-only">{{ getTruncatedText(project.description, 80) }}{{ shouldShowReadMore(project.description, 80) ? '...' : '' }}</p>
+              
+              <button 
+                class="project-button"
+                (click)="expandWithDetails(project, $event)">
+                Read More
+                <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
           </div>
 
-          <div class="project-description-container">
-            <p class="project-description" [class.expanded]="project.isExpanded">
-              {{ project.isExpanded ? project.description : getTruncatedText(project.description, 150) }}
-              <span *ngIf="shouldShowReadMore(project.description, 150) && !project.isExpanded">...</span>
-            </p>
-            
-            <button 
-              *ngIf="shouldShowReadMore(project.description, 150)"
-              class="read-more-btn"
-              (click)="toggleReadMore(project)">
-              <span>{{ project.isExpanded ? 'Read less' : 'Read more' }}</span>
-              <svg 
-                class="read-more-icon" 
-                [class.rotated]="project.isExpanded"
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                stroke-width="2">
-                <path d="m6 9 6 6 6-6"/>
-              </svg>
-            </button>
-          </div>
-
-          <div class="project-technologies">
-            <span 
-              *ngFor="let tech of project.technologies" 
-              class="tech-tag">
-              {{ tech }}
-            </span>
+          <div class="project-expanded" *ngIf="project.isExpanded">
+            <div class="expanded-content">
+              <div class="project-full-width">
+                <div class="project-description">
+                  <p>{{ project.description }}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

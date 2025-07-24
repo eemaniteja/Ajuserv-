@@ -64,18 +64,91 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     return text.length > maxLength;
   }
 
-  toggleReadMore(project: any): void {
-    const wasExpanded = project.isExpanded;
-    project.isExpanded = !project.isExpanded;
-    
-    if (project.isExpanded && !wasExpanded) {
+  getProjectIcon(category: string): string {
+    const iconMap: { [key: string]: string } = {
+      'AI/Gen AI': '🤖',
+      'Full Stack': '🌐',
+      'Data Engineering': '📊',
+      'Power Platform': '⚡',
+      'Mobile': '📱',
+      'Web': '🌐',
+      'Desktop': '💻',
+      'Cloud': '☁️',
+      'IoT': '🌐',
+      'Blockchain': '⛓️'
+    };
+    return iconMap[category] || '💼';
+  }
+
+  selectProject(project: Project, index: number, event?: Event): void {
+    if (project.isExpanded) {
+      // If card is expanded, collapse it
+      project.isExpanded = false;
+      this.startAutoCarousel();
+    } else {
+      // First, collapse all other cards
+      this.projects.forEach(p => {
+        if (p !== project) {
+          p.isExpanded = false;
+        }
+      });
+      
+      // Then expand the clicked card
+      project.isExpanded = true;
+      
       // Pause carousel when expanding
       if (this.carouselInterval) {
         this.carouselInterval.unsubscribe();
       }
-    } else if (!project.isExpanded && wasExpanded) {
-      // Resume carousel when collapsing
+    }
+  }
+
+  expandWithDetails(project: Project, event: Event): void {
+    event.stopPropagation();
+    
+    if (project.isExpanded) {
+      // If already expanded, collapse it
+      project.isExpanded = false;
       this.startAutoCarousel();
+    } else {
+      // First, collapse all other cards
+      this.projects.forEach(p => {
+        if (p !== project) {
+          p.isExpanded = false;
+        }
+      });
+      
+      // Then expand the clicked card
+      project.isExpanded = true;
+      
+      // Pause carousel when expanding
+      if (this.carouselInterval) {
+        this.carouselInterval.unsubscribe();
+      }
+    }
+  }
+
+
+  toggleReadMore(project: any): void {
+    if (project.isExpanded) {
+      // If card is expanded, collapse it
+      project.isExpanded = false;
+      this.startAutoCarousel();
+    } else {
+      // First, collapse all other cards
+      this.projects.forEach(p => {
+        if (p !== project) {
+          p.isExpanded = false;
+        }
+      });
+      
+      // Then expand the clicked card
+      project.isExpanded = true;
+      
+      // Pause carousel when expanding
+      if (this.carouselInterval) {
+        this.carouselInterval.unsubscribe();
+      }
     }
   }
 

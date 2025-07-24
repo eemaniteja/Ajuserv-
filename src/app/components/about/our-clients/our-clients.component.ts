@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './our-clients.component.html',
   styleUrls: ['./our-clients.component.css']
 })
-export class OurClientsComponent implements OnInit, OnDestroy {
+export class OurClientsComponent {
   partners = [
     {
       name: 'Tesync',
@@ -43,66 +43,4 @@ export class OurClientsComponent implements OnInit, OnDestroy {
       image: 'https://th-i.thgim.com/public/migration_catalog/article10538854.ece/alternates/FREE_1200/13hyskm06-TSRTChy14TSRTC-emblem.jp.jpg'
     }
   ];
-
-  currentIndex = 0;
-  visibleCards = 5;
-  private intervalId: any;
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.updateVisibleCards();
-  }
-
-  ngOnInit() {
-    this.updateVisibleCards();
-    this.startCarousel();
-  }
-
-  ngOnDestroy() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-  }
-
-  updateVisibleCards() {
-    const width = window.innerWidth;
-    if (width < 768) {
-      this.visibleCards = 1;
-    } else if (width < 1024) {
-      this.visibleCards = 3;
-    } else {
-      this.visibleCards = 5;
-    }
-    this.currentIndex = Math.min(this.currentIndex, this.partners.length - this.visibleCards);
-    if (this.currentIndex < 0) this.currentIndex = 0;
-  }
-
-  startCarousel() {
-    let isForward = true;
-    
-    this.intervalId = setInterval(() => {
-      if (isForward) {
-        this.currentIndex++;
-        if (this.currentIndex >= this.partners.length - this.visibleCards + 1) {
-          isForward = false;
-          this.currentIndex--;
-        }
-      } else {
-        this.currentIndex--;
-        if (this.currentIndex + 1 <= 0) {
-          isForward = true;
-          this.currentIndex++;
-        }
-      }
-    }, 2000);
-  }
-
-  getVisiblePartners() {
-    const visible = [];
-    for (let i = 0; i < this.visibleCards; i++) {
-      const index = (this.currentIndex + i) % this.partners.length;
-      visible.push(this.partners[index]);
-    }
-    return visible;
-  }
 }

@@ -6,12 +6,10 @@
     </p>
   </div>
 
-  <div class="carousel-container">
-    <div class="carousel" [style.transform]="'translateX(' + (-currentIndex * (100 / visibleCards)) + '%)'">
-      <div *ngFor="let partner of partners" class="carousel-item">
-        <div class="carousel-card">
-          <img [src]="partner.image" [alt]="partner.name" loading="lazy">
-        </div>
+  <div class="clients-grid">
+    <div *ngFor="let partner of partners" class="client-item">
+      <div class="client-card">
+        <img [src]="partner.image" [alt]="partner.name" loading="lazy">
       </div>
     </div>
   </div>
