@@ -24,6 +24,7 @@ export class FooterComponent {
       { name: 'Staffing Services', href: '#services' }
     ],
     company: [
+      { name: 'Home', href: '#home' },
       { name: 'About Us', href: '#about' },
       { name: 'Our Team', href: '#expert-team' },
       { name: 'Projects', href: '#projects' },
@@ -47,9 +48,41 @@ export class FooterComponent {
 
   scrollToSection(sectionId: string) {
     if (sectionId.startsWith('#')) {
-      const element = document.getElementById(sectionId.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      const targetId = sectionId.substring(1);
+      
+      // Special handling for sections that might need top scroll
+      if (targetId === 'home' || targetId === 'hero' || targetId === '') {
+        // Scroll to very top for hero section
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        
+        // Refresh AOS animations after scroll completes
+        setTimeout(() => {
+          if (typeof (window as any).AOS !== 'undefined') {
+            (window as any).AOS.refresh();
+          }
+        }, 800);
+      } else {
+        const element = document.getElementById(targetId);
+        if (element) {
+          // Add offset for better visibility
+          const elementPosition = element.offsetTop;
+          const offsetPosition = elementPosition - 80; // Account for any fixed headers
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Refresh AOS animations after scroll completes
+          setTimeout(() => {
+            if (typeof (window as any).AOS !== 'undefined') {
+              (window as any).AOS.refresh();
+            }
+          }, 800);
+        }
       }
     }
   }

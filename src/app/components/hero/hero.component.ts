@@ -16,6 +16,15 @@ export class HeroComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.showBackToTop = window.pageYOffset > 300;
+    
+    // Re-trigger animations when scrolling back to the top
+    if (window.pageYOffset < 100) {
+      setTimeout(() => {
+        if (typeof (window as any).AOS !== 'undefined') {
+          (window as any).AOS.refresh();
+        }
+      }, 100);
+    }
   }
 
   scrollToTop() {
@@ -23,6 +32,15 @@ export class HeroComponent implements OnInit, OnDestroy {
       top: 0,
       behavior: 'smooth'
     });
+    
+    // Refresh animations after scrolling to top
+    setTimeout(() => {
+      if (typeof (window as any).AOS !== 'undefined') {
+        (window as any).AOS.refresh();
+      }
+      // Force re-initialization of particles if needed
+      this.generateParticles();
+    }, 800);
   }
 
   showCookieBanner = !sessionStorage.getItem('cookiesPreference');
@@ -41,6 +59,16 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.generateParticles();
+    this.initializeHeroSection();
+  }
+
+  private initializeHeroSection() {
+    // Ensure AOS is properly initialized for this component
+    setTimeout(() => {
+      if (typeof (window as any).AOS !== 'undefined') {
+        (window as any).AOS.refresh();
+      }
+    }, 300);
   }
 
   ngOnDestroy() {

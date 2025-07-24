@@ -23,6 +23,8 @@ a {
   overflow: hidden;
   background-color: #0d1a2f;
   transition: background-color 0.3s ease;
+  scroll-margin-top: 0;
+  will-change: transform;
 }
 
 /* Dark theme - Hero section */

@@ -13,6 +13,22 @@
   font-weight: 700;
 }
 
+/* Dark theme - Gallery title - Keep black for visibility on white background */
+:host-context(.dark-theme) .services-cta .cta-content h3,
+:host-context(.dark-theme) .cta-content h3,
+.dark-theme .services-cta .cta-content h3,
+.dark-theme .cta-content h3 {
+  color: #111827 !important;
+  text-shadow: none;
+}
+
+/* Additional fallback for dark mode */
+html.dark-theme .services-cta .cta-content h3,
+body.dark-theme .services-cta .cta-content h3 {
+  color: #111827 !important;
+  text-shadow: none;
+}
+
 .activities-carousel {
   position: relative;
   max-width: 1000px;
@@ -108,6 +124,22 @@
 
   .cta-content h3 {
     font-size: 1.5rem;
+  }
+
+  /* Dark theme - Mobile Gallery title - Keep black for visibility on white background */
+  :host-context(.dark-theme) .services-cta .cta-content h3,
+  :host-context(.dark-theme) .cta-content h3,
+  .dark-theme .services-cta .cta-content h3,
+  .dark-theme .cta-content h3 {
+    color: #111827 !important;
+    text-shadow: none;
+  }
+
+  /* Additional mobile fallback for dark mode */
+  html.dark-theme .services-cta .cta-content h3,
+  body.dark-theme .services-cta .cta-content h3 {
+    color: #111827 !important;
+    text-shadow: none;
   }
 
   .carousel-slide {

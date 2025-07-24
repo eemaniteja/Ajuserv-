@@ -160,6 +160,7 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .carousel-dot {
@@ -830,7 +831,7 @@
   }
 
   .project-description {
-    max-height: 100px;
+    max-height: 150px;
     scrollbar-color: rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.1);
   }
 
@@ -873,8 +874,8 @@
 
   .project-card {
     width: 280px;
-    height: 240px;
-    min-height: 240px;
+    height: 260px;
+    min-height: 260px;
   }
 
   .project-card.expanded {
@@ -903,7 +904,7 @@
   }
 
   .project-description {
-    max-height: 90px;
+    max-height: 140px;
     scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.12);
   }
 
@@ -946,8 +947,8 @@
 
   .project-card {
     width: 260px;
-    height: 230px;
-    min-height: 230px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .project-card.expanded {
@@ -1013,7 +1014,7 @@
   }
 
   .project-description {
-    max-height: 80px;
+    max-height: 130px;
     scrollbar-color: rgba(255, 255, 255, 0.45) rgba(255, 255, 255, 0.15);
   }
 
@@ -1062,8 +1063,8 @@
 
   .project-card {
     width: 240px;
-    height: 260px;
-    min-height: 260px;
+    height: 280px;
+    min-height: 280px;
   }
 
   .project-card.expanded {
@@ -1128,7 +1129,7 @@
   }
 
   .project-description {
-    max-height: 70px;
+    max-height: 120px;
     scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.15);
   }
 
@@ -1152,8 +1153,8 @@
 @media (min-width: 375px) and (max-width: 375px) {
   .project-card {
     width: 280px;
-    height: 240px;
-    min-height: 240px;
+    height: 260px;
+    min-height: 260px;
   }
 
   .project-content {
