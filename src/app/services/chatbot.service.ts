@@ -18,7 +18,7 @@ export class ChatbotService {
     ],
     services: [
       "Ajuserv specializes in several key areas: 🔹 AI Strategy & Consulting 🔹 AI and ML Services 🔹 Generative AI Solutions 🔹 Web Development 🔹 Power Platform Development 🔹 Azure Cloud Services 🔹 Chatbot & Conversational AI. Which service interests you most? ℹ️ Please note: I provide general information only and cannot offer legal, financial, or medical advice.",
-      "Our main services include AI/ML solutions, web development, cloud services (Azure), Power Platform integration, and chatbot development. We also provide AI strategy consulting to help businesses implement AI effectively. ℹ️ For detailed technical discussions, our human experts are available at ajuservitsolutions@gmail.com.",
+      "Our main services include AI/ML solutions, web development, cloud services (Azure), Power Platform integration, and chatbot development. We also provide AI strategy consulting to help businesses implement AI effectively. ℹ️ For detailed technical discussions, our human experts are available at Info@ajuserv.com.",
       "We offer comprehensive digital solutions: custom software development, artificial intelligence implementation, machine learning models, cloud migration, and conversational AI. What type of solution are you looking for? ℹ️ For specific project requirements, I recommend connecting with our specialists."
     ],
     team: [
@@ -32,9 +32,9 @@ export class ChatbotService {
       "We've delivered projects in areas like AI integration, custom software development, Power Platform solutions, and cloud migrations. What kind of project do you have in mind?"
     ],
     contact: [
-      "You can reach us at ajuservitsolutions@gmail.com or call +91 758541236. We're located in Jubilee Hills, Hyderabad. We offer free consultations with a 24-hour response time guarantee!",
-      "For detailed inquiries, email us at ajuservitsolutions@gmail.com or visit our office at Plot No 39, Durga Bhavani Nagar, Jubilee Hills, Hyderabad. We provide free consultations!",
-      "Contact Ajuserv: 📧 ajuservitsolutions@gmail.com 📞 +91 758541236. We're in Hyderabad and offer free consultations with quick 24-hour response times."
+      "You can reach us at Info@ajuserv.com or call +91 04023552825. We're located in Jubilee Hills, Hyderabad. We offer free consultations with a 24-hour response time guarantee!",
+      "For detailed inquiries, email us at Info@ajuserv.com or visit our office at Plot No 39, Durga Bhavani Nagar, Jubilee Hills, Hyderabad. We provide free consultations!",
+      "Contact Ajuserv: 📧 Info@ajuserv.com 📞 +91 04023552825. We're in Hyderabad and offer free consultations with quick 24-hour response times."
     ],
     location: [
       "Ajuserv is located in Hyderabad, Telangana. Our office address is: Plot No 39, Road Number 5, Durga Bhavani Nagar, Women's Welfare Housing Society, Jubilee Hills, Hyderabad, Telangana 500033.",
@@ -47,9 +47,9 @@ export class ChatbotService {
       "We stay updated with the latest technologies in AI, web development, and cloud computing to ensure our clients get modern, scalable, and efficient solutions."
     ],
     pricing: [
-      "Our pricing is customized based on project scope and requirements. We offer competitive rates and flexible payment options. For a detailed quote, please contact us at ajuservitsolutions@gmail.com - we provide free consultations!",
-      "We provide transparent, project-based pricing with no hidden costs. Contact us at ajuservitsolutions@gmail.com for a personalized quote. We guarantee a response within 24 hours!",
-      "Pricing varies based on project complexity and timeline. We offer free consultations to understand your needs and provide accurate estimates. Email us at ajuservitsolutions@gmail.com to get started."
+      "Our pricing is customized based on project scope and requirements. We offer competitive rates and flexible payment options. For a detailed quote, please contact us at Info@ajuserv.com - we provide free consultations!",
+      "We provide transparent, project-based pricing with no hidden costs. Contact us at Info@ajuserv.com for a personalized quote. We guarantee a response within 24 hours!",
+      "Pricing varies based on project complexity and timeline. We offer free consultations to understand your needs and provide accurate estimates. Email us at Info@ajuserv.com to get started."
     ],
     ai: [
       "Ajuserv specializes in comprehensive AI solutions: AI Strategy & Consulting, Machine Learning implementation, Generative AI applications, Natural Language Processing, Computer Vision, and Conversational AI (like chatbots). We help businesses leverage AI for competitive advantage.",
@@ -62,29 +62,29 @@ export class ChatbotService {
       "We provide comprehensive cloud solutions on Microsoft Azure: from initial assessment and migration to ongoing support and optimization. Let us help you leverage the power of cloud computing."
     ],
     consultation: [
-      "Yes! We offer FREE consultations to understand your needs and provide expert guidance. Contact us at ajuservitsolutions@gmail.com or call +91 758541236. We guarantee a response within 24 hours!",
-      "Absolutely! Our free consultation includes project assessment, technology recommendations, and solution design. Email ajuservitsolutions@gmail.com to schedule your complimentary consultation.",
-      "We provide free consultations to discuss your project requirements, challenges, and goals. This helps us create tailored solutions that fit your needs and budget. Reach out to ajuservitsolutions@gmail.com!"
+      "Yes! We offer FREE consultations to understand your needs and provide expert guidance. Contact us at Info@ajuserv.com or call +91 04023552825. We guarantee a response within 24 hours!",
+      "Absolutely! Our free consultation includes project assessment, technology recommendations, and solution design. Email Info@ajuserv.com to schedule your complimentary consultation.",
+      "We provide free consultations to discuss your project requirements, challenges, and goals. This helps us create tailored solutions that fit your needs and budget. Reach out to Info@ajuserv.com!"
     ],
     hours: [
-      "We maintain flexible working hours to accommodate our clients' needs. For specific availability and urgent matters, please contact us at ajuservitsolutions@gmail.com or +91 758541236. We guarantee a response within 24 hours.",
-      "Our team is available during standard business hours and can accommodate different time zones for international clients. Contact us at ajuservitsolutions@gmail.com for scheduling.",
-      "We work flexible hours to serve our clients effectively. For immediate needs or to schedule consultations, reach out via ajuservitsolutions@gmail.com or call +91 758541236."
+      "We maintain flexible working hours to accommodate our clients' needs. For specific availability and urgent matters, please contact us at Info@ajuserv.com or +91 04023552825. We guarantee a response within 24 hours.",
+      "Our team is available during standard business hours and can accommodate different time zones for international clients. Contact us at Info@ajuserv.com for scheduling.",
+      "We work flexible hours to serve our clients effectively. For immediate needs or to schedule consultations, reach out via Info@ajuserv.com or call +91 04023552825."
     ],
     outOfScope: [
-      "I specialize in providing information about Ajuserv's services, team, and capabilities. For detailed discussions about your specific requirements, technical implementations, or topics outside our company scope, please contact our team directly at ajuservitsolutions@gmail.com or call +91 758541236. We offer free consultations with 24-hour response time!",
-      "While I can help with general information about Ajuserv, for complex technical queries, specific project requirements, or topics beyond our company information, I'd recommend reaching out to our experts directly. Email ajuservitsolutions@gmail.com for personalized assistance - we guarantee a response within 24 hours!",
-      "For detailed technical discussions, custom project planning, or queries outside Ajuserv's company information, our specialists can provide better assistance. Please contact ajuservitsolutions@gmail.com or call +91 758541236. We offer free consultations and respond within 24 hours!"
+      "I specialize in providing information about Ajuserv's services, team, and capabilities. For detailed discussions about your specific requirements, technical implementations, or topics outside our company scope, please contact our team directly at Info@ajuserv.com or call +91 04023552825. We offer free consultations with 24-hour response time!",
+      "While I can help with general information about Ajuserv, for complex technical queries, specific project requirements, or topics beyond our company information, I'd recommend reaching out to our experts directly. Email Info@ajuserv.com for personalized assistance - we guarantee a response within 24 hours!",
+      "For detailed technical discussions, custom project planning, or queries outside Ajuserv's company information, our specialists can provide better assistance. Please contact Info@ajuserv.com or call +91 04023552825. We offer free consultations and respond within 24 hours!"
     ],
     humanEscalation: [
-      "👨‍💻 I'd be happy to connect you with our human experts for detailed assistance! Please contact us at: 📧 ajuservitsolutions@gmail.com or 📞 +91 758541236. Our team offers free consultations and guarantees a response within 24 hours.",
-      "🤝 For personalized support and detailed project discussions, our human specialists are ready to help! Reach out via ajuservitsolutions@gmail.com or call +91 758541236. We provide free consultations with 24-hour response guarantee.",
-      "💬 Let me connect you with our expert team for comprehensive assistance! Contact ajuservitsolutions@gmail.com or +91 758541236. We offer free consultations and our specialists will respond within 24 hours to address your specific needs."
+      "👨‍💻 I'd be happy to connect you with our human experts for detailed assistance! Please contact us at: 📧 Info@ajuserv.com or 📞 +91 04023552825. Our team offers free consultations and guarantees a response within 24 hours.",
+      "🤝 For personalized support and detailed project discussions, our human specialists are ready to help! Reach out via Info@ajuserv.com or call +91 04023552825. We provide free consultations with 24-hour response guarantee.",
+      "💬 Let me connect you with our expert team for comprehensive assistance! Contact Info@ajuserv.com or +91 04023552825. We offer free consultations and our specialists will respond within 24 hours to address your specific needs."
     ],
     default: [
-      "I'm here to help with information about Ajuserv's services, team, and capabilities. If your question is outside our company scope or requires detailed technical discussion, please contact our team at ajuservitsolutions@gmail.com or call +91 758541236. We offer free consultations with 24-hour response guarantee!",
-      "That's an interesting question! While I focus on Ajuserv company information, our expert team can help with broader topics. For detailed assistance, please email ajuservitsolutions@gmail.com - we provide free consultations and respond within 24 hours.",
-      "I can help with questions about Ajuserv's services, team, and company information. For specialized queries or detailed project discussions, our experts at ajuservitsolutions@gmail.com would be better positioned to assist you. We guarantee 24-hour response time!"
+      "I'm here to help with information about Ajuserv's services, team, and capabilities. If your question is outside our company scope or requires detailed technical discussion, please contact our team at Info@ajuserv.com or call +91 04023552825. We offer free consultations with 24-hour response guarantee!",
+      "That's an interesting question! While I focus on Ajuserv company information, our expert team can help with broader topics. For detailed assistance, please email Info@ajuserv.com - we provide free consultations and respond within 24 hours.",
+      "I can help with questions about Ajuserv's services, team, and company information. For specialized queries or detailed project discussions, our experts at Info@ajuserv.com would be better positioned to assist you. We guarantee 24-hour response time!"
     ]
   };
 

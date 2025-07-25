@@ -61,7 +61,18 @@ export class ServicesComponent implements OnInit {
   }
 
   selectService(service: Service, rowIndex: number, cardIndex: number, event?: Event): void {
-    if (this.selectedService?.id === service.id) {
+    // Prevent card selection when clicking on the card itself
+    // Only allow selection through explicit methods like expandWithDetails
+    event?.preventDefault();
+    event?.stopPropagation();
+  }
+
+  expandWithDetails(service: Service, event: Event): void {
+    event.stopPropagation();
+    event.preventDefault();
+    
+    // If the same service is already expanded, collapse it
+    if (this.selectedService?.id === service.id && this.isExpandedWithDetails) {
       this.selectedService = null;
       this.selectedRowIndex = -1;
       this.selectedCardIndex = -1;
@@ -69,28 +80,16 @@ export class ServicesComponent implements OnInit {
       this.selectedBulletPoint = null;
       return;
     }
-
-    this.selectedService = service;
-    this.selectedRowIndex = rowIndex;
-    this.selectedCardIndex = cardIndex;
-    this.isExpandedWithDetails = false;
-    this.selectedBulletPoint = null;
-  }
-
-  expandWithDetails(service: Service, event: Event): void {
-    event.stopPropagation();
     
-    // Set the service as selected if it's not already selected
-    if (this.selectedService?.id !== service.id) {
-      this.selectedService = service;
-      // Find the row and card index for this service
-      for (let rowIndex = 0; rowIndex < this.serviceRows.length; rowIndex++) {
-        const cardIndex = this.serviceRows[rowIndex].findIndex(s => s.id === service.id);
-        if (cardIndex !== -1) {
-          this.selectedRowIndex = rowIndex;
-          this.selectedCardIndex = cardIndex;
-          break;
-        }
+    // Set the service as selected and expand
+    this.selectedService = service;
+    // Find the row and card index for this service
+    for (let rowIndex = 0; rowIndex < this.serviceRows.length; rowIndex++) {
+      const cardIndex = this.serviceRows[rowIndex].findIndex(s => s.id === service.id);
+      if (cardIndex !== -1) {
+        this.selectedRowIndex = rowIndex;
+        this.selectedCardIndex = cardIndex;
+        break;
       }
     }
     
@@ -100,6 +99,10 @@ export class ServicesComponent implements OnInit {
 
   collapseDetails(event: Event): void {
     event.stopPropagation();
+    event.preventDefault();
+    this.selectedService = null;
+    this.selectedRowIndex = -1;
+    this.selectedCardIndex = -1;
     this.isExpandedWithDetails = false;
     this.selectedBulletPoint = null;
   }

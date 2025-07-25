@@ -19,46 +19,46 @@
       </button>
     </div>
 
-    <!-- Carousel for All Projects -->
-    <div>
-    <div *ngIf="selectedCategory === 'All'" class="carousel-container" #carousel (scroll)="handleScroll()">
-      <div class="carousel-track">
-        <div 
-          *ngFor="let project of filteredProjects; let i = index" 
-          class="project-card carousel-card"
-          data-aos="fade-up"
-          [attr.data-aos-delay]="i * 200"
-          [style.background-image]="'url(' + project.image + ')'"
-          (click)="selectProject(project, i, $event)">
+    <!-- Carousel for All Categories -->
+    <div *ngIf="selectedCategory === 'All'">
+      <div class="carousel-container" #carousel (scroll)="handleScroll()">
+        <div class="carousel-track">
+          <div 
+            *ngFor="let project of filteredProjects; let i = index" 
+            class="project-card carousel-card"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="i * 200"
+            [style.background-image]="'url(' + project.image + ')'">
 
-          <div class="project-overlay"></div>
+            <div class="project-overlay"></div>
 
-          <div class="project-content">
-            <div class="project-collapsed" *ngIf="!project.isExpanded">
-              <div class="project-icon">
-                <span class="icon-emoji">{{ getProjectIcon(project.category) }}</span>
+            <div class="project-content">
+              <div class="project-collapsed" *ngIf="!project.isExpanded">
+                <div class="project-icon">
+                  <span class="icon-emoji">{{ getProjectIcon(project.title) }}</span>
+                </div>
+
+                <div class="project-text">
+                  <h3 class="project-title">{{ project.title }}</h3>
+                  <p class="project-preview desktop-tablet-only">{{ getTruncatedText(project.description, 80) }}{{ shouldShowReadMore(project.description, 80) ? '...' : '' }}</p>
+                  
+                  <button 
+                    class="project-button"
+                    (click)="expandWithDetails(project, $event)">
+                    {{ project.isExpanded ? 'Show Less' : 'Read More' }}
+                    <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
 
-              <div class="project-text">
-                <h3 class="project-title">{{ project.title }}</h3>
-                <p class="project-preview desktop-tablet-only">{{ getTruncatedText(project.description, 80) }}{{ shouldShowReadMore(project.description, 80) ? '...' : '' }}</p>
-                
-                <button 
-                  class="project-button"
-                  (click)="expandWithDetails(project, $event)">
-                  {{ project.isExpanded ? 'Show Less' : 'Read More' }}
-                  <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="project-expanded" *ngIf="project.isExpanded">
-              <div class="expanded-content">
-                <div class="project-full-width">
-                  <div class="project-description">
-                    <p>{{ project.description }}</p>
+              <div class="project-expanded" *ngIf="project.isExpanded" (click)="collapseProject(project, $event)">
+                <div class="expanded-content">
+                  <div class="project-full-width">
+                    <div class="project-description">
+                      <p>{{ project.description }}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -66,59 +66,71 @@
           </div>
         </div>
       </div>
-    </div>
-    
-    <div class="carousel-nav" *ngIf="selectedCategory === 'All'">
-      <div 
-        *ngFor="let dot of carouselDots; let i = index"
-        class="carousel-dot"
-        [class.active]="currentSlide === i"
-        (click)="goToSlide(i)">
+      
+      <div class="carousel-nav">
+        <div 
+          *ngFor="let dot of carouselDots; let i = index"
+          class="carousel-dot"
+          [class.active]="currentSlide === i"
+          (click)="goToSlide(i)">
+        </div>
       </div>
     </div>
-  </div>
 
-    <div *ngIf="selectedCategory !== 'All'" class="projects-grid">
-      <div 
-        *ngFor="let project of filteredProjects; let i = index" 
-        class="project-card"
-        data-aos="fade-up"
-        [attr.data-aos-delay]="i * 200"
-        [style.background-image]="'url(' + project.image + ')'"
-        (click)="selectProject(project, i, $event)">
+    <!-- Carousel for Sub-Categories -->
+    <div *ngIf="selectedCategory !== 'All'">
+      <div class="carousel-container" #categoryCarousel (scroll)="handleCategoryScroll()">
+        <div class="carousel-track">
+          <div 
+            *ngFor="let project of filteredProjects; let i = index" 
+            class="project-card carousel-card"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="i * 200"
+            [style.background-image]="'url(' + project.image + ')'">
 
-        <div class="project-overlay"></div>
+            <div class="project-overlay"></div>
 
-        <div class="project-content">
-          <div class="project-collapsed" *ngIf="!project.isExpanded">
-            <div class="project-icon">
-              <span class="icon-emoji">{{ getProjectIcon(project.category) }}</span>
-            </div>
+            <div class="project-content">
+              <div class="project-collapsed" *ngIf="!project.isExpanded">
+                <div class="project-icon">
+                  <span class="icon-emoji">{{ getProjectIcon(project.title) }}</span>
+                </div>
 
-            <div class="project-text">
-              <h3 class="project-title">{{ project.title }}</h3>
-              <p class="project-preview desktop-tablet-only">{{ getTruncatedText(project.description, 80) }}{{ shouldShowReadMore(project.description, 80) ? '...' : '' }}</p>
-              
-              <button 
-                class="project-button"
-                (click)="expandWithDetails(project, $event)">
-                Read More
-                <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </button>
-            </div>
-          </div>
+                <div class="project-text">
+                  <h3 class="project-title">{{ project.title }}</h3>
+                  <p class="project-preview desktop-tablet-only">{{ getTruncatedText(project.description, 80) }}{{ shouldShowReadMore(project.description, 80) ? '...' : '' }}</p>
+                  
+                  <button 
+                    class="project-button"
+                    (click)="expandWithDetails(project, $event)">
+                    {{ project.isExpanded ? 'Show Less' : 'Read More' }}
+                    <svg class="button-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
 
-          <div class="project-expanded" *ngIf="project.isExpanded">
-            <div class="expanded-content">
-              <div class="project-full-width">
-                <div class="project-description">
-                  <p>{{ project.description }}</p>
+              <div class="project-expanded" *ngIf="project.isExpanded" (click)="collapseProject(project, $event)">
+                <div class="expanded-content">
+                  <div class="project-full-width">
+                    <div class="project-description">
+                      <p>{{ project.description }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      
+      <div class="carousel-nav" *ngIf="categoryCarouselDots.length > 1">
+        <div 
+          *ngFor="let dot of categoryCarouselDots; let i = index"
+          class="carousel-dot"
+          [class.active]="categoryCurrentSlide === i"
+          (click)="goToCategorySlide(i)">
         </div>
       </div>
     </div>

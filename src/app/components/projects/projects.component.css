@@ -313,10 +313,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  place-items: center;
+  place-content: center;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
   flex-shrink: 0;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .project-card:hover .project-icon {
@@ -329,7 +332,9 @@
   font-size: clamp(1.3rem, 3vw, 1.8rem);
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
   font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
   font-variant: normal;
@@ -338,6 +343,15 @@
   text-align: center;
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .project-text {
@@ -858,24 +872,41 @@
     padding: 0 1rem;
   }
 
+  .carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .projects-grid {
     gap: 1rem;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     margin-bottom: 2rem;
   }
 
   .carousel-track {
-    gap: 1rem;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.2rem;
+    width: max-content;
+    padding: 0 calc(50vw - 140px);
   }
 
   .project-card {
     width: 280px;
     height: 260px;
     min-height: 260px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
   .project-card.expanded {
@@ -932,23 +963,41 @@
     padding: 0 0.75rem;
   }
 
+  .carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .projects-grid {
     gap: 0.75rem;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     margin-bottom: 1.5rem;
   }
 
   .carousel-track {
-    gap: 0.75rem;
-    flex-direction: column;
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0 calc(50vw - 130px);
+    width: max-content;
   }
 
   .project-card {
     width: 260px;
     height: 250px;
     min-height: 250px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
   .project-card.expanded {
@@ -976,6 +1025,12 @@
     width: 45px;
     height: 45px;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    place-content: center;
+    position: relative;
   }
 
   .icon-emoji {
@@ -1044,10 +1099,23 @@
     padding: 0 0.5rem;
   }
 
+  .carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
   .projects-grid {
     gap: 0.5rem;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     margin-bottom: 1.5rem;
     min-height: auto;
     height: auto !important;
@@ -1056,15 +1124,20 @@
   }
 
   .carousel-track {
-    gap: 0.5rem;
-    flex-direction: column;
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0 calc(50vw - 120px);
+    width: max-content;
   }
 
   .project-card {
     width: 240px;
     height: 280px;
     min-height: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
   .project-card.expanded {
@@ -1092,6 +1165,12 @@
     width: 40px;
     height: 40px;
     margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    place-content: center;
+    position: relative;
   }
 
   .icon-emoji {
@@ -1151,10 +1230,40 @@
 
 /* Mobile M (375px) - Specific fixes for common viewport size */
 @media (min-width: 375px) and (max-width: 375px) {
+  .carousel-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 2rem;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projects-grid {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .carousel-track {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 calc(50vw - 140px);
+    gap: 1rem;
+    width: max-content;
+  }
+
   .project-card {
     width: 280px;
     height: 260px;
     min-height: 260px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
   .project-content {
@@ -1165,6 +1274,16 @@
     width: 50px;
     height: 50px;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    place-content: center;
+    position: relative;
+  }
+
+  .icon-emoji {
+    font-size: 1.4rem;
   }
 
   .project-title {

@@ -213,7 +213,7 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
         setTimeout(() => {
           const errorMessage: ChatMessage = {
             id: this.generateId(),
-            text: 'I apologize, but I\'m experiencing technical difficulties. Please try again in a moment, or contact our team directly at ajuservitsolutions@gmail.com or +91 758541236 for immediate assistance.',
+            text: 'I apologize, but I\'m experiencing technical difficulties. Please try again in a moment, or contact our team directly at ajuservitsolutions@gmail.com or +91 04023552825 for immediate assistance.',
             isUser: false,
             timestamp: new Date()
           };
@@ -300,7 +300,7 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
   private showSensitiveDataWarning(): void {
     const warningMessage: ChatMessage = {
       id: this.generateId(),
-      text: '🔐 Security Notice: Please don\'t share sensitive information like passwords, credit card numbers, or personal identification. For secure communications, please contact us directly at ajuservitsolutions@gmail.com or +91 758541236.',
+      text: '🔐 Security Notice: Please don\'t share sensitive information like passwords, credit card numbers, or personal identification. For secure communications, please contact us directly at ajuservitsolutions@gmail.com or +91 04023552825.',
       isUser: false,
       timestamp: new Date()
     };
@@ -326,7 +326,7 @@ export class ChatbotComponent implements OnInit, OnDestroy, AfterViewChecked {
   private showRateLimitWarning(): void {
     const warningMessage: ChatMessage = {
       id: this.generateId(),
-      text: '⏰ Rate Limit: You\'re sending messages too quickly. Please wait a moment before sending another message. For urgent inquiries, contact us at ajuservitsolutions@gmail.com or +91 758541236.',
+      text: '⏰ Rate Limit: You\'re sending messages too quickly. Please wait a moment before sending another message. For urgent inquiries, contact us at ajuservitsolutions@gmail.com or +91 04023552825.',
       isUser: false,
       timestamp: new Date()
     };

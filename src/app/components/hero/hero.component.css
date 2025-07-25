@@ -231,6 +231,17 @@ a {
 .hero-visual {
   position: relative;
   height: clamp(400px, 50vh, 500px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  height: 115%;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
 }
 
 .hero-visual::before {
@@ -489,6 +500,9 @@ a {
   .hero-visual {
     height: clamp(350px, 45vh, 450px);
   }
+  .hero-image {
+    opacity: 0.5;
+  }
   .floating-card {
     width: clamp(160px, 22vw, 200px);
   }
@@ -557,6 +571,7 @@ a {
 }
 
 @media (max-width: 430px) {
+  /* Mobile S, M, L - 320px to 425px */
   .hero {
     min-height: auto;
     padding: clamp(3rem, 6vw, 4rem) 0;
@@ -587,6 +602,10 @@ a {
   }
   .hero-visual {
     height: clamp(250px, 40vh, 300px);
+    margin-top: 2rem;
+  }
+  .hero-image {
+    opacity: 0.4;
   }
   .floating-card {
     width: clamp(140px, 40vw, 180px);
@@ -663,8 +682,8 @@ a {
     padding: clamp(4px, 0.7vw, 6px) clamp(6px, 1.2vw, 10px);
   }
 }
-/* Up to 768px (mobile) */
-@media (min-width:431)and(max-width: 480px) {
+/* Mobile L to larger phones */
+@media (min-width: 431px) and (max-width: 480px) {
   .hero {
     min-height: auto;
     padding: clamp(3rem, 6vw, 4rem) 0;
@@ -695,6 +714,10 @@ a {
   }
   .hero-visual {
     height: clamp(250px, 40vh, 300px);
+    margin-top: 2rem;
+  }
+  .hero-image {
+    opacity: 0.4;
   }
   .floating-card {
     width: clamp(140px, 40vw, 180px);
@@ -761,7 +784,8 @@ a {
   }
 }
 
-@media (min-width:481) and (max-width: 770px) {
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Tablet - 768px */
   .hero {
     min-height: auto;
     padding: clamp(3rem, 6vw, 4rem) 0;
@@ -792,6 +816,10 @@ a {
   }
   .hero-visual {
     height: clamp(250px, 40vh, 300px);
+    margin-top: 2rem;
+  }
+  .hero-image {
+    opacity: 0.4;
   }
   .floating-card {
     width: clamp(140px, 40vw, 180px);

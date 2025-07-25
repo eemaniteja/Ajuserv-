@@ -21,8 +21,7 @@
           [attr.data-aos-delay]="(rowIndex * 4 + cardIndex) * 200"
           [class.expanded]="selectedService?.id === service.id"
           [class.card-compressed]="isCardCompressed(service, rowIndex)"
-          [style.background-image]="'url(' + service.backgroundImage + ')'"
-          (click)="selectService(service, rowIndex, cardIndex, $event)">
+          [style.background-image]="'url(' + service.backgroundImage + ')'">
 
           <div class="service-overlay"></div>
 
